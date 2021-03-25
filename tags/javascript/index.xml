@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on QiushiSun&#39;s Blog</title>
+    <link>https://qiushisun.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on QiushiSun&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 25 Mar 2021 20:23:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://qiushisun.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JavaScript基础 Part1</title>
+      <link>https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/</link>
+      <pubDate>Thu, 25 Mar 2021 20:23:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/</guid>
+      <description>&lt;p&gt;JavaScript基础 Part1&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

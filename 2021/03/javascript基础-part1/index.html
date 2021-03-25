@@ -7,38 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
-<meta name="keywords" content="Deep Learning, Python, Pytorch">
-<meta name="description" content="PyTorch：快速入门1">
+<meta name="keywords" content="JavaScript, Web Programming">
+<meta name="description" content="JavaScript基础 Part1">
 
 
-<meta property="og:description" content="PyTorch：快速入门1">
+<meta property="og:description" content="JavaScript基础 Part1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QuickStart Tutorial for PyTorch Part1">
-<meta name="twitter:title" content="QuickStart Tutorial for PyTorch Part1">
-<meta property="og:url" content="https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+<meta property="og:title" content="JavaScript基础 Part1">
+<meta name="twitter:title" content="JavaScript基础 Part1">
+<meta property="og:url" content="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="PyTorch：快速入门1">
-<meta name="twitter:description" content="PyTorch：快速入门1">
+<meta property="og:description" content="JavaScript基础 Part1">
+<meta name="twitter:description" content="JavaScript基础 Part1">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-03-24T18:23:37">
+    <meta property="article:published_time" content="2021-03-25T20:23:37">
   
   
-    <meta property="article:modified_time" content="2021-03-24T18:23:37">
+    <meta property="article:modified_time" content="2021-03-25T20:23:37">
   
-  
-  
-    
-      <meta property="article:section" content="Deep Learning">
-    
   
   
     
-      <meta property="article:tag" content="Deep Learning">
+      <meta property="article:section" content="Web Programming">
     
-      <meta property="article:tag" content="Pytorch">
+  
+  
+    
+      <meta property="article:tag" content="JavaScript">
+    
+      <meta property="article:tag" content="Web Programming">
     
   
 
@@ -51,8 +51,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/tensor.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/tensor.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/javascript-icon.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/javascript-icon.png">
 
 
 
@@ -62,14 +62,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>QuickStart Tutorial for PyTorch Part1</title>
+    <title>JavaScript基础 Part1</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -229,15 +229,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      QuickStart Tutorial for PyTorch Part1
+      JavaScript基础 Part1
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-03-24T18:23:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-03-25T20:23:37&#43;08:00">
         
-  March 24, 2021
+  March 25, 2021
 
       </time>
     
@@ -246,7 +246,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://qiushisun.github.io/categories/deep-learning">Deep Learning</a>
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
     
   
 
@@ -256,30 +256,65 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>PyTorch：快速入门1</p>
-<h2 id="pytorch的快速入门-part1">Pytorch的快速入门 Part1</h2>
-<p>QuicksStart Tutorial for PyTorch Part1</p>
-<p>深度学习框架PyTorch的一个作用是可以代替Python的Numpy库进行矩阵计算，在一切开始前我们首先介绍 Tensors（张量）这个重要概念。张量就相当于Numpy库中的的多维数组(ndarrays)，两者最主要的区别就是 Tensors 可以应用到 GPU 上加快计算速度。</p>
-<p><img src="https://qiushisun.github.io/images/tensor.png" alt="Hugo-logo-wide" title="tensor"></p>
-<h4 id="section1对tensors张量的申明以及定义">Section1:对Tensors（张量）的申明以及定义</h4>
-<p>接下来演示一下torch最基本的功能，矩阵建立与运算，先从简单初始化开始</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 创建一个 4*4 的矩阵，不做任何初始化</span>
-x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>empty(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>)
-<span style="color:#66d9ef">print</span>(x)
-</code></pre></div><p>torch.empty可以创建未经初始化的矩阵，查看结果为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tensor([[<span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">1.4013e-45</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>],
-        [<span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>],
-        [<span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">1.1704e-41</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">2.2369e+08</span>],
-        [<span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>, <span style="color:#ae81ff">0.0000e+00</span>]])
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 创建一个 4*4 的矩阵，不做任何初始化</span>
-x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>)
-<span style="color:#66d9ef">print</span>(x_zeros)
-</code></pre></div><p>torch.zeros可以创建经初始化为0的矩阵，查看结果为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tensor([[<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>],
-        [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>],
-        [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>],
-        [<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">0.</span>]])
-</code></pre></div>
+              <p>JavaScript基础 Part1</p>
+<h2 id="javascript基础-part1">JavaScript基础 Part1</h2>
+<p>Reference：https://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html</p>
+<p>在有一点编程基础的前提下，短时间内学习一门新语言并非一件遥不可及的事，在本文中，我们对JavaScript做一个简单了解，并且使用一个快速排序函数来了解JavaScript的基础机制。</p>
+<p>先贴出代码，这段快速排序代码摘自阮一峰的网络日志：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">quickSort</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">arr</span>) {
+　　<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>; }
+　　<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pivotIndex</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">floor</span>(<span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+　　<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pivot</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">pivotIndex</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>];
+　　<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> [];
+　　<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> [];
+　　<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+　　　　<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">pivot</span>) {
+　　　　　　<span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+　　　　} <span style="color:#66d9ef">else</span> {
+　　　　　　<span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+　　　　}
+　　}
+　　<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">left</span>).<span style="color:#a6e22e">concat</span>([<span style="color:#a6e22e">pivot</span>], <span style="color:#a6e22e">quickSort</span>(<span style="color:#a6e22e">right</span>));
+};
+</code></pre></div><h4 id="section1-变量声明与初始化">Section1 变量声明与初始化:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">position</span>; <span style="color:#75715e">// 关键字 var 之后紧跟着的就是一个变量名，我们可以在初始化时为变量赋值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">position</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2021</span>; <span style="color:#75715e">// 初始化+赋值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> []; <span style="color:#75715e">// var关键字同样用于初始化一个数组
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">right</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2020</span>, <span style="color:#ae81ff">2021</span>]; <span style="color:#75715e">// Array初始化+赋值
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">right</span>[<span style="color:#ae81ff">1</span>]; <span style="color:#75715e">// 2021，通过index索引数组的元素，从0开始
+</span></code></pre></div><h4 id="section2-运算符">Section2 运算符:</h4>
+<p>js中有两种表示相等关系的运算符</p>
+<ol>
+<li><code>==</code>表示值相等</li>
+<li><code>===</code>表示值相等且数据类型相等，比如一个字符串和一个整型在数据类型上不等</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">hi</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2021</span> <span style="color:#75715e">// 赋值
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">hi</span> <span style="color:#f92672">!==</span> <span style="color:#ae81ff">2020</span>; <span style="color:#75715e">// true
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">hello</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2021&#34;</span>; <span style="color:#75715e">//this is a string
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">hello</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">12</span>; <span style="color:#75715e">// true! compare value
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">hello</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">12</span>; <span style="color:#75715e">// false! compare type+value
+</span></code></pre></div><h4 id="section3-控制结构">Section3 控制结构:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// QuickSort中的如下代码中包含了常用控制结构for循环和if-else结构，与c语言或python语言的控制结构类似
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+　　<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">pivot</span>) {
+　　　　<span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+　　} <span style="color:#66d9ef">else</span> {
+　　　　<span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>]);
+　　}
+}
+</code></pre></div><p><code>if</code> / <code>else</code> 判断还可以像这样写：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">foo</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">function1</span>() <span style="color:#f92672">:</span> <span style="color:#a6e22e">function2</span>();
+</code></pre></div><p>顺便可以学习一下如何向数组中添加元素</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2020</span>, <span style="color:#ae81ff">2021</span>];
+<span style="color:#a6e22e">myArray</span>.<span style="color:#a6e22e">push</span>(<span style="color:#ae81ff">2022</span>) <span style="color:#75715e">// 2020,2021,2022
+</span></code></pre></div><h4 id="section4-函数">Section4 函数:</h4>
+<p>声明一个函数也和声明一个变量一样，使用 <code>var somefunction = something</code> 的格式。在 JavaScript 之中，函数和变量本质上没有区别</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">quickSort</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">myArray</span>) {
+    <span style="color:#75715e">// do something about quick sort
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2021</span>;
+}
+<span style="color:#75715e">// 2021为这个函数的返回值，所以和其他语言一样，js的函数也可以当作变量传入其他的函数之中，这也是quicksort这个递归函数的基础
+</span></code></pre></div>
               
             </div>
           </div>
@@ -291,9 +326,9 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/deep-learning/">Deep Learning</a>
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/javascript/">JavaScript</a>
 
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/pytorch/">Pytorch</a>
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
 
                   </div>
                 
@@ -306,7 +341,7 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/" data-tooltip="JavaScript基础 Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -314,7 +349,7 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/a-fast-guide-for-pytorch-installation/" data-tooltip="A Fast Guide for PyTorch Installation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/" data-tooltip="QuickStart Tutorial for PyTorch Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -332,19 +367,19 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -408,7 +443,7 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/" data-tooltip="JavaScript基础 Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -416,7 +451,7 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/a-fast-guide-for-pytorch-installation/" data-tooltip="A Fast Guide for PyTorch Installation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/" data-tooltip="QuickStart Tutorial for PyTorch Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -434,19 +469,19 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/quickstart-tutorial-for-pytorch-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -476,19 +511,19 @@ x_zeros <span style="color:#f92672">=</span> torch<span style="color:#f92672">.<
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fquickstart-tutorial-for-pytorch-part1%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fjavascript%25E5%259F%25BA%25E7%25A1%2580-part1%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fquickstart-tutorial-for-pytorch-part1%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fjavascript%25E5%259F%25BA%25E7%25A1%2580-part1%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fquickstart-tutorial-for-pytorch-part1%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fjavascript%25E5%259F%25BA%25E7%25A1%2580-part1%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -580,9 +615,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/03\/quickstart-tutorial-for-pytorch-part1\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/03\/javascript%E5%9F%BA%E7%A1%80-part1\/';
           
-            this.page.identifier = '\/2021\/03\/quickstart-tutorial-for-pytorch-part1\/'
+            this.page.identifier = '\/2021\/03\/javascript%E5%9F%BA%E7%A1%80-part1\/'
           
         };
         (function() {
