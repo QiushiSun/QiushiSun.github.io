@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
 <meta name="keywords" content="Node.js, Web Programming">
-<meta name="description" content="">
+<meta name="description" content="Node.js Development Part1">
 
 
-<meta property="og:description" content="">
+<meta property="og:description" content="Node.js Development Part1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js Introduction">
-<meta name="twitter:title" content="Node.js Introduction">
-<meta property="og:url" content="https://qiushisun.github.io/2021/03/node.js-introduction/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/03/node.js-introduction/">
+<meta property="og:title" content="Node.js Development Part1">
+<meta name="twitter:title" content="Node.js Development Part1">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/node.js-development-part1/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/node.js-development-part1/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="">
-<meta name="twitter:description" content="">
+<meta property="og:description" content="Node.js Development Part1">
+<meta name="twitter:description" content="Node.js Development Part1">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-03-27T20:23:37">
+    <meta property="article:published_time" content="2021-04-01T20:23:37">
   
   
-    <meta property="article:modified_time" content="2021-03-27T20:23:37">
+    <meta property="article:modified_time" content="2021-04-01T20:23:37">
   
   
   
@@ -49,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/nodejs.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/nodejs.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/asynchronous-programming.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/asynchronous-programming.png">
 
 
 
@@ -60,14 +60,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>Node.js Introduction</title>
+    <title>Node.js Development Part1</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/03/node.js-introduction/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/node.js-development-part1/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -227,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Node.js Introduction
+      Node.js Development Part1
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-03-27T20:23:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-04-01T20:23:37&#43;08:00">
         
-  March 27, 2021
+  April 1, 2021
 
       </time>
     
@@ -254,50 +254,32 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h2 id="nodejs-introduction">Node.js Introduction</h2>
-<p><img src="https://qiushisun.github.io/images/Node.js-logo.svg.png" alt="Hugo-logo-wide" title="Nodejs-logo"></p>
-<p>Node.js是web编程相关实验的JavaScript的运行环境，本篇文章对其做一个简要的介绍</p>
-<p><em>Node.js是一个Javascript运行环境(runtime environment)，实质是对Chrome V8引擎进行了封装。Node.js对一些特殊用例进行优化，提供替代的API，使得V8在非浏览器环境下运行得更好。 V8引擎执行Javascript的速度非常快，性能非常好。Node.js是一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。Node.js 使用事件驱动， 非阻塞I/O模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。(Source:wikipedia)</em></p>
-<p><strong>简而言之：Node.js是一种JavaScript的运行环境，能够使JavaScript的运行脱离浏览器</strong></p>
-<p>安装地址如下：<a href="https://nodejs.org/zh-cn/download">Node.js-Download</a></p>
-<p>安装完成后，可以使用<code>node --version</code> 查看node.js的版本，以检查是否安装成功</p>
-<p><img src="https://qiushisun.github.io/images/node-version.png" alt="Hugo-logo-wide" title="node version"></p>
-<h3 id="what-is-nodejs">What is Node.js</h3>
+              <p>Node.js Development Part1</p>
+<h2 id="nodejs-development-part1">Node.js Development Part1</h2>
+<h3 id="blocking-vs-non-blocking-io">Blocking vs Non-Blocking I/O</h3>
 <ol>
-<li>Node.js 不是一种独立的语言，与 PHP、Python、Perl、Ruby 的“既是语言也是平台”不同。Node.js 同样不是一个 JavaScript 框架，不同于Angular、React、Vue、Django、Rails。Node.js 更不是浏览器端的库，不能与 jQuery、ExtJS 相提并论。</li>
-<li>Node 是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。 发布于2009年5月，由Ryan Dahl开发，实质是对Chrome V8引擎进行了<strong>封装</strong>。</li>
+<li>什么是阻塞？进程/线程在执行中如果遇到磁盘读写（磁盘I/O）或涉及网络通信，通常要耗费较长的时间，这时操作系统会剥夺这个线程的 CPU，使其暂停执行，同时将资源让给其他的工作线程，直到这个进程状态变为ready，再通过调度算法使其获得CPU时间，即<em>阻塞</em>。</li>
+<li>异步 I/O （Asynchronous I/O）或非阻塞式 I/O （Non-blocking I/O）则针对所有 I/O 操作不采用阻塞的策略。当线程遇到 I/O 操作时，不会以阻塞的方式等待 I/O 操作的完成或数据的返回，而只是将 I/O 请求发送给操作系统，继续执行下一条语句。当操作系统完成 I/O 操作时，以事件的形式通知执行 I/O 操作的线程，线程会在特定时候处理这个事件。为了处理异步 I/O，必须有另外的事件循环，不断地检查有没有未处理的事件，依次予以处理。</li>
 </ol>
-<h3 id="nodejs的主要特点">Node.js的主要特点</h3>
+<p><img src="https://qiushisun.github.io/images/asynchronous-programming.png" alt="Hugo-logo-wide" title="asynchronous-programming"></p>
+<p>source: luminousmen.com</p>
+<p>上述的概念可以在<strong>操作系统</strong>课程/相关书籍中获得更好的理解</p>
+<h3 id="nodejs--单线程非阻塞">Node.js : 单线程，非阻塞</h3>
+<h4 id="单线程事件驱动的异步式-io-比传统的多线程阻塞式-io-究竟好在哪里">单线程事件驱动的异步式 I/O 比传统的多线程阻塞式 I/O 究竟好在哪里？</h4>
+<p>简言之，异步式 I/O 就是少了多线程的开销。对操作系统来说，创建一个线程的代价是十分昂贵的，需要给它分配内存、列入调度，同时在线程切换的时候还要执行内存换页，CPU的缓存被清空，切换回来的时候还要重新从内存中读取信息，破坏了数据的局部性。</p>
+<p>多线程模式显然可以更充分利用多核的CPU资源，而且阻塞式的编程模式虽然低效，但是更符合人类思维习惯，在业务逻辑过于复杂需要分而治之的情况下，异步非阻塞模式带来的回调过多，会影响系统的设计逻辑简化。</p>
+<h3 id="nodejs--事件驱动">Node.js : 事件驱动</h3>
+<p>Node.js 的异步机制是基于事件的，所有的磁盘 I/O、网络通信、数据库查询都以非阻塞的方式请求，返回的结果由事件循环来处理。</p>
+<p><img src="https://qiushisun.github.io/images/event-loop.png" alt="Hugo-logo-wide" title="event-loop"></p>
+<h4 id="那么与事件驱动类似的消息驱动">那么，与事件驱动类似的消息驱动？</h4>
+<p>消息驱动和事件驱动很类似，都是先产生事件，再产生一个相应的消息，消息进入消息队列，由项目获取。他们的区别是<strong>消息由谁产生</strong></p>
+<p>接下来用网上一个流行的方法转述一下：</p>
 <ol>
-<li>Node.js主要用于Web服务器一类的网络应用，Node.js与其他编程语言环境最大的不同之处在于，PHP等语言是阻塞的（顺序执行，只有前一条命令执行完毕才会执行后面的命令），而Node.js是非阻塞（Non- blocking）的（即多条命令可以并行，通过回调函数(callback)得知命令已结束运行）。</li>
-<li>Node.js是事件驱动的。开发者可以在不使用线程的情况下开发出一个能够承载高并发的服务器。</li>
+<li><strong>消息驱动</strong>：鼠标管点击不需要和系统有过多的交互，消息由系统（第三方）循环检测，来捕获并放入消息队列。消息对于点击事件来说是<strong>被动产生</strong>的</li>
+<li><strong>事件驱动</strong>：鼠标点击产生点击事件后要向系统发送消息“我点击了”的消息，消息是<strong>主动产生</strong>的。再发送到消息队列中</li>
 </ol>
-<p>Node.js使用Google V8 JavaScript引擎，特点如下(Source:wikipedia)：</p>
-<ul>
-<li>V8是基于BSD许可证的开源软件</li>
-<li>V8速度非常快</li>
-<li>V8专注于网络功能，在HTTP、DNS、TCP等方面更加成熟</li>
-</ul>
-<p>Node.js的大量功能模块可以通过一个名为<strong>npm</strong>的<strong>包管理器</strong>下载</p>
-<p><img src="https://qiushisun.github.io/images/npm-node.png" alt="Hugo-logo-wide" title="npm"></p>
-<h3 id="what-can-nodejs-do">What can Node.js do?</h3>
-<p>Node.js的功能强大，我们简要列举几个功能</p>
-<ol>
-<li>**前后端编程语言环境统一。**这个特性的代表是Yahoo!开放的 Cocktails框架，将YUI3这个前端框架的能力借助 Node 延伸到服务器端，使得使用者摆脱了日常工作中一边写 JavaScript—边写 PHP 所帯来的上下文切换负担。</li>
-<li>Node.js可以实时应用，可以提供实时功能。</li>
-<li><strong>并行 I/0</strong> 使得使用者可以更高效地利用分布式环境。**阿里巴巴、eBay是这方面的典型，借用 Node 并行 I/O 的能力，更高效地使用数据。</li>
-<li>游戏开发领域。网络游戏领域对实时和并发有很高的要求，如网易开源了 Pomelo 实时框架，可以应用在游戏和高实时应用中。</li>
-<li>还有很多与互联网应用相关的场景可以使用到Node.js的特性</li>
-</ol>
-<h4 id="what-is-npm">What is npm?</h4>
-<p>npm是随Node.js安装的包管理工具，能解决node.js代码部署上的问题</p>
-<ul>
-<li>npm允许用户从服务器下载别人编写的第三方包安装到本地使用。</li>
-<li>npm允许用户从服务器下载并安装别人编写的命令行程序到本地使用。</li>
-<li>npm允许用户将自己编写的包或命令行程序上传到npm服务器供别人使用。</li>
-</ul>
-<p>从Node.js官方网站安装好Node.js后，可以使用<code>npm list -g</code>查看所有安装的模块</p>
-<p><img src="https://qiushisun.github.io/images/npm-list.png" alt="Hugo-logo-wide" title="npm-list"></p>
+<h3 id="事件循环">事件循环</h3>
+<p>施工中，可以先看文章 <a href="https://zhuanlan.zhihu.com/p/33058983">https://zhuanlan.zhihu.com/p/33058983</a> 对事件循环做的完全的阐述</p>
               
             </div>
           </div>
@@ -322,7 +304,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -330,7 +312,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/" data-tooltip="JavaScript基础 Part1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/node.js-introduction/" data-tooltip="Node.js Introduction">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -348,19 +330,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -424,7 +406,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -432,7 +414,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/javascript%E5%9F%BA%E7%A1%80-part1/" data-tooltip="JavaScript基础 Part1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/node.js-introduction/" data-tooltip="Node.js Introduction">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -450,19 +432,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/03/node.js-introduction/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/node.js-development-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -492,19 +474,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fnode.js-introduction%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fnode.js-introduction%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F03%2Fnode.js-introduction%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -596,9 +578,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/03\/node.js-introduction\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/node.js-development-part1\/';
           
-            this.page.identifier = '\/2021\/03\/node.js-introduction\/'
+            this.page.identifier = '\/2021\/04\/node.js-development-part1\/'
           
         };
         (function() {
