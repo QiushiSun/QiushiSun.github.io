@@ -314,7 +314,21 @@
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2021</span>;
 }
 <span style="color:#75715e">// 2021为这个函数的返回值，所以和其他语言一样，js的函数也可以当作变量传入其他的函数之中，这也是quicksort这个递归函数的基础
-</span></code></pre></div>
+</span></code></pre></div><h4 id="section5-javascript的分号">Section5 JavaScript的分号:</h4>
+<p>编写c语言程序时，必须使用<code>;</code>来进行不同语句之间的换行，在python中则不需要。在JavaScript中，使用<code>;</code>换行是一个可选项，但依然有可能造成误解，如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>;
+(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>).<span style="color:#a6e22e">toString</span>()
+
+<span style="color:#e6db74">&#34;7&#34;</span>
+</code></pre></div><p>在上面的代码片段中，执行toString()前的代码使用<code>;</code>进行了换行，程序运行正确</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span> <span style="color:#75715e">//No delimiter 
+</span><span style="color:#75715e"></span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">b</span>).<span style="color:#a6e22e">toString</span>()
+</code></pre></div><p>而上述这段代码执行错误，程序以为(a+b)的圆括号和上一行的 f 组成了一个函数调用，为了能让上述代码解析为两条不同的语句，我们就必须手动填写行尾的<strong>显式分号</strong></p>
+<p>如果想最大限度地避免因代码解析语句造成的错误的话，规范的使用<code>;</code>依旧是个好选择</p>
               
             </div>
           </div>
