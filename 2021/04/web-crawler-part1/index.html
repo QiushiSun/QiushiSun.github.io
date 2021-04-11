@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
 <meta name="keywords" content="Node.js, Web Programming">
-<meta name="description" content="Node.js Development Part1">
+<meta name="description" content="Web Crawler Part1: Some preparations">
 
 
-<meta property="og:description" content="Node.js Development Part1">
+<meta property="og:description" content="Web Crawler Part1: Some preparations">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js Development Part1">
-<meta name="twitter:title" content="Node.js Development Part1">
-<meta property="og:url" content="https://qiushisun.github.io/2021/04/node.js-development-part1/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/node.js-development-part1/">
+<meta property="og:title" content="Web Crawler Part1">
+<meta name="twitter:title" content="Web Crawler Part1">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part1/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part1/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="Node.js Development Part1">
-<meta name="twitter:description" content="Node.js Development Part1">
+<meta property="og:description" content="Web Crawler Part1: Some preparations">
+<meta name="twitter:description" content="Web Crawler Part1: Some preparations">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-01T20:23:37">
+    <meta property="article:published_time" content="2021-04-11T20:23:37">
   
   
-    <meta property="article:modified_time" content="2021-04-01T20:23:37">
+    <meta property="article:modified_time" content="2021-04-11T20:23:37">
   
   
   
@@ -49,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/asynchronous-programming.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/asynchronous-programming.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/crawler.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/crawler.png">
 
 
 
@@ -60,14 +60,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>Node.js Development Part1</title>
+    <title>Web Crawler Part1</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/04/node.js-development-part1/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part1/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -227,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Node.js Development Part1
+      Web Crawler Part1
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-01T20:23:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-04-11T20:23:37&#43;08:00">
         
-  April 1, 2021
+  April 11, 2021
 
       </time>
     
@@ -254,32 +254,45 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Node.js Development Part1</p>
-<h2 id="nodejs-development-part1">Node.js Development Part1</h2>
-<h3 id="blocking-vs-non-blocking-io">Blocking vs Non-Blocking I/O</h3>
+              <p>Web Crawler Part1: Some preparations</p>
+<h2 id="web-crawler-part1">Web Crawler Part1</h2>
+<p>我们将用几篇博客来研究研究一个基于Node.js的爬虫是如何运作的</p>
+<h3 id="section1-prepare-your-mysql-database">Section1: Prepare Your MySQL Database</h3>
+<p>mysql安装地址：https://dev.mysql.com/downloads/</p>
+<p>进入上述网址安装一个MySQL数据库用于存储我们从互联网爬取的各类信息（当然，你也可以把它们存在文本文件中，不过在进行CRUD操作时就会略显麻烦，还是让数据库代劳吧。）</p>
+<p><img src="https://qiushisun.github.io/images/mysql-installation.png" alt="Hugo-logo-wide" title="mysql-download"></p>
+<p>我们需要：</p>
 <ol>
-<li>什么是阻塞？进程/线程在执行中如果遇到磁盘读写（磁盘I/O）或涉及网络通信，通常要耗费较长的时间，这时操作系统会剥夺这个线程的 CPU，使其暂停执行，同时将资源让给其他的工作线程，直到这个进程状态变为ready，再通过调度算法使其获得CPU时间，即<em>阻塞</em>。</li>
-<li>异步 I/O （Asynchronous I/O）或非阻塞式 I/O （Non-blocking I/O）则针对所有 I/O 操作不采用阻塞的策略。当线程遇到 I/O 操作时，不会以阻塞的方式等待 I/O 操作的完成或数据的返回，而只是将 I/O 请求发送给操作系统，继续执行下一条语句。当操作系统完成 I/O 操作时，以事件的形式通知执行 I/O 操作的线程，线程会在特定时候处理这个事件。为了处理异步 I/O，必须有另外的事件循环，不断地检查有没有未处理的事件，依次予以处理。</li>
+<li>MySQL Community Server（数据库服务器本身）</li>
+<li>MySQL Shell（用于在命令行操作数据库，MacOS版在安装MySQL Server后自行配置即可）</li>
+<li>可选：MySQL Workbench （一个可视化界面，就像MongoDB的MongoDB Compass）</li>
 </ol>
-<p><img src="https://qiushisun.github.io/images/asynchronous-programming.png" alt="Hugo-logo-wide" title="asynchronous-programming"></p>
-<p>source: luminousmen.com</p>
-<p>上述的概念可以在<strong>操作系统</strong>课程/相关书籍中获得更好的理解</p>
-<h3 id="nodejs--单线程非阻塞">Node.js : 单线程，非阻塞</h3>
-<h4 id="单线程事件驱动的异步式-io-比传统的多线程阻塞式-io-究竟好在哪里">单线程事件驱动的异步式 I/O 比传统的多线程阻塞式 I/O 究竟好在哪里？</h4>
-<p>简言之，异步式 I/O 就是少了多线程的开销。对操作系统来说，创建一个线程的代价是十分昂贵的，需要给它分配内存、列入调度，同时在线程切换的时候还要执行内存换页，CPU的缓存被清空，切换回来的时候还要重新从内存中读取信息，破坏了数据的局部性。</p>
-<p>多线程模式显然可以更充分利用多核的CPU资源，而且阻塞式的编程模式虽然低效，但是更符合人类思维习惯，在业务逻辑过于复杂需要分而治之的情况下，异步非阻塞模式带来的回调过多，会影响系统的设计逻辑简化。</p>
-<h3 id="nodejs--事件驱动">Node.js : 事件驱动</h3>
-<p>Node.js 的异步机制是基于事件的，所有的磁盘 I/O、网络通信、数据库查询都以非阻塞的方式请求，返回的结果由事件循环来处理。</p>
-<p><img src="https://qiushisun.github.io/images/event-loop.png" alt="Hugo-logo-wide" title="event-loop"></p>
-<h4 id="那么与事件驱动类似的消息驱动">那么，与事件驱动类似的消息驱动？</h4>
-<p>消息驱动和事件驱动很类似，都是先产生事件，再产生一个相应的消息，消息进入消息队列，由项目获取。他们的区别是<strong>消息由谁产生</strong></p>
-<p>接下来用网上一个流行的方法转述一下：</p>
-<ol>
-<li><strong>消息驱动</strong>：鼠标管点击不需要和系统有过多的交互，消息由系统（第三方）循环检测，来捕获并放入消息队列。消息对于点击事件来说是<strong>被动产生</strong>的</li>
-<li><strong>事件驱动</strong>：鼠标点击产生点击事件后要向系统发送消息“我点击了”的消息，消息是<strong>主动产生</strong>的。再发送到消息队列中</li>
-</ol>
-<h3 id="事件循环event-loop">事件循环(Event loop)</h3>
-<p>施工中，可以先看文章 <a href="https://zhuanlan.zhihu.com/p/33058983">https://zhuanlan.zhihu.com/p/33058983</a> 对事件循环做的完全的阐述</p>
+<p>安装完成后可以配置 root 用户，并设置密码，然后使用如下命令登陆数据库：</p>
+<p><code>mysql -u root -p </code></p>
+<p>**Remark：**输入密码时，密码是不会显示在命令行的，只管输入即可。</p>
+<p>执行上述命令吼，你可以在 mysql&gt; 提示符执行SQL命令，退出请输入 “quit”</p>
+<p>为了方便接下来的实验，进入mysql后我们创建一个数据库crawl,然后再创建一个表fetches用于存储信息，我们可以直接执行如下SQL语句：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>fetches<span style="color:#f92672">`</span> (
+  <span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">11</span>)  <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+  <span style="color:#f92672">`</span>url<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>source_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>source_encoding<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">45</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>title<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>keywords<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>author<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>publish_date<span style="color:#f92672">`</span> date <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>crawltime<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext,
+  <span style="color:#f92672">`</span>description<span style="color:#f92672">`</span> longtext,
+  <span style="color:#f92672">`</span>createtime<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span>),
+  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>id_fetches_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span>),
+  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>url_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>url<span style="color:#f92672">`</span>)
+) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
+</code></pre></div><h3 id="section2-use-npm-to-install-mysql-module">Section2: Use Npm to Install MySQL Module</h3>
+<p>我们要在Node.js环境下使用MySQL数据库，安装相应的模组显然是必不可少的，在项目的工作路径下使用如下命令：</p>
+<p><code>npm install mysql</code></p>
+<p>即可直接安装mysql module</p>
               
             </div>
           </div>
@@ -304,7 +317,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part1/" data-tooltip="Web Crawler Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -312,7 +325,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/node.js-introduction/" data-tooltip="Node.js Introduction">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -330,19 +343,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -406,7 +419,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part1/" data-tooltip="Web Crawler Part1">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -414,7 +427,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/03/node.js-introduction/" data-tooltip="Node.js Introduction">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -432,19 +445,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/node.js-development-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part1/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -474,19 +487,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fnode.js-development-part1%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -578,9 +591,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/node.js-development-part1\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part1\/';
           
-            this.page.identifier = '\/2021\/04\/node.js-development-part1\/'
+            this.page.identifier = '\/2021\/04\/web-crawler-part1\/'
           
         };
         (function() {
