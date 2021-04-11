@@ -289,10 +289,49 @@
   <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>id_fetches_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span>),
   <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>url_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>url<span style="color:#f92672">`</span>)
 ) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
-</code></pre></div><h3 id="section2-use-npm-to-install-mysql-module">Section2: Use Npm to Install MySQL Module</h3>
-<p>我们要在Node.js环境下使用MySQL数据库，安装相应的模组显然是必不可少的，在项目的工作路径下使用如下命令：</p>
+</code></pre></div><p><code>id_fetches</code>被设定为主键，之后我们会用到一些索引技术来加速我们的查询功能</p>
+<h3 id="section2-use-npm-to-install-mysql-module">Section2: Use Npm to Install MySQL Module</h3>
+<p>我们要在Node.js环境下使用MySQL数据库，安装相应的模组显然是必不可少的，在项目的工作路径下,使用命令行输入如下命令：</p>
 <p><code>npm install mysql</code></p>
 <p>即可直接安装mysql module</p>
+<h3 id="section3-trouble-shooting">Section3: Trouble Shooting</h3>
+<p>我个人是在macOS系统下进行开发的，在配置MySQL数据库时会遇到一些问题，在此</p>
+<h4 id="case1-mysql环境变量错误">Case1: mysql环境变量错误</h4>
+<p>在Mac端的terminal或者是iterm中输入mysql -u root -p，出现：zsh: command not found: mysql的提示，那么就代表当前MySQL的环境变量配置有误，可以通过以下方式解决：</p>
+<ol>
+<li>cd ~ 进入根目录</li>
+<li>sudo vim .bash_profile 打开bash配置文件</li>
+<li>末尾追加：export PATH=${PATH}:/usr/local/mysql/bin</li>
+<li>source .bash_profile</li>
+<li>vi ~/.zshrc</li>
+<li>末尾追加：export PATH=${PATH}:/usr/local/mysql/bin</li>
+<li>source ~/.zshrc</li>
+</ol>
+<p>重新使用命令 <code>mysql -u root -p</code> 即可</p>
+<h4 id="case2-rethrow-non-mysql-errors">Case2: Rethrow non-MySQL errors</h4>
+<p>在使用Node.js的MySQl模组时候，可能会有</p>
+<p><em>Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client</em> <em>flush privileges;</em></p>
+<p>的报错，这是因为不同版本认证机制不同造成的，解决方案如下</p>
+<ol>
+<li>
+<p><code>mysql -u root -p </code></p>
+</li>
+<li>
+<p>执行语句 <code>alter user 'root'@'localhost' identified with mysql_native_password by yourpwd;</code>
+mysql&gt; alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by &lsquo;123456&rsquo;;
+Query OK, 0 rows affected (0.43 sec)</p>
+</li>
+<li>
+<p>再执行语句 <code>flush privileges;</code>
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0.05 sec)</p>
+</li>
+<li>
+<p>mysql&gt; quit
+Bye</p>
+</li>
+</ol>
+<p>上述两种错误是MacOS端配置MySQL数据库时的常见问题。</p>
               
             </div>
           </div>
