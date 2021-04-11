@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
 <meta name="keywords" content="Node.js, Web Programming">
-<meta name="description" content="Web Crawler Part1: Some preparations">
+<meta name="description" content="Web Crawler Part2: A (Naive) Web Crawler">
 
 
-<meta property="og:description" content="Web Crawler Part1: Some preparations">
+<meta property="og:description" content="Web Crawler Part2: A (Naive) Web Crawler">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web Crawler Part1">
-<meta name="twitter:title" content="Web Crawler Part1">
-<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part1/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part1/">
+<meta property="og:title" content="Web Crawler Part2">
+<meta name="twitter:title" content="Web Crawler Part2">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part2/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part2/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="Web Crawler Part1: Some preparations">
-<meta name="twitter:description" content="Web Crawler Part1: Some preparations">
+<meta property="og:description" content="Web Crawler Part2: A (Naive) Web Crawler">
+<meta name="twitter:description" content="Web Crawler Part2: A (Naive) Web Crawler">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-11T20:23:37">
+    <meta property="article:published_time" content="2021-04-12T00:20:37">
   
   
-    <meta property="article:modified_time" content="2021-04-11T20:23:37">
+    <meta property="article:modified_time" content="2021-04-12T00:20:37">
   
   
   
@@ -49,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/crawler.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/crawler.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/crawler-cute.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/crawler-cute.png">
 
 
 
@@ -60,14 +60,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>Web Crawler Part1</title>
+    <title>Web Crawler Part2</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part1/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part2/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -227,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Web Crawler Part1
+      Web Crawler Part2
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-11T20:23:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-04-12T00:20:37&#43;08:00">
         
-  April 11, 2021
+  April 12, 2021
 
       </time>
     
@@ -254,84 +254,13 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Web Crawler Part1: Some preparations</p>
-<h2 id="web-crawler-part1">Web Crawler Part1</h2>
-<p>我们将用几篇博客来研究研究一个基于Node.js的爬虫是如何运作的</p>
-<h3 id="section1-prepare-your-mysql-database">Section1: Prepare Your MySQL Database</h3>
-<p>mysql安装地址：https://dev.mysql.com/downloads/</p>
-<p>进入上述网址安装一个MySQL数据库用于存储我们从互联网爬取的各类信息（当然，你也可以把它们存在文本文件中，不过在进行CRUD操作时就会略显麻烦，还是让数据库代劳吧。）</p>
-<p><img src="https://qiushisun.github.io/images/mysql-installation.png" alt="Hugo-logo-wide" title="mysql-download"></p>
-<p>我们需要：</p>
-<ol>
-<li>MySQL Community Server（数据库服务器本身）</li>
-<li>MySQL Shell（用于在命令行操作数据库，MacOS版在安装MySQL Server后自行配置即可）</li>
-<li>可选：MySQL Workbench （一个可视化界面，就像MongoDB的MongoDB Compass）</li>
-</ol>
-<p>安装完成后可以配置 root 用户，并设置密码，然后使用如下命令登陆数据库：</p>
-<p><code>mysql -u root -p </code></p>
-<p>**Remark：**输入密码时，密码是不会显示在命令行的，只管输入即可。</p>
-<p>执行上述命令吼，你可以在 mysql&gt; 提示符执行SQL命令，退出请输入 “quit”</p>
-<p>为了方便接下来的实验，进入mysql后我们创建一个数据库crawl,然后再创建一个表fetches用于存储信息，我们可以直接执行如下SQL语句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>fetches<span style="color:#f92672">`</span> (
-  <span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">11</span>)  <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
-  <span style="color:#f92672">`</span>url<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>source_name<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>source_encoding<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">45</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>title<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>keywords<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>author<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">200</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>publish_date<span style="color:#f92672">`</span> date <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>crawltime<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
-  <span style="color:#f92672">`</span>content<span style="color:#f92672">`</span> longtext,
-  <span style="color:#f92672">`</span>description<span style="color:#f92672">`</span> longtext,
-  <span style="color:#f92672">`</span>createtime<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
-  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span>),
-  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>id_fetches_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span>),
-  <span style="color:#66d9ef">UNIQUE</span> <span style="color:#66d9ef">KEY</span> <span style="color:#f92672">`</span>url_UNIQUE<span style="color:#f92672">`</span> (<span style="color:#f92672">`</span>url<span style="color:#f92672">`</span>)
-) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
-</code></pre></div><p><code>id_fetches</code>被设定为主键，之后我们会用到一些索引技术来加速我们的查询功能</p>
-<h3 id="section2-use-npm-to-install-mysql-module">Section2: Use Npm to Install MySQL Module</h3>
-<p>我们要在Node.js环境下使用MySQL数据库，安装相应的模组显然是必不可少的，在项目的工作路径下,使用命令行输入如下命令：</p>
-<p><code>npm install mysql</code></p>
-<p>即可直接安装mysql module</p>
-<h3 id="section3-trouble-shooting">Section3: Trouble Shooting</h3>
-<p>我个人是在macOS系统下进行开发的，在配置MySQL数据库时会遇到一些问题，在此</p>
-<h4 id="case1-mysql环境变量错误">Case1: mysql环境变量错误</h4>
-<p>在Mac端的terminal或者是iterm中输入mysql -u root -p，出现：zsh: command not found: mysql的提示，那么就代表当前MySQL的环境变量配置有误，可以通过以下方式解决：</p>
-<ol>
-<li>cd ~ 进入根目录</li>
-<li>sudo vim .bash_profile 打开bash配置文件</li>
-<li>末尾追加：export PATH=${PATH}:/usr/local/mysql/bin</li>
-<li>source .bash_profile</li>
-<li>vi ~/.zshrc</li>
-<li>末尾追加：export PATH=${PATH}:/usr/local/mysql/bin</li>
-<li>source ~/.zshrc</li>
-</ol>
-<p>重新使用命令 <code>mysql -u root -p</code> 即可</p>
-<h4 id="case2-rethrow-non-mysql-errors">Case2: Rethrow non-MySQL errors</h4>
-<p>在使用Node.js的MySQl模组时候，可能会有</p>
-<p><em>Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client</em> <em>flush privileges;</em></p>
-<p>的报错，这是因为不同版本认证机制不同造成的，解决方案如下</p>
-<ol>
-<li>
-<p><code>mysql -u root -p </code></p>
-</li>
-<li>
-<p>执行语句 <code>alter user 'root'@'localhost' identified with mysql_native_password by yourpwd;</code>
-mysql&gt; alter user &lsquo;root&rsquo;@&lsquo;localhost&rsquo; identified with mysql_native_password by &lsquo;123456&rsquo;;
-Query OK, 0 rows affected (0.4 sec)</p>
-</li>
-<li>
-<p>再执行语句 <code>flush privileges;</code>
-mysql&gt; flush privileges;
-Query OK, 0 rows affected (0.02 sec)</p>
-</li>
-<li>
-<p>mysql&gt; quit
-Bye</p>
-</li>
-</ol>
-<p>上述两种错误是MacOS端配置MySQL数据库时的常见问题。</p>
+              <p>Web Crawler Part2: A (Naive) Web Crawler</p>
+<h2 id="web-crawler-part2">Web Crawler Part2</h2>
+<p>上一篇文章我们对部署爬虫做了一些基础准备，我们将继续用几篇博客来研究研究一个基于Node.js的爬虫是如何运作的</p>
+<p><img src="https://qiushisun.github.io/images/crawler-wide.png" alt="Hugo-logo-wide" title="crawler"></p>
+<h3 id="section1-why-crawler">Section1: Why Crawler？</h3>
+<p>在真正开始开发前，我们得先知道为什么要使用网络爬虫？它的意义/价值什么？</p>
+<p>**网络爬虫的价值能体现互联网海量数据的价值。**数据，是新时代的石油资源，谁就拥有了数据，谁就拥有了决策，预测，分析的主动权。网络爬虫的应用领域非常广泛，如搜索引擎、计算广告、大数据分析（杀熟）等，但他的目标只有一个：尽可能地收集有价值的数据。</p>
               
             </div>
           </div>
@@ -356,7 +285,7 @@ Bye</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part2/" data-tooltip="Web Crawler Part2">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -364,7 +293,7 @@ Bye</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part1/" data-tooltip="Web Crawler Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -382,19 +311,19 @@ Bye</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -458,7 +387,7 @@ Bye</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part2/" data-tooltip="Web Crawler Part2">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -466,7 +395,7 @@ Bye</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/node.js-development-part1/" data-tooltip="Node.js Development Part1">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part1/" data-tooltip="Web Crawler Part1">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -484,19 +413,19 @@ Bye</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part1/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part2/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -526,19 +455,19 @@ Bye</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part2%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part2%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part1%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part2%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -630,9 +559,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part1\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part2\/';
           
-            this.page.identifier = '\/2021\/04\/web-crawler-part1\/'
+            this.page.identifier = '\/2021\/04\/web-crawler-part2\/'
           
         };
         (function() {
