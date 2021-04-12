@@ -270,7 +270,7 @@
 <p>We need the following notations to represent <em>mean, variance</em> and normalized *$x_{ij}$*</p>
 <p>$\mu_{j}=\frac{1}{N} \sum_{i=1}^{N} x_{i, j}$                                Get Per-channel mean, the shape of $\mu_{j}$ is D</p>
 <p>$\sigma_{j}^{2}=\frac{1}{N} \sum_{i=1}^{N}\left(x_{i, j}-\mu_{j}\right)^{2}$                 Get Per-channel var, the shape of $\sigma^{2}$ is also D</p>
-<p>$\hat{x}<em>{i, j}=\frac{x</em>{i, j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\varepsilon}}$                                        Here we get the Normalized x, the shape is N x D</p>
+<p>$\hat{x}<em>{i, j}=\frac{x</em>{i,j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\epsilon}}$                                         Here we get the Normalized x, the shape is N x D</p>
 <h3 id="section-3-the-actual-implementation-of-batch-normalization">Section 3: The actual implementation of <em>batch normalization</em></h3>
 <h3 id="section-4-comparison-of-normalization-layers">Section 4: Comparison of Normalization Layers</h3>
 <p><img src="https://qiushisun.github.io/images/norm-collection.png" alt="Hugo-logo-wide" title="norm"></p>
