@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Vision on QiushiSun&#39;s Blog</title>
+    <link>https://qiushisun.github.io/tags/computer-vision/</link>
+    <description>Recent content in Computer Vision on QiushiSun&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Apr 2021 11:20:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://qiushisun.github.io/tags/computer-vision/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Training Neural Nets: Batch Normalization</title>
+      <link>https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/</link>
+      <pubDate>Mon, 12 Apr 2021 11:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/</guid>
+      <description>&lt;p&gt;Training Neural Nets: Batch Normalization&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

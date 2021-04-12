@@ -33,10 +33,14 @@
     
       <meta property="article:section" content="Deep Learning">
     
+      <meta property="article:section" content="Computer Vision">
+    
   
   
     
       <meta property="article:tag" content="Deep Learning">
+    
+      <meta property="article:tag" content="Computer Vision">
     
   
 
@@ -244,7 +248,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://qiushisun.github.io/categories/deep-learning">Deep Learning</a>
+      <a class="category-link" href="https://qiushisun.github.io/categories/deep-learning">Deep Learning</a>, 
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/computer-vision">Computer Vision</a>
     
   
 
@@ -256,7 +262,19 @@
             <div class="main-content-wrap">
               <p>Training Neural Nets: Batch Normalization</p>
 <h2 id="training-neural-nets-batch-normalization">Training Neural Nets: Batch Normalization</h2>
+<p>The idea of batch normalization comes from <em>atch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, Ioffe and Szegedy, 2015</em></p>
+<p>$$\widehat{x}^{(k)}=\frac{x^{(k)}-\mathrm{E}\left[x^{(k)}\right]}{\sqrt{\operatorname{Var}\left[x^{(k)}\right]}}$$</p>
+<h3 id="section-1-why-we-need-batch-normalization">Section 1: Why we need <em>batch normalization</em></h3>
+<p>THe goal of batch normalization is to make each dimension <strong>zero-mean</strong> and <strong>unit-variance</strong></p>
+<h3 id="section-2-how-to-make-vanilla-batch-normalization">Section 2: How to make <em>vanilla batch normalization</em></h3>
+<p>We need the following notations to represent <em>mean, variance</em> and normalized *$x_{ij}$*</p>
+<p>$\mu_{j}=\frac{1}{N} \sum_{i=1}^{N} x_{i, j}$                                Get Per-channel mean, the shape of $\mu_{j}$ is D</p>
+<p>$\sigma_{j}^{2}=\frac{1}{N} \sum_{i=1}^{N}\left(x_{i, j}-\mu_{j}\right)^{2}$                 Get Per-channel var, the shape of $\sigma^{2}$ is also D</p>
+<p>$\hat{x}<em>{i, j}=\frac{x</em>{i, j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\varepsilon}}$                                        Here we get the Normalized x, the shape is N x D</p>
+<h3 id="section-3-the-actual-implementation-of-batch-normalization">Section 3: The actual implementation of <em>batch normalization</em></h3>
+<h3 id="section-4-comparison-of-normalization-layers">Section 4: Comparison of Normalization Layers</h3>
 <p><img src="https://qiushisun.github.io/images/norm-collection.png" alt="Hugo-logo-wide" title="norm"></p>
+<p>Wu and He, “Group Normalization”, ECCV 2018</p>
               
             </div>
           </div>
@@ -269,6 +287,8 @@
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
   <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/deep-learning/">Deep Learning</a>
+
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/computer-vision/">Computer Vision</a>
 
                   </div>
                 
