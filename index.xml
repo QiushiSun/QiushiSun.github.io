@@ -6,10 +6,19 @@
     <description>Recent content on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Apr 2021 11:20:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web Crawler Part2</title>
+      <link>https://qiushisun.github.io/2021/04/web-crawler-part2/</link>
+      <pubDate>Mon, 12 Apr 2021 11:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/04/web-crawler-part2/</guid>
+      <description>&lt;p&gt;Training Neural Nets: Batch Normalization&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Web Crawler Part2</title>
