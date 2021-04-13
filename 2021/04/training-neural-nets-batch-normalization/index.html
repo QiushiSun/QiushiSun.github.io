@@ -264,14 +264,19 @@
 <h2 id="training-neural-nets-batch-normalization">Training Neural Nets: Batch Normalization</h2>
 <p>The idea of batch normalization comes from <em>atch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, Ioffe and Szegedy, 2015</em></p>
 <p>$$\widehat{x}^{(k)}=\frac{x^{(k)}-\mathrm{E}\left[x^{(k)}\right]}{\sqrt{\operatorname{Var}\left[x^{(k)}\right]}}$$</p>
+<p>In this article, the pictures related to computer vision are mainly from Stanford cs231n</p>
 <h3 id="section-1-why-we-need-batch-normalization">Section 1: Why we need <em>batch normalization</em></h3>
 <p>THe goal of batch normalization is to make each dimension <strong>zero-mean</strong> and <strong>unit-variance</strong></p>
 <h3 id="section-2-how-to-make-vanilla-batch-normalization">Section 2: How to make <em>vanilla batch normalization</em></h3>
-<p>We need the following notations to represent <em>mean, variance</em> and normalized *$x_{ij}$*</p>
-<p>$\mu_{j}=\frac{1}{N} \sum_{i=1}^{N} x_{i, j}$                                Get Per-channel mean, the shape of $\mu_{j}$ is D</p>
-<p>$\sigma_{j}^{2}=\frac{1}{N} \sum_{i=1}^{N}\left(x_{i, j}-\mu_{j}\right)^{2}$                 Get Per-channel var, the shape of $\sigma^{2}$ is also D</p>
-<p>$\hat{x}<em>{i, j}=\frac{x</em>{i,j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\epsilon}}$                                         Here we get the Normalized x, the shape is N x D</p>
+<p>We need the following notations to represent <em>mean, variance</em> and normalized *$x_{ij}$*, assume that the shape of our input picture is $N \times D$</p>
+<p>$\mu_{j}=\frac{1}{N} \sum_{i=1}^{N} x_{i, j}$                                ,Get Per-channel mean, the shape of $\mu_{j}$ is D</p>
+<p>$\sigma_{j}^{2}=\frac{1}{N} \sum_{i=1}^{N}\left(x_{i, j}-\mu_{j}\right)^{2}$                 ,Get Per-channel var, the shape of $\sigma^{2}$ is also D</p>
+<p>$\hat{x}<em>{i, j}$ = $\frac{x</em>{i,j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\epsilon}}$                                         ,Here we get the Normalized x, the shape is N x D</p>
 <h3 id="section-3-the-actual-implementation-of-batch-normalization">Section 3: The actual implementation of <em>batch normalization</em></h3>
+<p>In practice, BN is usually inserted after Fully Connected or Convolutional layers, and before nonlinearity layers.</p>
+<p><img src="https://qiushisun.github.io/images/place-batch-norm.png" alt="Hugo-logo-wide" title="norm in net"></p>
+<p><strong>Some problems:</strong> Estimates depend on minibatch, we cannot do the same at test-time. (e.g. we only have one picture input at test-time, so we cannot get the mean and variance)</p>
+<p><strong>Solution</strong>: Assume we have k batches, we should remember each $\mu_{j}$ and $\sigma_{j}^{2}$ during the training time, and use $\mu = \Sigma_{j=1}^{k} \mu_{j}$ to replace the global mean, and use $\sigma^{2} = \Sigma_{j=1}^{k} \sigma^{2}_{j}$ to replace the global variance.</p>
 <h3 id="section-4-comparison-of-normalization-layers">Section 4: Comparison of Normalization Layers</h3>
 <p><img src="https://qiushisun.github.io/images/norm-collection.png" alt="Hugo-logo-wide" title="norm"></p>
 <p>Wu and He, “Group Normalization”, ECCV 2018</p>
