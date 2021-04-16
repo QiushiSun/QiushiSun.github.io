@@ -261,7 +261,12 @@
 <h3 id="section1-why-crawler">Section1: Why Crawler？</h3>
 <p>在真正开始开发前，我们得先知道为什么要使用网络爬虫？它的意义/价值什么？</p>
 <p><strong>网络爬虫的价值能体现互联网海量数据的价值</strong>。数据，是新时代的石油资源，谁就拥有了数据，谁就拥有了决策，预测，分析的主动权。网络爬虫的应用领域非常广泛，如搜索引擎、计算广告、大数据分析（杀熟）等，但他的目标只有一个：尽可能地收集有价值的数据。</p>
-<h3 id="section2-start-my-own-crawler">Section2: Start my own crawler？</h3>
+<p>我们先尝试一个相对简单的爬虫，实现以下使用Node.js实现的<strong>新闻爬虫及爬取结果的查询网站</strong></p>
+<ol>
+<li>选取3-5个代表性的新闻网站（比如新浪新闻、网易新闻等，或者某个垂直领域权威性的网站比如经济领域的雪球财经、东方财富等，或者体育领域的腾讯体育、虎扑体育等等）建立爬虫，针对不同网站的新闻页面进行分析，<strong>爬取出编码、标题、作者、时间、关键词、摘要、内容、来源等结构化信息，存储在数据库中。</strong></li>
+<li>建立网站提供对爬取内容的分项全文搜索，给出所查关键词的时间热度分析。</li>
+</ol>
+<h3 id="section2-start-my-own-crawler">Section2: Start my own crawler</h3>
 <p>我们可以先选取一些感兴趣的新闻网站，论坛，社交媒体等作为我们爬虫的信息源。要注意，我们并不是直接“扫描网页”，而是通过网页源码匹配我们想获取的信息，以搜狐新闻为例，打开新闻页面右键查看网页源代码，如下所示：</p>
 <p><img src="https://qiushisun.github.io/images/web-crawler-display.png" alt="Hugo-logo-wide" title="crawler-display"></p>
 <p>在开始爬取之前，我们先要做两件事</p>
