@@ -7,40 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
-<meta name="keywords" content="Neural Nets, Normalization">
-<meta name="description" content="Training Neural Nets: Batch Normalization">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Crawler Part3: Some npm Packages">
 
 
-<meta property="og:description" content="Training Neural Nets: Batch Normalization">
+<meta property="og:description" content="Web Crawler Part3: Some npm Packages">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Training Neural Nets: Batch Normalization">
-<meta name="twitter:title" content="Training Neural Nets: Batch Normalization">
-<meta property="og:url" content="https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+<meta property="og:title" content="Web Crawler Part3">
+<meta name="twitter:title" content="Web Crawler Part3">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part3/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part3/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="Training Neural Nets: Batch Normalization">
-<meta name="twitter:description" content="Training Neural Nets: Batch Normalization">
+<meta property="og:description" content="Web Crawler Part3: Some npm Packages">
+<meta name="twitter:description" content="Web Crawler Part3: Some npm Packages">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-12T11:20:37">
+    <meta property="article:published_time" content="2021-04-16T00:20:37">
   
   
-    <meta property="article:modified_time" content="2021-04-12T11:20:37">
+    <meta property="article:modified_time" content="2021-04-16T00:20:37">
   
   
   
     
-      <meta property="article:section" content="Deep Learning">
-    
-      <meta property="article:section" content="Computer Vision">
+      <meta property="article:section" content="Web Programming">
     
   
   
     
-      <meta property="article:tag" content="Deep Learning">
-    
-      <meta property="article:tag" content="Computer Vision">
+      <meta property="article:tag" content="Web Programming">
     
   
 
@@ -53,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/batch-norm.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/batch-norm.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/npm-icon.svg">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/npm-icon.svg">
 
 
 
@@ -64,14 +60,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>Training Neural Nets: Batch Normalization</title>
+    <title>Web Crawler Part3</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part3/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -231,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Training Neural Nets: Batch Normalization
+      Web Crawler Part3
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-12T11:20:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-04-16T00:20:37&#43;08:00">
         
-  April 12, 2021
+  April 16, 2021
 
       </time>
     
@@ -248,9 +244,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://qiushisun.github.io/categories/deep-learning">Deep Learning</a>, 
-    
-      <a class="category-link" href="https://qiushisun.github.io/categories/computer-vision">Computer Vision</a>
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
     
   
 
@@ -260,26 +254,11 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Training Neural Nets: Batch Normalization</p>
-<h2 id="training-neural-nets-batch-normalization">Training Neural Nets: Batch Normalization</h2>
-<p>The idea of batch normalization comes from <em>atch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, Ioffe and Szegedy, 2015</em></p>
-<p>$$\widehat{x}^{(k)}=\frac{x^{(k)}-\mathrm{E}\left[x^{(k)}\right]}{\sqrt{\operatorname{Var}\left[x^{(k)}\right]}}$$</p>
-<p>In this article, the pictures related to computer vision are mainly from Stanford cs231n</p>
-<h3 id="section-1-why-we-need-batch-normalization">Section 1: Why we need <em>batch normalization</em></h3>
-<p>THe goal of batch normalization is to make each dimension <strong>zero-mean</strong> and <strong>unit-variance</strong></p>
-<h3 id="section-2-how-to-make-vanilla-batch-normalization">Section 2: How to make <em>vanilla batch normalization</em></h3>
-<p>We need the following notations to represent <em>mean, variance</em> and normalized *$x_{ij}$*, assume that the shape of our input picture is $N \times D$</p>
-<p>$\mu_{j}=\frac{1}{N} \sum_{i=1}^{N} x_{i, j}$                                ,Get Per-channel mean, the shape of $\mu_{j}$ is D</p>
-<p>$\sigma_{j}^{2}=\frac{1}{N} \sum_{i=1}^{N}\left(x_{i, j}-\mu_{j}\right)^{2}$                 ,Get Per-channel var, the shape of $\sigma^{2}$ is also D</p>
-<p>$\hat{x}<em>{i, j}$ = $\frac{x</em>{i,j}-\mu_{j}}{\sqrt{\sigma_{j}^{2}+\epsilon}}$                                         ,Here we get the Normalized x, the shape is N x D</p>
-<h3 id="section-3-the-actual-implementation-of-batch-normalization">Section 3: The actual implementation of <em>batch normalization</em></h3>
-<p>In practice, BN is usually inserted after Fully Connected or Convolutional layers, and before nonlinearity layers.</p>
-<p><img src="https://qiushisun.github.io/images/place-batch-norm.png" alt="Hugo-logo-wide" title="norm in net"></p>
-<p><strong>Some problems:</strong> Estimates depend on minibatch, we cannot do the same at test-time. (e.g. we only have one picture input at test-time, so we cannot get the mean and variance)</p>
-<p><strong>Solution</strong>: Assume we have k batches, we should remember each $\mu_{j}$ and $\sigma_{j}^{2}$ during the training time, and use $\mu = \Sigma_{j=1}^{k} \mu_{j}$ to replace the global mean, and use $\sigma^{2} = \Sigma_{j=1}^{k} \sigma^{2}_{j}$ to replace the global variance.</p>
-<h3 id="section-4-comparison-of-normalization-layers">Section 4: Comparison of Normalization Layers</h3>
-<p><img src="https://qiushisun.github.io/images/norm-collection.png" alt="Hugo-logo-wide" title="norm"></p>
-<p>Wu and He, “Group Normalization”, ECCV 2018</p>
+              <p>Web Crawler Part3: Some npm Packages</p>
+<h2 id="web-crawler-part3">Web Crawler Part3</h2>
+<p>在之前关于爬虫的文章中，我们使用到了多个npm包，但是对其具体功能和使用方法没有深入的探究，我们在这篇文章里详细研究下之前使用过的几个npm包，主要是参考一些例子和这些包本身的文档。</p>
+<p><img src="https://qiushisun.github.io/images/npm-packages.png" alt="Hugo-logo-wide" title="npm-packs"></p>
+<p>Source:https://dev.to/adrianbdesigns/checklist-for-choosing-an-optimal-npm-package-4dpm</p>
               
             </div>
           </div>
@@ -291,9 +270,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/deep-learning/">Deep Learning</a>
-
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/computer-vision/">Computer Vision</a>
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
 
                   </div>
                 
@@ -306,7 +283,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part3/" data-tooltip="Web Crawler Part3">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -314,7 +291,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part2/" data-tooltip="Web Crawler Part2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/" data-tooltip="Training Neural Nets: Batch Normalization">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -332,19 +309,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -408,7 +385,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part3/" data-tooltip="Web Crawler Part3">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -416,7 +393,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part2/" data-tooltip="Web Crawler Part2">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/" data-tooltip="Training Neural Nets: Batch Normalization">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -434,19 +411,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/training-neural-nets-batch-normalization/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part3/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -476,19 +453,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Ftraining-neural-nets-batch-normalization%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part3%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Ftraining-neural-nets-batch-normalization%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part3%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Ftraining-neural-nets-batch-normalization%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part3%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -580,9 +557,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/training-neural-nets-batch-normalization\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part3\/';
           
-            this.page.identifier = '\/2021\/04\/training-neural-nets-batch-normalization\/'
+            this.page.identifier = '\/2021\/04\/web-crawler-part3\/'
           
         };
         (function() {

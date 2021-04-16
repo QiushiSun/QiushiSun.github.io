@@ -6,10 +6,19 @@
     <description>Recent content in Tags on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Apr 2021 11:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Apr 2021 00:20:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web Programming</title>
+      <link>https://qiushisun.github.io/tags/web-programming/</link>
+      <pubDate>Fri, 16 Apr 2021 00:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/tags/web-programming/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Computer Vision</title>
@@ -26,15 +35,6 @@
       <pubDate>Mon, 12 Apr 2021 11:20:37 +0800</pubDate>
       
       <guid>https://qiushisun.github.io/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web Programming</title>
-      <link>https://qiushisun.github.io/tags/web-programming/</link>
-      <pubDate>Mon, 12 Apr 2021 00:20:37 +0800</pubDate>
-      
-      <guid>https://qiushisun.github.io/tags/web-programming/</guid>
       <description></description>
     </item>
     
