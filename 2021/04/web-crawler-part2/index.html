@@ -396,7 +396,7 @@
 <p>我们可以进入MySQL数据库来查看我们爬到的一些数据</p>
 <p>在此，我们使用MySQL-Workbench查看数据，使用命令行工具也同样可以做到。</p>
 <p><img src="https://qiushisun.github.io/images/crawler-select-all.png" alt="Hugo-logo-wide" title="db-check"></p>
-<p>我们发现，从新浪网爬到的新闻和从中国新闻网爬到的新闻都存储在一起，可以使用一些简单的SQL语句进行信息筛选。</p>
+<p>我们发现，从搜狐爬到的新闻和从中国新闻网爬到的新闻都存储在一起，可以使用一些简单的SQL语句进行信息筛选。</p>
 <p><img src="https://qiushisun.github.io/images/crawler-select-source.png" alt="Hugo-logo-wide" title="db-check-source"></p>
 <p>我们还可以使用一些SQL语句进行一些关键字检索，比如</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> crawl.fetched <span style="color:#66d9ef">where</span> keywords <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%疫苗%&#39;</span>

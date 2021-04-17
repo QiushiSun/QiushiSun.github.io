@@ -259,6 +259,39 @@
 <p>在之前关于爬虫的文章中，我们使用到了多个npm包，但是对其具体功能和使用方法没有深入的探究，我们在这篇文章里详细研究下之前使用过的几个npm包，主要是参考一些例子和这些包本身的文档。</p>
 <p><img src="https://qiushisun.github.io/images/npm-packages.png" alt="Hugo-logo-wide" title="npm-packs"></p>
 <p>Source: <a href="https://dev.to/adrianbdesigns/checklist-for-choosing-an-optimal-npm-package-4dpm">https://dev.to/adrianbdesigns/checklist-for-choosing-an-optimal-npm-package-4dpm</a></p>
+<h3 id="section1-cheerio-module">Section1: Cheerio module</h3>
+<h3 id="section2-request-module">Section2: Request module</h3>
+<p>Repository: <a href="https://github.com/request/request">https://github.com/request/request</a></p>
+<p><em>Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.</em></p>
+<p>Request 模组的功能：发送GET、POST请求</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">request</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>);
+<span style="color:#a6e22e">request</span>(<span style="color:#e6db74">&#39;http://www.google.com&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">response</span>, <span style="color:#a6e22e">body</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;error:&#39;</span>, <span style="color:#a6e22e">error</span>); <span style="color:#75715e">// 错误检查
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;statusCode:&#39;</span>, <span style="color:#a6e22e">response</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">statusCode</span>); <span style="color:#75715e">// 打印respones状态码
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;body:&#39;</span>, <span style="color:#a6e22e">body</span>); <span style="color:#75715e">// 打印Google Homepage的HTML
+</span><span style="color:#75715e"></span>});
+</code></pre></div><p>在我们的爬虫项目中，我们使用request模组，构造一个模仿浏览器的request</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myRequest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>) <span style="color:#75715e">// 导入request module
+</span><span style="color:#75715e">//常用法，将encoding和heagers设为null，将url传递给request
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">callback</span>) { 
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+      <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">url</span>, 
+      <span style="color:#a6e22e">encoding</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>, 
+      <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+      <span style="color:#75715e">//proxy: &#39;&#39;
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span><span style="color:#a6e22e">headers</span>,
+      <span style="color:#a6e22e">timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1000</span> 
+    }
+    <span style="color:#a6e22e">myRequest</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">callback</span>)
+}
+</code></pre></div><ul>
+<li>URL：Uniform Resource Locator（统一资源定位符）</li>
+<li>encoding：使用null时传递二进制数据，其他值将传递给toString</li>
+<li>headers：HTTP header</li>
+<li>proxy：代理设置，我们这里没有使用代理</li>
+</ul>
+<h3 id="section3-iconv-lite-module">Section3: Iconv-lite module</h3>
+<h3 id="section4-express">Section4: Express</h3>
               
             </div>
           </div>
