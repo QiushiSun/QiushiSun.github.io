@@ -6,10 +6,28 @@
     <description>Recent content in Tags on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Apr 2021 00:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 22 Apr 2021 00:23:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CUDA</title>
+      <link>https://qiushisun.github.io/tags/cuda/</link>
+      <pubDate>Thu, 22 Apr 2021 00:23:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/tags/cuda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://qiushisun.github.io/tags/deep-learning/</link>
+      <pubDate>Thu, 22 Apr 2021 00:23:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/tags/deep-learning/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Web Programming</title>
@@ -26,15 +44,6 @@
       <pubDate>Mon, 12 Apr 2021 11:20:37 +0800</pubDate>
       
       <guid>https://qiushisun.github.io/tags/computer-vision/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>https://qiushisun.github.io/tags/deep-learning/</link>
-      <pubDate>Mon, 12 Apr 2021 11:20:37 +0800</pubDate>
-      
-      <guid>https://qiushisun.github.io/tags/deep-learning/</guid>
       <description></description>
     </item>
     
