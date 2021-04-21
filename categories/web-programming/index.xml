@@ -6,10 +6,19 @@
     <description>Recent content in Web Programming on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Apr 2021 00:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 21 Apr 2021 00:20:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/categories/web-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web Crawler Part4</title>
+      <link>https://qiushisun.github.io/2021/04/web-crawler-part4/</link>
+      <pubDate>Wed, 21 Apr 2021 00:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/04/web-crawler-part4/</guid>
+      <description>&lt;p&gt;Web Crawler Part4: 爬取新浪/搜狐/中国新闻网&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Web Crawler Part3</title>
