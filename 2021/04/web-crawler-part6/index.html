@@ -7,40 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
-<meta name="keywords" content="CUDA, Deep Learning">
-<meta name="description" content="CUDA 快速入门 Part1">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Crawler Part6: 一些爬虫项目的优化与拓展">
 
 
-<meta property="og:description" content="CUDA 快速入门 Part1">
+<meta property="og:description" content="Web Crawler Part6: 一些爬虫项目的优化与拓展">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CUDA 快速入门">
-<meta name="twitter:title" content="CUDA 快速入门">
-<meta property="og:url" content="https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
-<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+<meta property="og:title" content="Web Crawler Part6">
+<meta name="twitter:title" content="Web Crawler Part6">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part6/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part6/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="CUDA 快速入门 Part1">
-<meta name="twitter:description" content="CUDA 快速入门 Part1">
+<meta property="og:description" content="Web Crawler Part6: 一些爬虫项目的优化与拓展">
+<meta name="twitter:description" content="Web Crawler Part6: 一些爬虫项目的优化与拓展">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-04-22T00:23:37">
+    <meta property="article:published_time" content="2021-04-23T08:20:37">
   
   
-    <meta property="article:modified_time" content="2021-04-22T00:23:37">
+    <meta property="article:modified_time" content="2021-04-23T08:20:37">
   
   
   
     
-      <meta property="article:section" content="CUDA">
-    
-      <meta property="article:section" content="Deep Learning">
+      <meta property="article:section" content="Web Programming">
     
   
   
     
-      <meta property="article:tag" content="CUDA">
-    
-      <meta property="article:tag" content="Deep Learning">
+      <meta property="article:tag" content="Web Programming">
     
   
 
@@ -53,8 +49,8 @@
 
 
 
-  <meta property="og:image" content="https://qiushisun.github.io/images/gpu-icon.png">
-  <meta property="twitter:image" content="https://qiushisun.github.io/images/gpu-icon.png">
+  <meta property="og:image" content="https://qiushisun.github.io/images/indexing.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/indexing.png">
 
 
 
@@ -64,14 +60,14 @@
   <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
 
 
-    <title>CUDA 快速入门</title>
+    <title>Web Crawler Part6</title>
 
     <link rel="icon" href="images/icon.png">
     
 
     
 
-    <link rel="canonical" href="https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part6/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -231,15 +227,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      CUDA 快速入门
+      Web Crawler Part6
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-04-22T00:23:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2021-04-23T08:20:37&#43;08:00">
         
-  April 22, 2021
+  April 23, 2021
 
       </time>
     
@@ -248,9 +244,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://qiushisun.github.io/categories/cuda">CUDA</a>, 
-    
-      <a class="category-link" href="https://qiushisun.github.io/categories/deep-learning">Deep Learning</a>
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
     
   
 
@@ -260,14 +254,14 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>CUDA 快速入门 Part1</p>
-<h2 id="cuda-快速入门-part1">CUDA 快速入门 Part1</h2>
-<p>使用CUDA是当前深度学习任务中几乎绕不过去的一环，我们通过这篇文章来简单了解下如何使用一台GPU服务器，并获取当前GPU信息</p>
-<p>核心命令：<em>nvidia-smi</em></p>
-<p>(全称为 Nvidia System Management Interface)</p>
-<p>Reference</p>
+              <p>Web Crawler Part6: 一些爬虫项目的优化与拓展</p>
+<h2 id="web-crawler-part6">Web Crawler Part6</h2>
+<p>在这篇文章中，我们基于先前采集的爬虫信息，做一个能用于信息检索的网站</p>
+<h3 id="section-1--express框架">Section 1 : Express框架</h3>
+<p>Express官方网站：<a href="https://expressjs.com/zh-cn/">https://expressjs.com/zh-cn/</a></p>
+<p>Reference:</p>
 <ol>
-<li>nvidia-smi 命令手册：<a href="https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf">https://developer.download.nvidia.com/compute/DCGM/docs/nvidia-smi-367.38.pdf</a></li>
+<li>Node.js Express Tutorial: <a href="https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm">https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm</a></li>
 </ol>
               
             </div>
@@ -280,9 +274,7 @@
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/cuda/">CUDA</a>
-
-  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/deep-learning/">Deep Learning</a>
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
 
                   </div>
                 
@@ -295,7 +287,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part6/" data-tooltip="Web Crawler Part6">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part5/" data-tooltip="Web Crawler Part5">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -303,7 +295,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part4/" data-tooltip="Web Crawler Part4">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-tooltip="CUDA 快速入门">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -321,19 +313,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -397,7 +389,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part6/" data-tooltip="Web Crawler Part6">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part5/" data-tooltip="Web Crawler Part5">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -405,7 +397,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part4/" data-tooltip="Web Crawler Part4">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-tooltip="CUDA 快速入门">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -423,19 +415,19 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part6/">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -465,19 +457,19 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fcuda-%25E5%25BF%25AB%25E9%2580%259F%25E5%2585%25A5%25E9%2597%25A8%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part6%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fcuda-%25E5%25BF%25AB%25E9%2580%259F%25E5%2585%25A5%25E9%2597%25A8%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part6%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fcuda-%25E5%25BF%25AB%25E9%2580%259F%25E5%2585%25A5%25E9%2597%25A8%2F">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part6%2F">
           <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
         </a>
       </li>
@@ -569,9 +561,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8\/';
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part6\/';
           
-            this.page.identifier = '\/2021\/04\/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8\/'
+            this.page.identifier = '\/2021\/04\/web-crawler-part6\/'
           
         };
         (function() {
