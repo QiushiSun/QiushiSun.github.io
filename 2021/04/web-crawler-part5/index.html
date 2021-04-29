@@ -271,12 +271,25 @@
 <h3 id="section2-搜索功能的实现">Section2: 搜索功能的实现</h3>
 <p>我们使用express搭建一个用于检索爬虫爬取信息的网站，有以下三种检索方式</p>
 <ol>
-<li>关键词匹配（精确查找）</li>
-<li>内容查找（模糊搜索）</li>
+<li>关键词匹配（通过查找）</li>
+<li>内容查找（模糊搜索，搜索包含关键字的内容）</li>
 <li>新闻溯源（根据不同新闻来源进行新闻数据分类显示）</li>
 </ol>
+<p>搜索的实现方法并不麻烦，主要是前后端对齐，设定好路由的方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/process_get&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
+    <span style="color:#75715e">//我们需要传入sql参数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetchSql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span>
+        <span style="color:#e6db74">&#34;from fetches where title like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or content like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ;
+    <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">fetchSql</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">fields</span>) {
+        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>, {
+            <span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span>
+        });
+        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>));
+        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>();
+    });
+</code></pre></div><p>在用户点击查询按钮之后。需要向后方发送请求（如果是空输入默认匹配一个空字符串，也就是现实所有新闻，但我们也可以阻止传递空字符串到后端）。我们利用get方法向后端传递参数，前端功能在得到后端送来的查询结果之后，构建表格，展示新闻信息检索结果，步骤如下所示</p>
 <p>在html文件search.html之中，我们使用以下代码片段来实现读取数据并以表格的形式展示</p>
-<p>但是，如果单纯放一个表格的话，无法支持我们的查询工作，我们需要使用如下方法迭代获取，然后逐步append到表格中</p>
+<p>但是，如果单纯放一个表格的话，无法支持我们的查询工作，我们需要使用如下方法迭代获取，然后逐步append到表格中，在前端部分我们使用一个卡片布局方式</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$(&#34;input:button&#34;).click(function() {
                 $.get(&#39;/process_get?title=&#39; + $(&#34;input:text&#34;).val(), function(data) {
                     $(&#34;#record2&#34;).empty();
@@ -293,9 +306,17 @@
 });
 </code></pre></div><p>紧接着，我们再在search_site文件夹下使用Terminal运行：</p>
 <p><code>node bin/www</code></p>
-<p>然后用用chrome浏览器打开http://127.0.0.1/search.html，即可见到一个极其简易版的爬虫信息检索工具，我们需要为它进行一些美化工作。</p>
+<p>如下所示</p>
+<p><img src="https://qiushisun.github.io/images/crawler-launcher.png" alt="Hugo-logo-wide" title="launch"></p>
+<p>然后用用chrome浏览器打开 <em>localhost:3000/search.html</em> ，即可见到一个极其简易版的爬虫信息检索工具，我们需要为它进行一些美化工作。</p>
 <h3 id="section3-网页美化工作">Section3: 网页美化工作</h3>
 <p>在基本搜索功能可用之后，我们为我们的网页做一些美化工作，主要是以css为主的前端实现</p>
+<p>在我们用express建立我们的项目的同时，public目录下已默认生成了3个目录。</p>
+<ol>
+<li>images文件夹存放网站用到的所有静态图片</li>
+<li>javascripts文件夹中存放前端页面用到的.js文件</li>
+<li>stylesheets文件夹中存放前端css文件</li>
+</ol>
 <h4 id="part1-替换背景图">Part1: 替换背景图</h4>
 <p>单纯一个白色底不是很美观，我们用一张风景照来作为我们的背景，只需要几行简单的css就可以做到</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
@@ -307,10 +328,17 @@
 <h4 id="part2-添加鼠标动画">Part2: 添加鼠标动画</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,100,205&#34;</span> <span style="color:#a6e22e">opacity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.95&#39;</span> <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-2&#34;</span> <span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span> 
  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，加载在html头部即可，效果如下所示</p>
+</code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，加载在html头部即可，效果是在鼠标移动时拉动丝线，鼠标停止时丝线向鼠标周围集中</p>
+<h4 id="part2-添加表格线框并且规定高度">Part2: 添加表格线框并且规定高度</h4>
+<p>如果你已经执行上述操作并且打开网页访问，你会发现因新闻内容/关键词等长短不一，我们的显示会显得有一些凌乱，</p>
 <p>在Terminal中使用node命令，如下</p>
 <p><img src="https://qiushisun.github.io/images/crawler-run.png" alt="Hugo-logo-wide" title="run my site"></p>
-<p>最终，我们直接在本地浏览器中访问：http://localhost:3000/search.html</p>
+<p>最终，我们直接在本地浏览器中访问：http://localhost:3000/search.html 即可使用我们开发的爬虫项目进行检索</p>
+<p>我们通过关键词检索</p>
+<p><img src="https://qiushisun.github.io/images/crawler-search-site.png" alt="Hugo-logo-wide" title="crawler-search-site"></p>
+<p>还可以通过模糊搜索</p>
+<p><img src="https://qiushisun.github.io/images/crawler-search-site2.png" alt="Hugo-logo-wide" title="crawler-search-site"></p>
+<p>到此为止，搜索网站部分的建设全部结束了，接下来我们要进行进一步的项目扩展和分析</p>
 <p>Reference:</p>
 <ol>
 <li>Node.js Express Tutorial: <a href="https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm">https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm</a></li>
