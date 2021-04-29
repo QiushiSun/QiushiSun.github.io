@@ -8,18 +8,18 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Qiushi Sun">
 <meta name="keywords" content="Node.js, Web Programming">
-<meta name="description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网">
+<meta name="description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻">
 
 
-<meta property="og:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网">
+<meta property="og:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web Crawler Part4">
 <meta name="twitter:title" content="Web Crawler Part4">
 <meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part4/">
 <meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part4/">
 <meta property="og:site_name" content="QiushiSun&#39;s Blog">
-<meta property="og:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网">
-<meta name="twitter:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网">
+<meta property="og:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻">
+<meta name="twitter:description" content="Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻">
 <meta property="og:locale" content="en-us">
 
   
@@ -254,23 +254,94 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Web Crawler Part4: 爬取新浪/搜狐/中国新闻网</p>
+              <p>Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻</p>
 <h2 id="web-crawler-part4">Web Crawler Part4</h2>
 <p><img src="https://qiushisun.github.io/images/information-wide.png" alt="Hugo-logo-wide" title="info"></p>
-<p>在这篇文章中，我们基于之前获取的知识，在三个流量比较大，更新频率比较高的新闻网站实现三个新闻信息爬虫</p>
+<p>在这篇文章中，我们基于之前获取的知识，在四个流量比较大，更新频率比较高的新闻网站实现四个新闻信息爬虫</p>
+<p>爬虫的流程请见该专题第二篇博客，本篇博客展示爬取不同网站所需的正则和一些补充</p>
 <h3 id="section-1--中国新闻网">Section 1 : 中国新闻网</h3>
-<p>爬虫的执行过程如下所示：</p>
+<p>爬虫正则如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">format</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">source_name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;中国新闻网&#34;</span>,
+    <span style="color:#a6e22e">myEncoding</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>,
+    <span style="color:#a6e22e">seedURL</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www.chinanews.com/&#39;</span>,
+    <span style="color:#a6e22e">seedURL_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;a&#39;)&#34;</span>,
+    <span style="color:#a6e22e">keywords_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;keywords\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">title_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;title&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">date_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#pubtime_baidu&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">author_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#editor_baidu&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">content_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;.left_zw&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">desc_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;description\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">source_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#source_baidu&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">url_reg</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/^\/\/www\.chinanews\.com\/.*\/(\d{4})\/(\d{2})-(\d{2})\/(\d{7}).shtml$/</span>,
+    <span style="color:#a6e22e">regExp</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/((\d{4}|\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2})|(\d{4}年\d{1,2}月\d{1,2}日)/</span>
+};
+</code></pre></div><p>爬虫的执行过程如下所示：</p>
 <p><img src="https://qiushisun.github.io/images/crawler-chinanews-process.png" alt="Hugo-logo-wide" title="china-news"></p>
 <p>随后，我们可以在数据库中查看爬到的中国新闻网的条目</p>
 <p><img src="https://qiushisun.github.io/images/crawler-china-news-entry.png" alt="Hugo-logo-wide" title="china-news"></p>
 <h3 id="section-2--搜狐新闻">Section 2 : 搜狐新闻</h3>
-<p>爬虫的执行过程如下所示：</p>
-<p><img src="https://qiushisun.github.io/images/crawler-sina-news-process.png" alt="Hugo-logo-wide" title="souhu-news"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">format</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">source_name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;搜狐新闻&#34;</span>,
+    <span style="color:#a6e22e">myEncoding</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>,
+    <span style="color:#a6e22e">seedURL</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://news.sohu.com/&#39;</span>,
+    <span style="color:#a6e22e">seedURL_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;a&#39;)&#34;</span>,
+    <span style="color:#a6e22e">keywords_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;keywords\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">title_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;title&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">date_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;meta[itemprop=\&#34;datePublished\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">author_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;div&gt;div&gt;div&gt;div&gt;h4&gt;a&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">content_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;div[data-spm=\&#34;content\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">desc_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;description\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">source_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#source_baidu&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">url_reg</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/\/\/www\.sohu\.com\/a\/.*/</span>,
+    <span style="color:#a6e22e">regExp</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/((\d{4}|\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2})|(\d{4}年\d{1,2}月\d{1,2}日)/</span>
+};
+</code></pre></div><p>爬虫的执行过程如下所示：</p>
+<p><img src="https://qiushisun.github.io/images/crawler-souhu-news-process.png" alt="Hugo-logo-wide" title="souhu-news"></p>
 <p>同样的，我们可以在数据库中查看爬到的搜狐新闻的条目</p>
 <p><img src="https://qiushisun.github.io/images/crawler-souhu-news-entry.png" alt="Hugo-logo-wide" title="souhu-news"></p>
-<h3 id="section-3--新浪新闻">Section 3 : 新浪新闻</h3>
-<p>爬虫的执行过程如下所示：</p>
-<p><img src="https://qiushisun.github.io/images/crawler-souhu-news-process.png" alt="Hugo-logo-wide" title="sina-news"></p>
+<h3 id="section-3--网易新闻">Section 3 : 网易新闻</h3>
+<p>爬取网易新闻所需要的正则如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// net-ease news
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">format</span> <span style="color:#f92672">=</span> {
+<span style="color:#a6e22e">source_name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;网易新闻&#34;</span>;
+<span style="color:#a6e22e">domain</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://news.163.com/&#39;</span>;
+<span style="color:#a6e22e">myEncoding</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>;
+<span style="color:#a6e22e">seedURL</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://news.163.com/&#39;</span>;
+<span style="color:#a6e22e">seedURL_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;a&#39;)&#34;</span>;
+<span style="color:#a6e22e">keywords_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;keywords\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>;
+<span style="color:#a6e22e">title_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;title&#39;).text()&#34;</span>;
+<span style="color:#a6e22e">date_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;html#ne_wrap&#39;).attr(\&#34;data\-publishtime\&#34;)&#34;</span>;<span style="color:#75715e">//
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">author_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;.ep-editor&#39;).text()&#34;</span>;
+<span style="color:#a6e22e">content_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#endText&#39;).text()&#34;</span>;
+<span style="color:#a6e22e">desc_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[name=\&#34;description\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>;
+<span style="color:#a6e22e">source_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;#ne_article_source&#39;).text()&#34;</span>;
+<span style="color:#a6e22e">url_reg</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/\/(\d{2})\/(\d{4})\/(\d{2})\/([A-Z0-9]{16}).html/</span>;
+}
+</code></pre></div><p>爬虫的执行过程如下所示：</p>
+<p><img src="https://qiushisun.github.io/images/netease-news-crawling.png" alt="Hugo-logo-wide" title="net-ease-news"></p>
+<p>同样的，我们可以在数据库中查看爬到的搜狐新闻的条目</p>
+<p><img src="https://qiushisun.github.io/images/crawler-netease-entries.png" alt="Hugo-logo-wide" title="netease-news"></p>
+<h3 id="section-4--新浪新闻">Section 4 : 新浪新闻</h3>
+<p>新浪新闻正则如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">format</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">source_name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;新浪新闻&#34;</span>,
+    <span style="color:#a6e22e">myEncoding</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;utf-8&#34;</span>,
+    <span style="color:#a6e22e">seedURL</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://news.sina.com.cn/&#39;</span>,
+    <span style="color:#a6e22e">seedURL_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;div&gt;ul&gt;li&gt;a&#39;)&#34;</span>,
+    <span style="color:#a6e22e">keywords_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;div[class=\&#34;keywords\&#34;]&gt;a&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">title_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;h1[class=\&#34;main-title\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">date_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;span[class=\&#34;date\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">author_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;a[class=\&#34;source\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">content_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;div[class=\&#34;article\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">desc_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34; $(&#39;meta[property=\&#34;og:description\&#34;]&#39;).eq(0).attr(\&#34;content\&#34;)&#34;</span>,
+    <span style="color:#a6e22e">source_format</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$(&#39;a[class=\&#34;source\&#34;]&#39;).text()&#34;</span>,
+    <span style="color:#a6e22e">url_reg</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/\/\/news.sina.com.cn\/[a-z]\/.*\.shtml/</span>,
+    <span style="color:#a6e22e">regExp</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">/((\d{4}|\d{2})(\-|\/|\.)\d{1,2}\3\d{1,2})|(\d{4}年\d{1,2}月\d{1,2}日)/</span>
+};
+
+</code></pre></div><p>爬虫的执行过程如下所示：</p>
+<p><img src="https://qiushisun.github.io/images/crawler-sina-news-process.png" alt="Hugo-logo-wide" title="sina-news"></p>
 <p>最后，我们用数据库查看爬到的新浪新闻的条目</p>
 <p><img src="https://qiushisun.github.io/images/crawler-sina-news-entry.png" alt="Hugo-logo-wide" title="sina-news"></p>
 <p>接下来，我们看看在具体爬取的过程中需要注意些什么</p>

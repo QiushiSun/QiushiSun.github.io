@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming, Visualization">
+<meta name="description" content="Web Crawler Part8: 对爬取数据的分析与可视化">
+
+
+<meta property="og:description" content="Web Crawler Part8: 对爬取数据的分析与可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Crawler Part8">
+<meta name="twitter:title" content="Web Crawler Part8">
+<meta property="og:url" content="https://qiushisun.github.io/2021/04/web-crawler-part8/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/04/web-crawler-part8/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Crawler Part8: 对爬取数据的分析与可视化">
+<meta name="twitter:description" content="Web Crawler Part8: 对爬取数据的分析与可视化">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-04-28T10:20:37">
+  
+  
+    <meta property="article:modified_time" content="2021-04-28T10:20:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/crawler-wordcloud-icon.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/crawler-wordcloud-icon.png">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Web Crawler Part8</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/04/web-crawler-part8/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Web Crawler Part8
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-04-28T10:20:37&#43;08:00">
+        
+  April 28, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Crawler Part8: 对爬取数据的分析与可视化</p>
+<h2 id="web-crawler-part8">Web Crawler Part8</h2>
+<p>在最后一篇与爬虫项目相关的博客中，我们对爬取的信息做一些热度分析，并借助echarts进行可视化展示</p>
+<p><img src="https://qiushisun.github.io/images/crawler-wide-logo.png" alt="Hugo-logo-wide" title="crawler-wide-logo"></p>
+<p>Apache Charts 官方网站：<a href="http://echarts.apache.org/en/index.html">http://echarts.apache.org/en/index.html</a></p>
+<h3 id="section-1-使用apache-echarts">Section 1: 使用Apache ECharts</h3>
+<p><em>ECharts，缩写来自Enterprise Charts，商业级数据图表，一个纯Javascript的图表库，可以流畅的运行在PC和移动设备上，兼容当前绝大部分浏览器，提供直观，生动，可交互，可高度个性化定制的数据可视化图表。创新的拖拽重计算、数据视图、值域漫游等特性大大增强了用户体验，赋予了用户对数据进行挖掘、整合的能力。</em></p>
+<p>ECharts原先是百度前端团队的可视化工具，开源后成为了Apache基金会的项目</p>
+<p><img src="https://qiushisun.github.io/images/echarts-long.png" alt="Hugo-logo-wide" title="ECharts"></p>
+<p>我们既然是使用Node.js开发，显然是需要使用npm命令安装相应的包，命令如下</p>
+<pre><code>npm install echarts 
+</code></pre><h3 id="section-2-简易分析爬取的数据">Section 2: 简易分析爬取的数据</h3>
+<p>要分析我们所爬到的数据，我们依然需要使用Node.js来操作数据库，具体方法如下</p>
+<p>先连接上我们的MySQL数据库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mysql</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;mysql&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">createConnection</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;localhost&#39;</span>,
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;root&#39;</span>,
+    <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;*******&#39;</span>,
+    <span style="color:#a6e22e">database</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;crawl&#39;</span>
+});
+<span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">connect</span>();
+</code></pre></div><p>随后我们可以尝试统计含有关键词的新闻条目个数，如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetchSql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select count(url) &#34;</span> <span style="color:#f92672">+</span>
+<span style="color:#e6db74">&#34;from fetches where title like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;新冠&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or content like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;疫苗&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ; 
+</code></pre></div><p>我们现在统计一下新闻内容中出现“新冠”/“疫苗”的条目个数，并将其打印出来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">fetchSql</span>,<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>) {
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">err</span>){
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[SELECT ERROR] - &#39;</span>,<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">message</span>);
+          <span style="color:#66d9ef">return</span>;
+        }
+       <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+});
+
+<span style="color:#75715e">//返回结果为：
+</span><span style="color:#75715e">//[ RowDataPacket { &#39;count(url)&#39;: 37 } ]
+</span></code></pre></div><p>可以看到，我们所爬到的数据中有37条符合要求的。</p>
+<p>我们并不能直接使用这个数据做分析，因为我们可以使用typeof来查看下返回的数据类型</p>
+<p>我们把 <em>console.log(result);</em> 替换为：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">typeof</span>(<span style="color:#a6e22e">result</span>));
+<span style="color:#75715e">// 返回结果为：
+</span><span style="color:#75715e">// object
+</span></code></pre></div><p>通过这种SQL查询方式所得到的结果类型是对象列表，我们需要显式的取出其中的元素</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(Object.<span style="color:#a6e22e">values</span>(<span style="color:#a6e22e">result</span>));
+<span style="color:#75715e">//返回结果为：
+</span><span style="color:#75715e">//[ RowDataPacket { &#39;count(url)&#39;: 20 } ]
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#34;count(url)&#34;</span>])
+<span style="color:#75715e">//返回结果为：
+</span><span style="color:#75715e">//20
+</span></code></pre></div><p>我们成功获取了一条数据，这是当前包含我们所查询关键词的新闻内容的条目个数，如果要再细分查询的方式，可以加入时间信息限制/新闻来源限制，如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">count</span>(url),keywords <span style="color:#66d9ef">FROM</span> crawl.fetches <span style="color:#66d9ef">where</span> source_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;新浪新闻&#39;</span> <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> keywords ;
+</code></pre></div><p>我们也可以在条件查询句中加入 <em>DATEDIFF</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">where</span> DATEDIFF(hh,datetime,getDate()) <span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">24</span>
+</code></pre></div><p>来查询24小时内爬取到的新闻，datetime为指定的起始时间，getDate()为当前时间</p>
+<h3 id="section-3-使用echarts进行数据可视化">Section 3: 使用ECharts进行数据可视化</h3>
+<p>如果仔细观察我们所爬到的数据的话，可以明显发现这些条目的关键词数量明显服从长尾分布（即少量关键词占据相当一定比例，大量关键词只出现一次）。如果使用传统的折线图/柱状图进行可视化热度分析的话，一是条目个数太多，二是想覆盖完全这些关键词，就会得到一张超长的图。为了避免这样的情况，我们使用一个**WordCloud(词云图)**来做可视化分析（课堂上老师也提过Echarts这个非常好用且功能强大的module，不过没有深入，借这个机会研究一下）</p>
+<p>老规矩，在开始之前我们需要使用npm安装echarts-wordcloud</p>
+<p>核心组件如下：</p>
+<ol>
+<li>echarts-wordcloud.min.js</li>
+<li>echarts.min.js</li>
+</ol>
+<p>（使用完全版也可以，但这个项目不需要）</p>
+<p>选取并统计关键词出现个数的流程如下（以从新浪新闻爬取的数据为例）</p>
+<ol>
+<li>从数据库中选取各条目关键词</li>
+<li>统计关键词的个数，剔除出现次数小于2次的关键词，导出为json/csv文件（因为涉及一些预处理，直接使用node.js操作MySQL来做这件事太过繁琐，我们可以以一个json格式文件作为媒介。）</li>
+<li>转化为关键词-数量对（key-value）</li>
+</ol>
+<p>选取关键词最简单的方式就是使用 <em>group by</em>，但是因为有的关键词数量不止一个，<em>group by</em> 返回的结果精确度会打折扣，如果求方便的话可以用python对导出的数据做一点简单的（如去重，合并）等数据预处理（单纯用js或者sql应该也可以做，但是会比较麻烦），这样的话最后的可视化效果会更好</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">count</span>(url),keywords <span style="color:#66d9ef">FROM</span> crawl.fetches <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> keywords;
+</code></pre></div><p>上述工作为数据预处理部分，接下来我们新建一个html用于展示我们的wordcloud</p>
+<p>首先需要导入一些我们需要的模块</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;https://cdn.bootcss.com/echarts/3.7.0/echarts.simple.js&#39;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;./echarts-wordcloud.js&#39;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p><strong>Remark</strong>: Echarts的WordCloud模块对版本敏感，在使用Echarts和Echarts-wordcloud时务必注意版本对齐</p>
+<p>我们可以选择导入之前保存的kv字典（把SQL查询和这些内容混写实在是太麻烦），我们也可以显式的直接放在项目之中，数据形式如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">data: <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+        name<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;疫情&#34;</span><span style="color:#f92672">,</span>
+        value<span style="color:#f92672">:</span> 33
+        <span style="color:#f92672">},</span>
+        <span style="color:#f92672">{</span>
+        name<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;疫苗&#34;</span><span style="color:#f92672">,</span>
+        value<span style="color:#f92672">:</span> 21
+        <span style="color:#f92672">},</span>
+<span style="color:#f92672">..............</span> <span style="color:#75715e">//还有很多数据
+</span><span style="color:#75715e"></span><span style="color:#f92672">]</span>
+</code></pre></div><p>Echarts的格式分为以下几个部分，如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">chart</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">echarts</span>.<span style="color:#a6e22e">init</span>(document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;main&#39;</span>));
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">option</span> <span style="color:#f92672">=</span> {...} <span style="color:#75715e">//这里具体化我们的图片的细节
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">chart</span>.<span style="color:#a6e22e">setOption</span>(<span style="color:#a6e22e">option</span>);
+window.<span style="color:#a6e22e">onresize</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">chart</span>.<span style="color:#a6e22e">resize</span>;
+</code></pre></div><p>具体的格式虽然复杂，但是非常容易懂，可以看下方的参考链接查看词云模块的使用规范，我在这里仅讲解一下有具体内容的部分，具体部分可以看提供的代码中的实现细节</p>
+<p>我们在option选项中具体化我们的图片的形式，内容和各种细节（如字体，大小）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">series</span><span style="color:#f92672">:</span> [ {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;wordCloud&#39;</span>, <span style="color:#75715e">// 类型
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">gridSize</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,  <span style="color:#75715e">// 网格大小
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">sizeRange</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">50</span>],  <span style="color:#75715e">// 大小范围
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">rotationRange</span><span style="color:#f92672">:</span> [<span style="color:#f92672">-</span><span style="color:#ae81ff">90</span>, <span style="color:#ae81ff">90</span>], <span style="color:#75715e">// 文字旋转
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">shape</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;pentagon&#39;</span>, <span style="color:#75715e">// 样式，还可以选择如star
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">800</span>, <span style="color:#75715e">//宽
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">250</span>, <span style="color:#75715e">// 高
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">drawOutOfBound</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  					.......
+}
+</code></pre></div><p>上述内容包括在option之中，我们再在textStyle中设置我们的文本状态</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">textStyle</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">normal</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;rgb(&#39;</span> <span style="color:#f92672">+</span> [
+              Math.<span style="color:#a6e22e">round</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">150</span>),
+              Math.<span style="color:#a6e22e">round</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">150</span>),
+              Math.<span style="color:#a6e22e">round</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#ae81ff">150</span>)
+            ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;,&#39;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;)&#39;</span>;
+          }
+        },
+          <span style="color:#a6e22e">emphasis</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">shadowBlur</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span>,
+              <span style="color:#a6e22e">shadowColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#333&#39;</span>
+          }
+      },
+</code></pre></div><p>很多元数据顾名思义就能知道它在词云图中扮演什么角色了。</p>
+<p>最后我们将数据直接复制进我们的项目/以键值对形式导入，就大功告成了</p>
+<p>以下是使用Echarts WordCloud所生成的词云的效果，共四张，采用了不同的形状设计</p>
+<p><img src="https://qiushisun.github.io/images/crawler-word-cloud1.png" alt="Hugo-logo-wide" title="WordCloud-Pentagon"></p>
+<p>第二张词云，我们使用三角形词云可以看到这种方式还是非常直观的，新冠、疫苗、限购令、学区房等都是近期各大媒体讨论的热点话题。</p>
+<p><img src="https://qiushisun.github.io/images/crawler-wordcloud-triangle.png" alt="Hugo-logo-wide" title="WordCloud-Triangle"></p>
+<p>还可以使用钻石形词云</p>
+<p><img src="https://qiushisun.github.io/images/crawler-wordcloud-diamond.png" alt="Hugo-logo-wide" title="WordCloud-Diamond"></p>
+<p>最后是五角星形词云，效果也不错</p>
+<p><img src="https://qiushisun.github.io/images/crawler-wordcloud-star.png" alt="Hugo-logo-wide" title="WordCloud-Star"></p>
+<p><strong>到此为止，这个基于爬虫技术的web编程开发就结束了，感谢您的观看！</strong></p>
+<p><strong>同时也感谢助教老师在这个项目上对我的问题的耐心解答。</strong></p>
+<p>Reference</p>
+<ol>
+<li>ECharts 文档 <a href="https://echarts.apache.org/en/tutorial.html#Server-side%20Rendering">https://echarts.apache.org/en/tutorial.html#Server-side%20Rendering</a></li>
+<li>npm-Echarts <a href="https://www.npmjs.com/package/echarts">https://www.npmjs.com/package/echarts</a></li>
+<li>Echarts-wordcloud <a href="https://github.com/ecomfe/echarts-wordcloud">https://github.com/ecomfe/echarts-wordcloud</a></li>
+</ol>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part7/" data-tooltip="Web Crawler Part7">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part7/" data-tooltip="Web Crawler Part7">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/04/web-crawler-part8/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part8%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part8%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F04%2Fweb-crawler-part8%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/04\/web-crawler-part8\/';
+          
+            this.page.identifier = '\/2021\/04\/web-crawler-part8\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

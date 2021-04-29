@@ -6,10 +6,28 @@
     <description>Recent content on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Apr 2021 10:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 28 Apr 2021 10:20:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web Crawler Part8</title>
+      <link>https://qiushisun.github.io/2021/04/web-crawler-part8/</link>
+      <pubDate>Wed, 28 Apr 2021 10:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/04/web-crawler-part8/</guid>
+      <description>&lt;p&gt;Web Crawler Part8: 对爬取数据的分析与可视化&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web Crawler Part7</title>
+      <link>https://qiushisun.github.io/2021/04/web-crawler-part7/</link>
+      <pubDate>Sun, 25 Apr 2021 10:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/04/web-crawler-part7/</guid>
+      <description>&lt;p&gt;Web Crawler Part7: 使用文档型数据库开发爬虫项目&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Web Crawler Part6</title>
@@ -44,7 +62,7 @@
       <pubDate>Wed, 21 Apr 2021 00:20:37 +0800</pubDate>
       
       <guid>https://qiushisun.github.io/2021/04/web-crawler-part4/</guid>
-      <description>&lt;p&gt;Web Crawler Part4: 爬取新浪/搜狐/中国新闻网&lt;/p&gt;</description>
+      <description>&lt;p&gt;Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻&lt;/p&gt;</description>
     </item>
     
     <item>

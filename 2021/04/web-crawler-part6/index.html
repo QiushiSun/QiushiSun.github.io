@@ -302,9 +302,54 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">index</span> source_name_hash <span style="color:#66d9ef">using</span> hash <span style="color:#66d9ef">on</span> crawl.fetches(source_name);
 </code></pre></div><p>但是，MySQL数据库的常见存储引擎 InnoDB和MyISAM都不支持哈希索引，它们默认的索引都是 B-Tree，所以说，即使你用了 <em>using hash</em> 这个关键词，最后建立的依然是B-Tree索引，如下所示</p>
 <p><img src="https://qiushisun.github.io/images/crawler-index.png" alt="Hugo-logo-wide" title="index"></p>
-<p>我们可以看到建立了B-Tree索引，虽然不如我们所愿，但依然能提供查询性能的提升。</p>
+<p>我们可以看到建立了B-Tree索引，虽然不如我们所愿，但依然能提供一定程度上的查询性能的提升。</p>
 <p>不过在文档型数据库MongoDB和使用Heap引擎的PostgreSQL可以使用Hash索引，如果精力允许我再尝试在另外两种数据库上部署这个项目</p>
 <p>（Remark：索引是数据库中的一种冗余，每当数据被增删改查都会涉及索引的维护，也会是一种开销，所以不是建立的越全面越好。）</p>
+<h3 id="section-3使用postgresql">Section 3:使用PostgreSQL</h3>
+<p>前面提到了MySQL所使用的InnoDB引擎不支持使用Hash索引，我本身也经历过一些与PostgreSQL相关的开发工作，所以我也在这里尝试通过PostgreSQL来开发这个爬虫项目。由于二者都适用SQL，所以我不在细节上展开，仅仅做一些介绍。</p>
+<p><img src="https://qiushisun.github.io/images/crawler-node-pg.png" alt="Hugo-logo-wide" title="postgres"></p>
+<p>Postgres官网 <a href="https://www.postgresql.org">https://www.postgresql.org</a></p>
+<p>与使用MySQL开发类似，想要操作数据库，我们先需要Node.js模组<em>node-postgres</em>，直接使用下面的命令即可</p>
+<pre><code>npm install node-postgres
+</code></pre><p>随后，用类似的方法将数据库和我们的node.js连接</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;pg&#39;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Client</span>({
+ <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;postgres&#39;</span>,
+ <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;localhost&#39;</span>,
+ <span style="color:#a6e22e">database</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;crawler&#39;</span>,
+ <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;xxxxxxx&#39;</span>,
+ <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5432</span>,
+});
+
+<span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">connect</span>();
+
+</code></pre></div><p>随后的与Node.js相关的操作基本与MySQL一致，在此就不多赘述了</p>
+<p>但是我们不想丢弃掉先前爬取的数据，所以我们需要把原先存储在MySQL的数据导入Postgres，在这里我是用Navicat Premium进行演示</p>
+<p>我们先把之前爬取的数据导出，MySQL Workbench可以轻松办到这件事，我选择导出为.json格式，如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">	{
+		<span style="color:#f92672">&#34;id_fetches&#34;</span> : <span style="color:#ae81ff">97</span>,
+		<span style="color:#f92672">&#34;url&#34;</span> : <span style="color:#e6db74">&#34;http://www.sohu.com/a/460084137_162758&#34;</span>,
+		<span style="color:#f92672">&#34;source_name&#34;</span> : <span style="color:#e6db74">&#34;搜狐新闻&#34;</span>,
+		<span style="color:#f92672">&#34;source_encoding&#34;</span> : <span style="color:#e6db74">&#34;utf-8&#34;</span>,
+		<span style="color:#f92672">&#34;title&#34;</span> : <span style="color:#e6db74">&#34;航母辽宁舰和美舰碰面了_美国海军&#34;</span>,
+		<span style="color:#f92672">&#34;keywords&#34;</span> : <span style="color:#e6db74">&#34;航母,马斯廷,驱逐舰,辽宁,训练,特遣部队,中国,组织,美国海军,照片,马斯廷,驱逐舰,中国海军,辽宁舰,美国海军&#34;</span>,
+		<span style="color:#f92672">&#34;author&#34;</span> : <span style="color:#e6db74">&#34;光明网&#34;</span>,
+		<span style="color:#f92672">&#34;publish_date&#34;</span> : <span style="color:#e6db74">&#34;2021-04-11&#34;</span>,
+		<span style="color:#f92672">&#34;crawltime&#34;</span> : <span style="color:#e6db74">&#34;2021-04-11 17:44:45&#34;</span>,
+		<span style="color:#f92672">&#34;content&#34;</span> : <span style="color:#e6db74">&#34; 航母辽宁舰和美舰碰面了2021-04-11 08:02\来源:光明网原标题：航母辽宁舰和美舰碰面了日，中国海军航母辽宁舰与美国海军的一艘驱逐舰在菲律宾海有了近距离接触。 照片里的两名美军军官是“马斯廷”号驱逐舰的指挥官罗伯特·布里格斯中校与理查德·斯莱中校，他们当时正在导航室里监测水面接触情况。 \n照片显示，“马斯廷”号导弹驱逐舰与中国海军航母辽宁舰并排航行，这两艘军舰的距离并不算远，甚至可以很清楚的从美军的视角看到辽宁舰的舷号和甲板上的舰载机。 \n美国海军表示，“马斯廷”号属于第71特遣部队/第15驱逐舰中队，后者是美国海军最大的驱逐舰中队，也是美国第七舰队的主要水面部队。 \n4月5日，中国海军新闻发言人高秀成海军大校介绍，日前，中国海军组织辽宁舰航母编队在台湾周边海域进行训练，这是根据年度工作计划组织的例行性训练，旨在检验部队训练成效，有利于提高维护国家主权、安全、发展利益的能力。今后，中国海军仍将按计划常态组织类似演训活动。&#34;</span>,
+		<span style="color:#f92672">&#34;description&#34;</span> : <span style="color:#e6db74">&#34; 这一消息曝光自美国海军官方发布的一张照片。 照片显示，“马斯廷”号导弹驱逐舰与中国海军航母辽宁舰并排航行，这两艘军舰的距离并不算远，甚至可以很清楚的从美军的视角看到辽宁舰的舷号和甲板上的舰载机。…&#34;</span>,
+		<span style="color:#f92672">&#34;createtime&#34;</span> : <span style="color:#e6db74">&#34;2021-04-11 17:44:46&#34;</span>,
+	}<span style="color:#960050;background-color:#1e0010">,</span>
+</code></pre></div><p>随后我们通过Navicat导入，我们使用import wizard进行操作。在导入数据时选择 （root）将所有爬取的新闻数据和表信息全部导入新的表。</p>
+<p><img src="https://qiushisun.github.io/images/crawler-pg-meta.png" alt="Hugo-logo-wide" title="crawler-pg-meta"></p>
+<p>如果是手动初始化的数据库元数据，选择“全部替换”即可，若是空数据库，选择“追加”，最后可以检查成功导入的条目个数</p>
+<p><img src="https://qiushisun.github.io/images/crawler-pg-import.png" alt="Hugo-logo-wide" title="postgres-import"></p>
+<p>最后，我们成功迁移了我们的数据到Postgres数据库，并且只要切换连接的数据库，就可以将新爬取的新闻数据存入Postgres数据库了。</p>
+<p><img src="https://qiushisun.github.io/images/crawler-pg-entry.png" alt="Hugo-logo-wide" title="postgres-entries"></p>
+<p>此外，我们同样可以添加Hash索引和B-Tree索引，加速查询。</p>
+<p><strong>到此为止，我们的爬虫项目已经做了相当多的优化，可以完成定时爬取任务，还可以同时使用MySQL和Postgres存储爬取的信息，并且使用索引技术加速查询。</strong></p>
+<p>下一篇文章中，我们将尝试使用文档型数据库MongoDB进行该项目的开发。</p>
               
             </div>
           </div>
@@ -329,7 +374,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part7/" data-tooltip="Web Crawler Part7">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -431,7 +476,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/04/web-crawler-part7/" data-tooltip="Web Crawler Part7">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>

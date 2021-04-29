@@ -265,12 +265,12 @@
 <ol>
 <li>MySQL Community Server（数据库服务器本身）</li>
 <li>MySQL Shell（用于在命令行操作数据库，MacOS版在安装MySQL Server后自行配置即可）</li>
-<li>可选：MySQL Workbench （一个可视化界面，就像MongoDB的MongoDB Compass）</li>
+<li>可选：MySQL Workbench （一个可视化界面，就像MongoDB的MongoDB Compass，后者我们在之后的拓展部分也会用到）</li>
 </ol>
 <p>安装完成后可以配置 root 用户，并设置密码，然后使用如下命令登陆数据库：</p>
 <p><code>mysql -u root -p </code></p>
 <p>**Remark：**输入密码时，密码是不会显示在命令行的，只管输入即可。</p>
-<p>执行上述命令吼，你可以在 mysql&gt; 提示符执行SQL命令，退出请输入 “quit”</p>
+<p>执行上述命令后，你可以在 mysql&gt; 提示符执行SQL命令，退出请输入 “quit”</p>
 <p>为了方便接下来的实验，进入mysql后我们创建一个数据库crawl,然后再创建一个表fetches用于存储信息，我们可以直接执行如下SQL语句：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>fetches<span style="color:#f92672">`</span> (
   <span style="color:#f92672">`</span>id_fetches<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">11</span>)  <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
@@ -296,7 +296,7 @@
 <p>即可直接安装mysql module</p>
 <h3 id="section3-trouble-shooting">Section3: Trouble Shooting</h3>
 <p>我个人是在macOS系统下进行开发的，在配置MySQL数据库时会遇到一些问题，在此</p>
-<h4 id="case1-mysql环境变量错误">Case1: mysql环境变量错误</h4>
+<h4 id="case1-mysql环境变量错误">Case1: MySQL环境变量错误</h4>
 <p>在Mac端的terminal或者是iterm中输入mysql -u root -p，出现：zsh: command not found: mysql的提示，那么就代表当前MySQL的环境变量配置有误，可以通过以下方式解决：</p>
 <ol>
 <li>cd ~ 进入根目录</li>
@@ -327,11 +327,12 @@ mysql&gt; flush privileges;
 Query OK, 0 rows affected (0.02 sec)</p>
 </li>
 <li>
-<p>mysql&gt; quit
-Bye</p>
+<p>mysql&gt; quit</p>
+<p>Bye</p>
 </li>
 </ol>
 <p>上述两种错误是MacOS端配置MySQL数据库时的常见问题。</p>
+<p>完成这些基本配置后，我们就可以愉快的进行爬虫项目开发了</p>
               
             </div>
           </div>

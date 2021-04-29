@@ -258,8 +258,56 @@
 <h2 id="web-crawler-part5">Web Crawler Part5</h2>
 <p><img src="https://qiushisun.github.io/images/nodejs-express-cion.png" alt="Hugo-logo-wide" title="express"></p>
 <p>在这篇文章中，我们基于先前采集的爬虫信息，做一个能用于信息检索的网站</p>
-<h3 id="section-1--express框架">Section 1 : Express框架</h3>
-<p>Express官方网站：<a href="https://expressjs.com/zh-cn/">https://expressjs.com/zh-cn/</a></p>
+<p>我们已经有了四只爬虫和一个存储着爬取到的数据的MySQL数据库，我们现在搭建一个网站，来尝试对爬取的信息做检索</p>
+<h3 id="section-1-express框架">Section 1: Express框架</h3>
+<p>Express官方网站：<a href="https://expressjs.com/zh-cn/">https://expressjs.com/zh-cn/</a> 可以直接通过npm安装</p>
+<p>由于只使用node.js开发，我们就用express脚手架来创建一个网站框架</p>
+<p>命令如下</p>
+<p><code>express –e search_site</code>  Remark: –-e参数表明我们用ejs作为缺省view引擎，而非采用jade</p>
+<p>随后可以生成一个search_site的文件夹</p>
+<p>最后，由于我们需要和数据库打交道，所以需要mysql.js也复制到路径下</p>
+<p>最后的文件目录结构如下所示</p>
+<p><img src="https://qiushisun.github.io/images/crawler-express-dir.png" alt="Hugo-logo-wide" title="directory"></p>
+<h3 id="section2-搜索功能的实现">Section2: 搜索功能的实现</h3>
+<p>我们使用express搭建一个用于检索爬虫爬取信息的网站，有以下三种检索方式</p>
+<ol>
+<li>关键词匹配（精确查找）</li>
+<li>内容查找（模糊搜索）</li>
+<li>新闻溯源（根据不同新闻来源进行新闻数据分类显示）</li>
+</ol>
+<p>在html文件search.html之中，我们使用以下代码片段来实现读取数据并以表格的形式展示</p>
+<p>但是，如果单纯放一个表格的话，无法支持我们的查询工作，我们需要使用如下方法迭代获取，然后逐步append到表格中</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$(&#34;input:button&#34;).click(function() {
+                $.get(&#39;/process_get?title=&#39; + $(&#34;input:text&#34;).val(), function(data) {
+                    $(&#34;#record2&#34;).empty();
+                    $(&#34;#record2&#34;).append(&#39;&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cardLayout&#34;</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;url&lt;/<span style="color:#f92672">td</span>&gt;&#39; +
+                      &#39;&lt;<span style="color:#f92672">td</span>&gt;news title&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;keywords&lt;/<span style="color:#f92672">td</span>&gt;&lt;<span style="color:#f92672">td</span>&gt;description&lt;/<span style="color:#f92672">td</span>&gt;&lt;/<span style="color:#f92672">tr</span>&gt;&#39;);
+                  for (let list of data) {
+                      let table = &#39;&lt;<span style="color:#f92672">tr</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cardLayout&#34;</span>&gt;&#39;;
+                      Object.values(list).forEach(element =&gt; {
+                          table += (&#39;&lt;<span style="color:#f92672">td</span>&gt;&#39; + element + &#39;&lt;/<span style="color:#f92672">td</span>&gt;&#39;);
+                      });
+                      $(&#34;#record2&#34;).append(table + &#39;&lt;/<span style="color:#f92672">tr</span>&gt;&#39;);
+                  }
+          });
+});
+</code></pre></div><p>•在search_site文件夹下cmd运行：</p>
+<p>•node bin/www</p>
+<p>•用chrome浏览器打开http://127.0.0.1/search.html</p>
+<h3 id="section3-网页美化工作">Section3: 网页美化工作</h3>
+<p>在基本搜索功能可用之后，我们为我们的网页做一些美化工作</p>
+<h4 id="part1-替换背景图">Part1: 替换背景图</h4>
+<p>单纯一个白色底不是很美观，我们用一张风景照来作为我们的背景，只需要几行简单的css就可以做到</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+    <span style="color:#66d9ef">background-image</span>:url(<span style="color:#e6db74">&#39;web-crawler-bg1.png&#39;</span>);
+    <span style="color:#66d9ef">background-size</span>:<span style="color:#66d9ef">cover</span>;
+    <span style="color:#66d9ef">opacity</span>:<span style="color:#ae81ff">0.95</span>;
+}
+</code></pre></div><p>把上述信息加入我们的css文件内即可，不过要注意路径正确，建议放在与我们的css文件相同一个路径下，然后用相对路径来引用这张图片，否则迁移到另一台机器/平台时会无法索引到这张背景图</p>
+<h4 id="part2-添加鼠标动画">Part2: 添加鼠标动画</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,100,205&#34;</span> <span style="color:#a6e22e">opacity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.95&#39;</span> <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-2&#34;</span> <span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span> 
+ <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，加载在html头部即可，效果如下所示</p>
 <p>在Terminal中使用node命令，如下</p>
 <p><img src="https://qiushisun.github.io/images/crawler-run.png" alt="Hugo-logo-wide" title="run my site"></p>
 <p>最终，我们直接在本地浏览器中访问：http://localhost:3000/search.html</p>

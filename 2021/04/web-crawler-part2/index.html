@@ -269,16 +269,18 @@
 <h3 id="section2-start-my-own-crawler">Section2: Start my own crawler</h3>
 <p>我们可以先选取一些感兴趣的新闻网站，论坛，社交媒体等作为我们爬虫的信息源。要注意，我们并不是直接“扫描网页”，而是通过网页源码匹配我们想获取的信息，以搜狐新闻为例，打开新闻页面右键查看网页源代码，如下所示：</p>
 <p><img src="https://qiushisun.github.io/images/web-crawler-display.png" alt="Hugo-logo-wide" title="crawler-display"></p>
+<p>我们分析将要爬取的网页新闻源代码，检查这些元素对应的html源代码。确定要爬取的内容的格式。</p>
+<p>搜狐主页是我们本次爬取的种子页面（Seed），我们基于种子页面的超链接进行网页内容爬取。所以，接下来我们需要检索种子页面中的新闻页面的各类超链接。</p>
 <p>在开始爬取之前，我们先要做两件事</p>
 <ol>
-<li>引入必须的Js模块，具体功能请见文末</li>
+<li>引入必须的Js模块，具体功能请见下一篇讲解npm package的文章</li>
 <li>确定要作为信息源访问的网站，我们以<strong>搜狐新闻</strong>为例（也可以用类似的手段爬去如中国新闻网，网易新闻等）</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>);
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myRequest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>); <span style="color:#75715e">//File System Library，用于和本地文件系统交互
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myRequest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;request&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myCheerio</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;cheerio&#39;</span>);
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myIconv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;iconv-lite&#39;</span>);
-<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;date-utils&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myIconv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;iconv-lite&#39;</span>); <span style="color:#75715e">//gbk转UTF-8，防乱码
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;date-utils&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mysql</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./mysql.js&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">source_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;搜狐新闻&#34;</span>;
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">domain</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://news.sohu.com/&#39;</span>;
@@ -329,7 +331,7 @@
     <span style="color:#a6e22e">myRequest</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">callback</span>)
 }
 </code></pre></div><p>然后读取种子页面，并解析种子页面里所有 <strong>&lt;a href&gt; 链接</strong></p>
-<p>下面的实现规整化所有链接，如果符合新闻URL的正则表达式就爬取</p>
+<p>下面的实现规整化所有链接，如果符合新闻URL的正则表达式就爬取，seedget()这个函数用于从Seed页面中取出新闻页面的超链接并访问新闻页面。函数内我们首先给种子网站发送一个请求，再使用npm模组iconv-lite来转码为utf-8，之后再使用cheerio解析。完成上述步骤后利用eval语句得到html里所有超链接。对于每个网页链接，用为不同新闻网站设计的正则表达式（如上方的搜狐新闻reg）检验这个URL是否符合该网站新闻页面的格式（Remark: 需要为其补全格式，如缺失的开头部分）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">seedget</span>() {
     <span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">seedURL</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">body</span>) { <span style="color:#75715e">//读取种子页面
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">//用iconv转换编码
@@ -360,24 +362,56 @@
         });
     });
 };
-</code></pre></div><p>读取具体的新闻页面，构造一个空的fetch对象用于存储数据，读取新闻页面中的元素并保存到fetch对象里</p>
-<p>（因为匹配的模块比较多，这里只放一个片段，具体代码可以查看源文件）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">author_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">source_name</span>; <span style="color:#75715e">//eval(author_format);  
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">author_format</span>);
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;author: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span>);
-				<span style="color:#75715e">//获得日期   
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">date_format</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">date_format</span>); 
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;date: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>);
+</code></pre></div><p>newsGet函数分为两个模组，首先是记录爬到的信息，接着是将其format后执行sql语句插入我们的数据库，我们先来看第一个部分</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">request</span>(<span style="color:#a6e22e">myURL</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">body</span>) { <span style="color:#75715e">//读取新闻页面
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">try</span> {
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">html_news</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myIconv</span>.<span style="color:#a6e22e">decode</span>(<span style="color:#a6e22e">body</span>, <span style="color:#a6e22e">myEncoding</span>); <span style="color:#75715e">//用iconv转换编码
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// console.log(html_news);
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//准备用cheerio解析html_news
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myCheerio</span>.<span style="color:#a6e22e">load</span>(<span style="color:#a6e22e">html_news</span>, { <span style="color:#a6e22e">decodeEntities</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> });
+            <span style="color:#a6e22e">myhtml</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">html_news</span>;
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;读新闻页面并转码出错：&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>);};
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">undefined</span>);
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">format</span>.<span style="color:#a6e22e">regExp</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>)[<span style="color:#ae81ff">0</span>];
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;转码读取成功:&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">myURL</span>);
+        <span style="color:#75715e">//动态执行format字符串，构建json对象准备写入文件或数据库
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetch</span> <span style="color:#f92672">=</span> {};
+        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">new</span> Date()).<span style="color:#a6e22e">toFormat</span>(<span style="color:#e6db74">&#34;YYYY-MM-DD&#34;</span>);
+        <span style="color:#75715e">//fetch.html = myhtml;
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myURL</span>;
+        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">source_name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">source_name</span>;
+        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">source_encoding</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">myEncoding</span>; <span style="color:#75715e">//编码
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">crawltime</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</code></pre></div><p>读取具体的新闻页面，我们在newsget中构造一个空的fetch对象用于存储数据，读取新闻页面中的元素并保存到fetch对象里</p>
+<p>（因为匹配的模块比较多，这里只放一个片段，具体代码可以查看源文件）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">keywords_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">keywords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">source_name</span>; <span style="color:#75715e">// eval(keywords_format);  //没有关键词就用sourcename!
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">keywords</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">keywords_format</span>);
+
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">title_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+        <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">title_format</span>); <span style="color:#75715e">//Title
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">date_format</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">date_format</span>); <span style="color:#75715e">//publish date 
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;date: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>);
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span>){   
+            <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">regExp</span>.<span style="color:#a6e22e">exec</span>(<span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>)[<span style="color:#ae81ff">0</span>];
             <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;年&#39;</span>, <span style="color:#e6db74">&#39;-&#39;</span>)
             <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;月&#39;</span>, <span style="color:#e6db74">&#39;-&#39;</span>)
             <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#39;日&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)
             <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">publish_date</span>).<span style="color:#a6e22e">toFormat</span>(<span style="color:#e6db74">&#34;YYYY-MM-DD&#34;</span>);
-        }
-</code></pre></div><p>最后将符合我们要求的信息存入之前准备好的MySQL数据库中，即完成了信息爬取的任务</p>
+
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">author_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">source_name</span>; <span style="color:#75715e">//eval(author_format);  //author
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">author_format</span>);
+    
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">content_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">content_format</span>).<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#34;\r\n&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">author</span>, <span style="color:#e6db74">&#34;&#34;</span>); <span style="color:#75715e">//内容,是否要去掉作者信息自行决定
+</span><span style="color:#75715e"></span>    
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">source_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">source_name</span>;
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">source_format</span>).<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#34;\r\n&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>); <span style="color:#75715e">//source 
+</span><span style="color:#75715e"></span>    
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">desc_format</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">desc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">title</span>;
+            <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">fetch</span>.<span style="color:#a6e22e">desc</span> <span style="color:#f92672">=</span> eval(<span style="color:#a6e22e">desc_format</span>).<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">&#34;\r\n&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>); <span style="color:#75715e">//summary 
+</span></code></pre></div><p>最后将爬到的信息字符串进行format，符合我们要求的信息存入之前准备好的MySQL数据库中，完成了对这个新闻网站信息爬取的任务，下面为数据插入部分的代码</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetchAddSql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;INSERT INTO fetches(url,source_name,source_encoding,title,&#39;</span> <span style="color:#f92672">+</span>
     <span style="color:#e6db74">&#39;keywords,author,publish_date,crawltime,content, description) VALUES(?,?,?,?,?,?,?,?,?,?)&#39;</span>;
 
@@ -402,7 +436,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> crawl.fetched <span style="color:#66d9ef">where</span> keywords <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;%疫苗%&#39;</span>
 </code></pre></div><p><img src="https://qiushisun.github.io/images/crawler-select-like.png" alt="Hugo-logo-wide" title="db-check-keyword"></p>
 <p>我们可以看到一些与新冠疫苗相关的信息（紧跟时事）</p>
-<p>在接下来的文章中，我们将继续讲解与爬虫有关的内容</p>
+<p>在接下来的文章中，我们将继续讲解与爬虫有关的内容，详细看一下我们所用的各个模块</p>
               
             </div>
           </div>
