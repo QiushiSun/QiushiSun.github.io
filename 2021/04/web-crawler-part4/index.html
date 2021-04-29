@@ -257,7 +257,7 @@
               <p>Web Crawler Part4: 爬取新浪/搜狐/中国新闻网/网易新闻</p>
 <h2 id="web-crawler-part4">Web Crawler Part4</h2>
 <p><img src="https://qiushisun.github.io/images/information-wide.png" alt="Hugo-logo-wide" title="info"></p>
-<p>在这篇文章中，我们基于之前获取的知识，在四个流量比较大，更新频率比较高的新闻网站实现四个新闻信息爬虫</p>
+<p>在这篇文章中，我们基于之前获取的知识，在四个流量比较大，更新频率比较高的新闻网站实现四个新闻信息爬虫，共获得超过1,000条数据</p>
 <p>爬虫的流程请见该专题第二篇博客，本篇博客展示爬取不同网站所需的正则和一些补充</p>
 <h3 id="section-1--中国新闻网">Section 1 : 中国新闻网</h3>
 <p>爬虫正则如下</p>
@@ -344,6 +344,9 @@
 <p><img src="https://qiushisun.github.io/images/crawler-sina-news-process.png" alt="Hugo-logo-wide" title="sina-news"></p>
 <p>最后，我们用数据库查看爬到的新浪新闻的条目</p>
 <p><img src="https://qiushisun.github.io/images/crawler-sina-news-entry.png" alt="Hugo-logo-wide" title="sina-news"></p>
+<p>做完上述工作后，我们可以在数据库中看到大量的数据</p>
+<p><img src="https://qiushisun.github.io/images/crawler-total-num.png" alt="Hugo-logo-wide" title="crawler-total-num"></p>
+<p>可以看到，上面的四只爬虫帮我们获得了超过1,000条数据。</p>
 <p>接下来，我们看看在具体爬取的过程中需要注意些什么</p>
 <h3 id="tips-1-避免多次爬取同一个网站">Tips 1: 避免多次爬取同一个网站</h3>
 <p>在使用爬虫的过程中，我们应该控制同一个网页只爬取一次，可以用下面这个简单而有效的方法来实现</p>
