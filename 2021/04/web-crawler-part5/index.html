@@ -305,7 +305,7 @@
 </ul>
 <p>在用户点击查询按钮之后。需要向后方发送请求（如果是空输入默认匹配一个空字符串，也就是现实所有新闻，但我们也可以阻止传递空字符串到后端）。我们利用get方法向后端传递参数，前端功能在得到后端送来的查询结果之后，构建表格，展示新闻信息检索结果，步骤如下所示</p>
 <p>在html文件search.html之中，我们使用以下代码片段来实现读取数据并以表格的形式展示</p>
-<p>但是，如果单纯放一个表格的话，无法支持我们的查询工作，我们需要使用如下方法迭代获取，然后逐步append到表格中，在前端部分我们使用一个卡片布局方式</p>
+<p>但是，如果单纯放一个表格的话，无法支持我们的查询工作，我们需要使用如下方法迭代获取，然后逐步append到表格中，在前端部分我们使用一个卡片布局方式，可以直白地看到是每次检索后将返回的信息追加写在显示的表格后</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$(&#34;input:button&#34;).click(function() {
                 $.get(&#39;/process_get?title=&#39; + $(&#34;input:text&#34;).val(), function(data) {
                     $(&#34;#record2&#34;).empty();
@@ -352,7 +352,8 @@
  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，使用起来非常简便，但是效果不错。我们把它加载在html头部即可，效果是在鼠标移动时拉动丝线，鼠标停止时丝线向鼠标周围集中</p>
 <h4 id="additional-part3-添加表格线框并且规定高度">Additional Part3: 添加表格线框并且规定高度</h4>
-<p>如果你已经执行上述操作并且打开网页访问，你会发现因新闻内容/关键词等长短不一，我们的显示会显得有一些凌乱，我们已经在表格处使用卡片布局形式来解决</p>
+<p>如果你已经执行上述操作并且打开网页访问，你会发现因新闻内容/关键词等长短不一，我们的显示会显得有一些凌乱，我们已经在表格处使用卡片布局形式来解决，配合css文件调整字体大小，并为其添加了border</p>
+<p>边框方式的实现有多种，我们可以参考这篇博文 <a href="https://www.cnblogs.com/leona-d/p/6125896.html">https://www.cnblogs.com/leona-d/p/6125896.html</a></p>
 <p>全部完成上述工作后，我们来验收一下结果</p>
 <p>在Terminal中使用node命令，如下</p>
 <p><img src="https://qiushisun.github.io/images/crawler-run.png" alt="Hugo-logo-wide" title="run my site"></p>
