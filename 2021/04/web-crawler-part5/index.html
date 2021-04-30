@@ -268,6 +268,7 @@
 <p>最后，由于我们需要和数据库打交道，所以需要mysql.js也复制到路径下</p>
 <p>最后的文件目录结构如下所示</p>
 <p><img src="https://qiushisun.github.io/images/crawler-express-dir.png" alt="Hugo-logo-wide" title="directory"></p>
+<p>Remark: 需要自己search_site/public/下创建一个search.html用作我们的前端界面</p>
 <h3 id="section2-搜索功能的实现">Section2: 搜索功能的实现</h3>
 <p>我们使用express搭建一个用于检索爬虫爬取信息的网站，有以下三种检索方式</p>
 <ol>
@@ -275,7 +276,7 @@
 <li>内容查找（模糊搜索，搜索包含关键字的内容）</li>
 <li>新闻溯源（根据不同新闻来源进行新闻数据分类显示）</li>
 </ol>
-<p>搜索的实现方法并不麻烦，主要是前后端对齐，设定好路由的方式，这部分在routes文件夹下实现</p>
+<p>搜索的实现方法并不麻烦，主要是前后端对齐，设定好路由的方式，这部分在search_site/routes/index.js文件夹下实现</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/process_get&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) {
     <span style="color:#75715e">//我们需要传入sql参数
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetchSql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span>
@@ -336,8 +337,9 @@
 <p>我们将这个css文件放到前面提及的css文件夹下，并且在html中以如下方式引用它</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./css/cute-blog.css&#34;</span>&gt;
 </code></pre></div><p>随后我们就能获得一些基础的css特性，接下来我们再加入一些其他的美化措施</p>
-<h4 id="part1-替换背景图">Part1: 替换背景图</h4>
+<h4 id="additional-part1-替换背景图">Additional Part1: 替换背景图</h4>
 <p>单纯一个白色底不是很美观，我们用一张风景照来作为我们的背景，只需要几行简单的css就可以做到</p>
+<p>记得放在css文件的任意部位</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
     <span style="color:#66d9ef">background-image</span>:url(<span style="color:#e6db74">&#39;web-crawler-bg1.png&#39;</span>);
     <span style="color:#66d9ef">background-size</span>:<span style="color:#66d9ef">cover</span>;
@@ -347,8 +349,8 @@
 <h4 id="additional-part2-添加鼠标动画">Additional Part2: 添加鼠标动画</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,100,205&#34;</span> <span style="color:#a6e22e">opacity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.95&#39;</span> <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-2&#34;</span> <span style="color:#a6e22e">count</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;150&#34;</span> 
  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，加载在html头部即可，效果是在鼠标移动时拉动丝线，鼠标停止时丝线向鼠标周围集中</p>
-<h4 id="additional-part2-添加表格线框并且规定高度">Additional Part2: 添加表格线框并且规定高度</h4>
+</code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，使用起来非常简便，但是效果不错。我们把它加载在html头部即可，效果是在鼠标移动时拉动丝线，鼠标停止时丝线向鼠标周围集中</p>
+<h4 id="additional-part3-添加表格线框并且规定高度">Additional Part3: 添加表格线框并且规定高度</h4>
 <p>如果你已经执行上述操作并且打开网页访问，你会发现因新闻内容/关键词等长短不一，我们的显示会显得有一些凌乱，我们已经在表格处使用卡片布局形式来解决</p>
 <p>全部完成上述工作后，我们来验收一下结果</p>
 <p>在Terminal中使用node命令，如下</p>
