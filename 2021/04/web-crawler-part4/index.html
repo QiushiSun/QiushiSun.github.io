@@ -259,6 +259,7 @@
 <p><img src="https://qiushisun.github.io/images/information-wide.png" alt="Hugo-logo-wide" title="info"></p>
 <p>在这篇文章中，我们基于之前获取的知识，在四个流量比较大，更新频率比较高的新闻网站实现四个新闻信息爬虫，共获得超过1,000条数据</p>
 <p>爬虫的流程请见该专题第二篇博客，本篇博客展示爬取不同网站所需的正则和一些补充</p>
+<p>每份爬虫代码都把变量传递给crawls.js，这样每个爬虫代码都会比较精简，而且修改的时候只需要修改相应模块的代码就可以了</p>
 <h3 id="section-1--中国新闻网">Section 1 : 中国新闻网</h3>
 <p>爬虫正则如下</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">format</span> <span style="color:#f92672">=</span> {

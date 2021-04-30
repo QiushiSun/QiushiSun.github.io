@@ -281,18 +281,18 @@
     <span style="color:#75715e">//我们需要传入sql参数
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fetchSql</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span>
         <span style="color:#e6db74">&#34;from fetches where title like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or content like &#39;%&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">title</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ;
-    <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">fetchSql</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">fields</span>) {
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>, {
+    <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">fetchSql</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">fields</span>) { <span style="color:#75715e">//执行查询
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">writeHead</span>(<span style="color:#ae81ff">200</span>, {
             <span style="color:#e6db74">&#34;Content-Type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;application/json&#34;</span>
         });
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>));
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>();
+        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">result</span>)); <span style="color:#75715e">//json串形式返回
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">end</span>();
     });
 </code></pre></div><p>这条fetchSql字符串是实现搜索功能的核心，本质是通过前端传入到后端的字符串拼接而成。再使用mysql模块的query功能进行与数据库的交互</p>
 <p>这条语句实现了对内容进行模糊搜索</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">var fetchSql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;from fetches where title like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or content like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ;
 </code></pre></div><p>这条语句实现了对我们所获取的关键词进行搜索</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">var fetchSql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;from fetches where keywords like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or keywords like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">var fetchSql2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;select url,title,keywords,description &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;from fetches where keywords like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39; or keywords like &#39;%&#34;</span> <span style="color:#f92672">+</span> request.query.title <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#39;&#34;</span> ;
 </code></pre></div><p>完成上述工作后，我们在html中设置提交按钮，以关键词搜索为例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">br</span>&gt; &lt;<span style="color:#f92672">font</span> <span style="color:#a6e22e">face</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;verdana&#34;</span>&gt;Keyword Search:&lt;/<span style="color:#f92672">font</span>&gt;
 &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Input Keywords&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title_text&#34;</span>&gt;
@@ -340,7 +340,7 @@
 </code></pre></div><p>随后我们就能获得一些基础的css特性，接下来我们再加入一些其他的美化措施</p>
 <h4 id="additional-part1-替换背景图">Additional Part1: 替换背景图</h4>
 <p>单纯一个白色底不是很美观，我们用一张风景照来作为我们的背景，只需要几行简单的css就可以做到</p>
-<p>记得放在css文件的任意部位</p>
+<p>记得放在css文件的任意部位，我是放在了自己在本项目中所使用的hexo博客的css中</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
     <span style="color:#66d9ef">background-image</span>:url(<span style="color:#e6db74">&#39;web-crawler-bg1.png&#39;</span>);
     <span style="color:#66d9ef">background-size</span>:<span style="color:#66d9ef">cover</span>;
@@ -353,11 +353,16 @@
 </code></pre></div><p>我们可以通过网络引入一个基于canvas画布制作的鼠标移动特效 ，使用起来非常简便，但是效果不错。我们把它加载在html头部即可，效果是在鼠标移动时拉动丝线，鼠标停止时丝线向鼠标周围集中</p>
 <h4 id="additional-part3-添加表格线框并且规定高度">Additional Part3: 添加表格线框并且规定高度</h4>
 <p>如果你已经执行上述操作并且打开网页访问，你会发现因新闻内容/关键词等长短不一，我们的显示会显得有一些凌乱，我们已经在表格处使用卡片布局形式来解决，配合css文件调整字体大小，并为其添加了border</p>
+<p>这里是在我们使用的hexo博客的css中提取出来的，自己在上面做了一些简单的修改，如果想不在本地修改直接引入，可以把下面这段添加在html头部</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.bootcss.com/jquery/3.4.1/jquery.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./css/clean-blog.min.css&#34;</span>&gt;
+</code></pre></div><p>或是像我一样把它直接放在本地文件中，引用css文件夹里的内容</p>
 <p>边框方式的实现有多种，我们可以参考这篇博文 <a href="https://www.cnblogs.com/leona-d/p/6125896.html">https://www.cnblogs.com/leona-d/p/6125896.html</a></p>
 <p>全部完成上述工作后，我们来验收一下结果</p>
 <p>在Terminal中使用node命令，如下</p>
 <p><img src="https://qiushisun.github.io/images/crawler-run.png" alt="Hugo-logo-wide" title="run my site"></p>
 <p>最终，我们直接在本地浏览器中访问：http://localhost:3000/search.html 即可使用我们开发的爬虫项目进行检索</p>
+<p><img src="https://qiushisun.github.io/images/crawler-search-start.png" alt="Hugo-logo-wide" title="crawler-search-start"></p>
 <p>可以看到我们每次提交的检索信息都会在Terminal中显示，我们也可以利用这一点来辅助debug</p>
 <p>我们先通过关键词检索</p>
 <p><img src="https://qiushisun.github.io/images/crawler-search-site.png" alt="Hugo-logo-wide" title="crawler-search-site"></p>
