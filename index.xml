@@ -48,12 +48,12 @@
     </item>
     
     <item>
-      <title>CUDA 快速入门</title>
-      <link>https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</link>
+      <title>Use GPU to Accelerate Deep Learning Part1</title>
+      <link>https://qiushisun.github.io/2021/04/use-gpu-to-accelerate-deep-learning-part1/</link>
       <pubDate>Thu, 22 Apr 2021 00:23:37 +0800</pubDate>
       
-      <guid>https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
-      <description>&lt;p&gt;CUDA 快速入门 Part1&lt;/p&gt;</description>
+      <guid>https://qiushisun.github.io/2021/04/use-gpu-to-accelerate-deep-learning-part1/</guid>
+      <description>&lt;p&gt;使用GPU加速深度学习 Part1&lt;/p&gt;</description>
     </item>
     
     <item>

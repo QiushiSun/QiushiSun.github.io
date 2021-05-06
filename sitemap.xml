@@ -63,17 +63,17 @@
   </url>
   
   <url>
-    <loc>https://qiushisun.github.io/2021/04/cuda-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</loc>
-    <lastmod>2021-04-22T00:23:37+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://qiushisun.github.io/tags/deep-learning/</loc>
     <lastmod>2021-04-22T00:23:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/categories/deep-learning/</loc>
+    <lastmod>2021-04-22T00:23:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/04/use-gpu-to-accelerate-deep-learning-part1/</loc>
     <lastmod>2021-04-22T00:23:37+08:00</lastmod>
   </url>
   
