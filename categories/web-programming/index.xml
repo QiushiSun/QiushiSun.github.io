@@ -6,10 +6,19 @@
     <description>Recent content in Web Programming on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Jun 2021 10:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jun 2021 11:20:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/categories/web-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction To React</title>
+      <link>https://qiushisun.github.io/2021/06/introduction-to-react/</link>
+      <pubDate>Tue, 08 Jun 2021 11:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/introduction-to-react/</guid>
+      <description>&lt;p&gt;Web Programming: 搭建数据展示网站&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Introduction To React</title>
