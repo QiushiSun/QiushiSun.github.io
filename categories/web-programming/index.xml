@@ -6,10 +6,82 @@
     <description>Recent content in Web Programming on QiushiSun&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Jun 2021 11:20:37 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jun 2021 11:40:37 +0800</lastBuildDate>
     
 	<atom:link href="https://qiushisun.github.io/categories/web-programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project Summary and Reflection</title>
+      <link>https://qiushisun.github.io/2021/06/project-summary-and-reflection/</link>
+      <pubDate>Sun, 27 Jun 2021 11:40:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/project-summary-and-reflection/</guid>
+      <description>&lt;p&gt;Web Programming: 项目总结与思考&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elastic Search&#43;Kibana</title>
+      <link>https://qiushisun.github.io/2021/06/elastic-search-kibana/</link>
+      <pubDate>Wed, 23 Jun 2021 11:40:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/elastic-search-kibana/</guid>
+      <description>&lt;p&gt;Web Programming: Elastic Search + Kibana&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Data Visualization</title>
+      <link>https://qiushisun.github.io/2021/06/data-visualization/</link>
+      <pubDate>Tue, 22 Jun 2021 11:40:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/data-visualization/</guid>
+      <description>&lt;p&gt;Web Programming: 数据分析图表&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Word segmentation and Ranking</title>
+      <link>https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/</link>
+      <pubDate>Mon, 21 Jun 2021 11:50:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/</guid>
+      <description>&lt;p&gt;Web Programming: 分词查询与打分排序&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Website Logging</title>
+      <link>https://qiushisun.github.io/2021/06/website-logging/</link>
+      <pubDate>Thu, 17 Jun 2021 10:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/website-logging/</guid>
+      <description>&lt;p&gt;Web Programming: 日志，错误处理与用户位置&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Web UI Paging and Query</title>
+      <link>https://qiushisun.github.io/2021/06/web-ui-paging-and-query/</link>
+      <pubDate>Thu, 17 Jun 2021 10:05:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/web-ui-paging-and-query/</guid>
+      <description>&lt;p&gt;Web Programming: 界面：数据分页与进阶查询&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Website Administration</title>
+      <link>https://qiushisun.github.io/2021/06/website-administration/</link>
+      <pubDate>Wed, 16 Jun 2021 11:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/website-administration/</guid>
+      <description>&lt;p&gt;Web Programming: 实现管理员权限与管理界面&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Login, Register, Authentication and Encryption</title>
+      <link>https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/</link>
+      <pubDate>Thu, 10 Jun 2021 11:20:37 +0800</pubDate>
+      
+      <guid>https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/</guid>
+      <description>&lt;p&gt;Web Programming: 登陆，注册，认证与加密&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>About Data Display Website</title>

@@ -3,37 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://qiushisun.github.io/2021/06/about-data-display-website/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://qiushisun.github.io/categories/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/post/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/project-summary-and-reflection/</loc>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/tags/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/tags/web-programming/</loc>
-    <lastmod>2021-06-08T11:20:37+08:00</lastmod>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://qiushisun.github.io/categories/web-programming/</loc>
+    <lastmod>2021-06-27T11:40:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/elastic-search-kibana/</loc>
+    <lastmod>2021-06-23T11:40:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/data-visualization/</loc>
+    <lastmod>2021-06-22T11:40:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/</loc>
+    <lastmod>2021-06-21T11:50:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/website-logging/</loc>
+    <lastmod>2021-06-17T10:20:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/web-ui-paging-and-query/</loc>
+    <lastmod>2021-06-17T10:05:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/website-administration/</loc>
+    <lastmod>2021-06-16T11:20:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/</loc>
+    <lastmod>2021-06-10T11:20:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://qiushisun.github.io/2021/06/about-data-display-website/</loc>
     <lastmod>2021-06-08T11:20:37+08:00</lastmod>
   </url>
   

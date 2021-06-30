@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Programming: 项目总结与思考">
+
+
+<meta property="og:description" content="Web Programming: 项目总结与思考">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project Summary and Reflection">
+<meta name="twitter:title" content="Project Summary and Reflection">
+<meta property="og:url" content="https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Programming: 项目总结与思考">
+<meta name="twitter:description" content="Web Programming: 项目总结与思考">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-06-27T11:40:37">
+  
+  
+    <meta property="article:modified_time" content="2021-06-27T11:40:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/web-final-idea.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/web-final-idea.png">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Project Summary and Reflection</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Project Summary and Reflection
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-06-27T11:40:37&#43;08:00">
+        
+  June 27, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Programming: 项目总结与思考</p>
+<p>Data Display Website</p>
+<h2 id="web-编程项目开发总结">Web 编程项目开发总结</h2>
+<h4 id="功能复盘">功能复盘：</h4>
+<p>最后是本次项目的开发经验总结，先简单进行一下功能复盘</p>
+<p>项目的数据源为新浪新闻、网易新闻以及豆瓣影评，与中期无异。事实上如可视化，排序和搜索功能在期中项目的时候就已经实现了，在后半段的开发历程中主要是利用了React框架，对原有的功能做了进一步的整合和升级，完成了本次项目所要求的所有的基本要求和所有的扩展要求。</p>
+<p><img src="https://qiushisun.github.io/images/web-final-guideline.png" alt="Hugo-logo-wide" title="Guideline"></p>
+<p>项目功能分条陈述如下</p>
+<ol>
+<li>用户登录、注册与加密：这部分主要实现了用户注册—登录—登出，以及对用户密码进行了加密处理</li>
+<li>管理员权限：这部分主要实现了管理员设置，用户管理，数据增删改（如增删改电影信息）等功能</li>
+<li>日志信息、错误处理与地理位置：此处实现了日志管理，用户登录/注册地位置记载，以及各类错误情况跳转</li>
+<li>分页与查询进阶：此部分注重网页的美观化，设置了每页条目个数与页数跳转，再进行不同参数组合的查询实现</li>
+<li>分词查询与打分排序：此处注重使用中文分词查询与基于关键词的排序查询</li>
+<li>数据可视化：这部分扩展了期中项目，分别使用了Echarts和D3实现了各类数据分析图表与词云，包括渐变图，动态图，地图热度等进阶效果</li>
+<li>基于Elastic Search + Kibana的结果展示</li>
+</ol>
+<h4 id="总结与感悟">总结与感悟：</h4>
+<p>如开头展示的思维导图和上述条目所示，本次项目的开发把课程的一些要求做了整合，然后加入了一些自己感兴趣的额外功能，并利用React框架进行开发。</p>
+<p>内容分别从思维导图中的这六个方面进行开发经历展示。首先是完成了用户登录认证、用户注册，信息加密（基于<code>crypto-js</code>），再实现了用户/数据管理，添加favorites等管理员权限。接着基于课堂上的知识，完成了日志信息处理与错误处理，并尝试了用户地理位置获取（基于<code>morgan</code>和<code>Geolocation</code> ）。在数据展示这一块，美化了期中项目的分页机制，和页面跳转机制，增加了不同关键词搭配的查询方式以及分词查询，借助Echarts和D3（以及wiki地图数据和百度地图api），拓展了期中的可视化功能，进行了多种可视化结果展示包括了，饼状图，环状图，词云，折线，地图热度等各类可视化方法，最后还借助了Elastic Search + Kibana进行了数据展示。</p>
+<p>Web编程课程让我收获颇多，本学期在这门课程上的工作量也还算比较大，不过在开发过程中仍然发现自己对框架和JS的掌握程度还不够高（之前的科创项目和其他大作业都是在用Django和Flask进行开发）。经过这门课程的学习和训练，学会了大量在日后JavaScript开发中需要使用的前后端技巧，并熟悉了一些框架的使用，也努力尝试了通过写博客这种方式详细阐述一个项目的完整开发流程，讲解了一些技术的要点、技术的原理、如何借鉴已有工作以及我认为可以有进一步应用/改进的地方，而非一味复制粘贴代码或是灌水。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/elastic-search-kibana/" data-tooltip="Elastic Search&#43;Kibana">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/elastic-search-kibana/" data-tooltip="Elastic Search&#43;Kibana">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/project-summary-and-reflection/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fproject-summary-and-reflection%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fproject-summary-and-reflection%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fproject-summary-and-reflection%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/06\/project-summary-and-reflection\/';
+          
+            this.page.identifier = '\/2021\/06\/project-summary-and-reflection\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

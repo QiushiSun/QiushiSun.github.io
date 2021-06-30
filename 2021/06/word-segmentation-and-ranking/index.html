@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Programming: 分词查询与打分排序">
+
+
+<meta property="og:description" content="Web Programming: 分词查询与打分排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Word segmentation and Ranking">
+<meta name="twitter:title" content="Word segmentation and Ranking">
+<meta property="og:url" content="https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Programming: 分词查询与打分排序">
+<meta name="twitter:description" content="Web Programming: 分词查询与打分排序">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-06-21T11:50:37">
+  
+  
+    <meta property="article:modified_time" content="2021-06-21T11:50:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/web-text-cloud-icon.jpg">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/web-text-cloud-icon.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Word segmentation and Ranking</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Word segmentation and Ranking
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-06-21T11:50:37&#43;08:00">
+        
+  June 21, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Programming: 分词查询与打分排序</p>
+<p>Data Display Website</p>
+<h2 id="word-segmentation-and-ranking">Word segmentation and Ranking</h2>
+<p>项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
+<p><img src="https://qiushisun.github.io/images/web-text-extract.png" alt="Hugo-logo-wide" title="web-text"></p>
+<p>在本节内容中，我们着重介绍中文分词查询与打分排序功能，这一块的主要内容在于如何获得分词和词的打分，其搜索逻辑和排序逻辑和之前的实现别无二致，所以我们专注讲解如何获得这些分词结果和关键词weight，并进行系统内的展示。</p>
+<h3 id="section1-中文分词查询">Section1 中文分词查询</h3>
+<p>实现中文分词主要依赖node-jieba，相信对自然语言处理有粗浅知识的同学们都知道python中的jieba分词，对于切分句子非常有效，可以帮助我们做语义/词性分析，在node.js中同样有这样一个可以帮助我们的npm包，我们就借助该npm包完成分词查询功能的开发</p>
+<h4 id="分词原理简介">分词原理简介</h4>
+<p>为了不把它完全当做一个黑匣子来用，我们先简单介绍下jieba分词的原理</p>
+<p>大致来说，前缀词典进行词图扫描，然后利用前缀词典对输入句子进行切分，得到所有的切分可能（参考数据结构中的Trie树）根据切分的位置，构造一个DAG（有向无环图，对Spark/Flink熟悉的一定不会陌生），最后根据dp算法，计算得到最大概率路径</p>
+<h4 id="使用node-jieba">使用node-jieba</h4>
+<p>和其他npm package一样，直接安装即可</p>
+<p><code>npm install node-jieba</code></p>
+<p>代码的核心是进行词语切分，然后用于分词搜索，在本地进行调试如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nodejieba</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodejieba&#34;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodejieba</span>.<span style="color:#a6e22e">cut</span>(<span style="color:#e6db74">&#34;今年壮志凌云就要上映了，我真的很期待&#34;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+</code></pre></div><p>查询效果如下所示</p>
+<p><img src="https://qiushisun.github.io/images/web-jieba-demo.png" alt="Hugo-logo-wide" title="web-jieba"></p>
+<p>Remark：这里需要注明的是，jieba分词的粒度是单词，所以即使只输入一个精确的标题也是可以正常查询到的，个人人认为不需要把这种类似“模糊搜索”的功能和一般的搜索功能分开，毕竟搜索出来的结果至多也就是两三条罢了，让用户自己选择一下也没什么问题。</p>
+<p>实现效果如下所示，逻辑很简单，按单词粒度输入，利用mongodb的模糊查询即可</p>
+<p><img src="https://qiushisun.github.io/images/web-final-search-cut.png" alt="Hugo-logo-wide" title="web-jieba-cut"></p>
+<p>可以看到我输入了一长串句子，但仍能匹配到“壮志凌云2：独行侠”这部电影</p>
+<p>至此，借助jieba分词和模糊查询即可完成中文分词搜索开发完成</p>
+<p>细心的你可能发现了，仅仅使用cut功能出的结果可能含有过渡词或语气词，为此，还可以借助 HIT 的停词表进行过滤 <a href="https://github.com/goto456/stopwords">HIT-Stopwords</a></p>
+<h3 id="section2-打分排序查询">Section2 打分排序查询</h3>
+<p>紧接着我们进行打分排序查询，同样借助 <code>node-jieba</code>来实现</p>
+<h4 id="原理简介">原理简介</h4>
+<p>在之前的分词查询中我们使用了<code>nodejieba</code>的<code>cut</code>函数进行切分，此处我们使用<code>nodejieba</code>的<code>extract</code>函数进行关键词提取辅助查询，这个函数可以帮我们反馈一段文本中的重要词，以及其权重（weights），我们利用这个权重提取出关键词，然后根据weights进行排序（我查了下这个功能应该是通过TF-IDF来实现的，这个算法很简单，在黄定江老师的 <em>DaSE数学基础</em> 课上已经接触过很多次，详细信息可以参考维基百科 <a href="https://zh.wikipedia.org/wiki/Tf-idf">TF-IDF</a>）</p>
+<p>先进行一个简易Demo（使用的是壮志凌云2的豆瓣描述）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nodejieba</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodejieba&#34;</span>);
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">movie_content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`
+</span><span style="color:#e6db74">作为美国海军顶尖飞行员服役30多年后，飞行员皮特·米切尔（代号：“独行侠”）（汤姆·克鲁斯 饰演）决定打破体制的限
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">制，成为一名海军试飞员接受更大的挑战。当他接到命令，为一项高难度特殊任务训练一群“高空利剑”项目的毕业生时，他遇
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">到了已故的好友兼海军雷达截获官，代号“笨鹅”的尼克·布拉德肖海军中尉之子布莱德利·布拉德肖中尉（代号：“公鸡”）。
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">面对不确定的未来和难以释怀的心魔，独行侠必须战胜内心深处的恐惧。因此，他参与了一项需要巨大牺牲才能完成的任务。
+</span><span style="color:#e6db74">`</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodejieba</span>.<span style="color:#a6e22e">extract</span>(<span style="color:#a6e22e">movie_content</span>, <span style="color:#ae81ff">5</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>)
+</code></pre></div><p>简单解释一下，这个nodejieba.extract函数的第一个参数是所需要提取的文本，第二个参数是取前多少个关键词（TopK），他们的重要性程度依次递减，所以在衡量重要性打分时直接根据TopK的排序来即可</p>
+<p>demo效果如下</p>
+<p><img src="https://qiushisun.github.io/images/web-final-extract-outcome.png" alt="Hugo-logo-wide" title="web-fianl-extract-outcome"></p>
+<p>因为在线情况下做这个分词提取的时间会随着文本量的增大而指数级增长，所以我选择了一个比较折中的方法，那就是存储静态数据，即将上述Top5的结果直接存在单个文档内，然后建立B树索引辅助查询（见后图），但是，这种方法也有一个小缺点，就是新加入的电影数据的关键词需要定期手动查询维护然后写入（当然也可以做自动化工具，原理是一样的）</p>
+<p>随后整合进系统，新建一个查询子项，查询的实现方法和之前实现过的搜索法极其类似，在此不多赘述</p>
+<p><img src="https://qiushisun.github.io/images/web-final-keyword.png" alt="Hugo-logo-wide" title="web-fianl-keywords"></p>
+<p>最后的查询效果</p>
+<p><img src="https://qiushisun.github.io/images/web-final-extract.png" alt="Hugo-logo-wide" title="web-fianl-extract"></p>
+<p>我们可以对比下这两组文本</p>
+<p>首先是查到的第一组数据（电影：决战中途岛）的描述：</p>
+<p><em>电影讲述的是第二次世界大战太平洋战争重要转折点——中途岛海战：经此一役，日本海军受到“降维打击”，美日海军实力反转，从而扭转了整个太平洋战场的局势。影片通过参战的海军士兵和飞行员一个个鲜活的故事，带领观众逐步进入1942年6月初发生在太平洋中途岛附近那场令人难以置信的战争</em></p>
+<p><img src="https://qiushisun.github.io/images/web-final-midway.png" alt="Hugo-logo-wide" title="web-fianl-extract"></p>
+<p>然后是刚刚做demo的壮志凌云2的描述：</p>
+<p><em>作为美国海军顶尖飞行员服役30多年后，飞行员皮特·米切尔（代号：“独行侠”）（汤姆·克鲁斯 饰演）决定打破体制的限制，成为一名海军试飞员接受更大的挑战。当他接到命令，为一项高难度特殊任务训练一群“高空利剑”项目的毕业生时，他遇到了已故的好友兼海军雷达截获官，代号“笨鹅”的尼克·布拉德肖海军中尉之子布莱德利·布拉德肖中尉（代号：“公鸡”）。面对不确定的未来和难以释怀的心魔，独行侠必须战胜内心深处的恐惧。因此，他参与了一项需要巨大牺牲才能完成的任务。</em></p>
+<p>二者在经过关键词提取后，都会被提取出<code>海军</code>这个关键词，从而被查询到</p>
+<p><strong>Remark</strong>: 做完这部分内容后才发现，如果文本描述足够可靠的话，善用这部分内容，通过取Top1/Top3等方法可以帮我们给每一条数据/新闻生成Tag</p>
+<p>除此之外，使用TextRank算法，TextCNN算法，还有高明老师在 <em>DaSE算法基础</em> 课讲过的爬山算法都会是一个好选择，但是在这里实现有一些复杂，又因为Nodejieba已经能完成所需要的功能，所以暂时先不深入下去了，其他的算法选择等待日后的探索。</p>
+<p>至此位置，在功能丰富的Nodejieba模块的辅助下，该项目的分词查询功能和打分排序功能均开发完毕</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/data-visualization/" data-tooltip="Data Visualization">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/website-logging/" data-tooltip="Website Logging">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/data-visualization/" data-tooltip="Data Visualization">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/website-logging/" data-tooltip="Website Logging">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fword-segmentation-and-ranking%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fword-segmentation-and-ranking%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fword-segmentation-and-ranking%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/06\/word-segmentation-and-ranking\/';
+          
+            this.page.identifier = '\/2021\/06\/word-segmentation-and-ranking\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

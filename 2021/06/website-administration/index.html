@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Programming: 实现管理员权限与管理界面">
+
+
+<meta property="og:description" content="Web Programming: 实现管理员权限与管理界面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Website Administration">
+<meta name="twitter:title" content="Website Administration">
+<meta property="og:url" content="https://qiushisun.github.io/2021/06/website-administration/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/06/website-administration/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Programming: 实现管理员权限与管理界面">
+<meta name="twitter:description" content="Web Programming: 实现管理员权限与管理界面">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-06-16T11:20:37">
+  
+  
+    <meta property="article:modified_time" content="2021-06-16T11:20:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/web-admin.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/web-admin.png">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Website Administration</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/06/website-administration/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Website Administration
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-06-16T11:20:37&#43;08:00">
+        
+  June 16, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Programming: 实现管理员权限与管理界面</p>
+<p>Data Display Website</p>
+<h2 id="website-administration">Website Administration</h2>
+<p>项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
+<p>本篇博客记录的开发内容包含了管理员设置，用户管理，数据增删改等功能。</p>
+<h3 id="section-1-实现管理员权限">Section 1: 实现管理员权限</h3>
+<p>管理员界面和普通用户界面的区别就在于管理员多了一个用户管理页面可以对用户信息做管理+添加新数据。此部分请浏览manager组件部分，实现的逻辑并不困难，admin是注册时候确定的，也可以在数据库中更改权限</p>
+<p><img src="https://qiushisun.github.io/images/web-final-auth.png" alt="Hugo-logo-wide" title="web-final-auth"></p>
+<p>同样是依靠token来实现，如果没有token的话，我们就返回验证错误。如果有token有效，就先验证这个token的合法性，是就传递，否则返回Invalid token.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">jwt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;jsonwebtoken&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">config</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;config&#34;</span>);
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;requiresAuth&#34;</span>)) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">next</span>();
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">header</span>(<span style="color:#e6db74">&#34;x-auth-token&#34;</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">token</span>) <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">401</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Denied.&#34;</span>);
+  <span style="color:#66d9ef">try</span> {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decoded</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#a6e22e">token</span>, <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;jwtPrivateKey&#34;</span>));
+    <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">decoded</span>;
+    <span style="color:#a6e22e">next</span>();
+  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">ex</span>) {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">400</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Invalid Token.&#34;</span>);
+  }
+};
+</code></pre></div><p>对于一些普通用户没有的功能（如添加新的数据/删除数据等），需要在非管理员登陆时进行隐藏，实现如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">render: (row, item) =&gt; (
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;person-table-btn&#34;</span>&gt;
+  {item.name !== &#39;admin&#39; ? (
+  &lt;<span style="color:#f92672">Tooltip</span> <span style="color:#a6e22e">placement</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;top&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">{&#39;delete&#39;}</span>&gt;
+    &lt;<span style="color:#f92672">Icon</span>
+          <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;delete&#34;</span>
+          <span style="color:#a6e22e">theme</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twoTone&#34;</span>
+          <span style="color:#a6e22e">twoToneColor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#eb2f96&#34;</span>
+          <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table-btn-item&#34;</span>
+          <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; this.deleteUser(item)}
+      /&gt;
+      &lt;/<span style="color:#f92672">Tooltip</span>&gt;
+    ) : (
+    &#39;--&#39;
+    )}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  ),
+</code></pre></div><p>（代码可能有一些凌乱，因为hugo博客对HTML的渲染有一点bug，请见谅）</p>
+<h3 id="section-2-用户管理">Section 2: 用户管理</h3>
+<p>管理员可以对用户账号进行管理</p>
+<h4 id="part1用户信息查看">Part1：用户信息查看</h4>
+<p>我们首先需要使用 <code>getuserlist</code>来获取相应的信息</p>
+<p>然后通过Api.get方法可参照 <a href="http://www.axios-js.com/zh-cn/docs/#axios-get-url-config-1">axios官方文档</a> 。 此处的 <code>config</code> 是为请求提供的配置信息，直接利用了axios.get,在请求头中加入token，也就是利用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> },
+</code></pre></div><p>后端验证了这个token，然后把response的内容，利用<code>setState</code>方法更新本地state，管理员就可以获得这个项目中用户的表单信息</p>
+<p>具体方法如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">getUserList</span>() { <span style="color:#75715e">// 获取当前用户信息
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Util</span>.<span style="color:#a6e22e">getToken</span>();
+  <span style="color:#a6e22e">Api</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/users/list&#39;</span>, {
+    <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> }, <span style="color:#75715e">// tokens验证
+</span><span style="color:#75715e"></span>  }).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({
+        <span style="color:#a6e22e">userListData</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">data</span>,
+      });
+    }
+  });
+}
+</code></pre></div><h4 id="part2用户信息删除">Part2：用户信息删除</h4>
+<p>实现一个账号删除功能，同样需要进行提示，以免产生误操作导致用户被消失</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 实现用户删除功能，跳出一个警告框
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">deleteUser</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">item</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+    <span style="color:#a6e22e">confirm</span>({
+      <span style="color:#75715e">// 以下为确认框中的信息，要给一点提示防止把删除的对象搞错...
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Are you sure to do this?&#39;</span>,
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;You are deleting user!&#39;</span>,
+      <span style="color:#a6e22e">okText</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;confirm&#39;</span>,
+      <span style="color:#a6e22e">okType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;danger&#39;</span>,
+      <span style="color:#a6e22e">cancelText</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;cancel&#39;</span>,
+      <span style="color:#a6e22e">onOk</span>() {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Util</span>.<span style="color:#a6e22e">getToken</span>();
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">postUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`/users/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">_id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/delete`</span>;
+        <span style="color:#a6e22e">Api</span>.<span style="color:#a6e22e">post</span>(
+          <span style="color:#a6e22e">postUrl</span>,
+          {},
+          {
+            <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> },
+          },
+        )
+          .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>) {
+              <span style="color:#75715e">// 成功后返回相应的提示，如果错误则需要抛出异常
+</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">success</span>(<span style="color:#e6db74">&#39;Deleted successfully&#39;</span>);
+              <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">getUserList</span>();
+            } <span style="color:#66d9ef">else</span> {
+              <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;fail&#39;</span>);
+            }
+          })
+          .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">err</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+          });
+      },
+      <span style="color:#a6e22e">onCancel</span>() {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Cancel&#39;</span>);
+      },
+    });
+  };
+</code></pre></div><p>实现效果如下</p>
+<p><img src="https://qiushisun.github.io/images/web-del-user.png" alt="Hugo-logo-wide" title="del-user"></p>
+<p>成功删除后可以看到返回的信息</p>
+<p><img src="https://qiushisun.github.io/images/web-del-user-suc.png" alt="Hugo-logo-wide" title="del-user-successful"></p>
+<h3 id="section-3-添加收藏夹与信息删除">Section 3: 添加收藏夹与信息删除</h3>
+<h4 id="section-31">Section 3.1</h4>
+<p>接下来实现一个管理员收藏夹功能，可以单独分析收藏夹内的内容，同样需要一个提示框，如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">addToFavorite</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">item</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">_this</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+    <span style="color:#a6e22e">confirm</span>({
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Want to star this film?&#34;</span>,
+      <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Adding it to your favorites&#34;</span>,
+      <span style="color:#a6e22e">okText</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;confirm&#34;</span>,
+      <span style="color:#a6e22e">okType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;primary&#34;</span>,
+      <span style="color:#a6e22e">cancelText</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;cancel&#34;</span>,
+      <span style="color:#a6e22e">onOk</span>() {
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Util</span>.<span style="color:#a6e22e">getToken</span>();
+        <span style="color:#a6e22e">Api</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">`/movies/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">_id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/addToFavorite`</span>, {
+          <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span> },
+          <span style="color:#a6e22e">body</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">item</span> },
+        })
+          .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>) {
+              <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">success</span>(<span style="color:#e6db74">&#34;Add success&#34;</span>);
+              <span style="color:#a6e22e">_this</span>.<span style="color:#a6e22e">initTableData</span>();
+            } <span style="color:#66d9ef">else</span> {
+              <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;fail&#34;</span>);
+            }
+          })
+          .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">err</span>) =&gt; {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+          });
+      },
+      <span style="color:#a6e22e">onCancel</span>() {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Cancel&#34;</span>);
+      },
+    });
+  };
+</code></pre></div><p>实现效果如下，和之前的删除用户等操作的原理是一致的</p>
+<p><img src="https://qiushisun.github.io/images/web-star-film.png" alt="Hugo-logo-wide" title="web-star-film"></p>
+<p>成功star后可以看到控制台返回的信息</p>
+<p><img src="https://qiushisun.github.io/images/web-favorite-console.png" alt="Hugo-logo-wide" title="web-favorite-console"></p>
+<h4 id="section-31-删除信息">Section 3.1 删除信息</h4>
+<p><img src="https://qiushisun.github.io/images/web-delete-item.png" alt="Hugo-logo-wide" title="web-del-item"></p>
+<h3 id="section-4-修改添加数据">Section 4: 修改/添加数据</h3>
+<p>最后要为管理员实现一个能添加信息的功能，因为爬虫爬到的数据都是静态存放且位置固定的，对于一些没有被纳入目标网站的数据无能为力，比如一些还没上映的电影，比如下面这部</p>
+<p><img src="https://qiushisun.github.io/images/web-maverick.png" alt="Hugo-logo-wide" title="Maverick!"></p>
+<p>因为还没有上映，所以没有star rating，也没有时长，爬虫也许会因为缺失数据而不“光顾”这样的数据。</p>
+<p>所以我们尝试为管理员添加一个能增加电影信息的功能。</p>
+<p><img src="https://qiushisun.github.io/images/web-admin-add-movie.png" alt="Hugo-logo-wide" title="web-admin-add-movie"></p>
+<p>在mongoDB数据库中也可以看到这部电影的信息，包含缺失值元数据</p>
+<p><img src="https://qiushisun.github.io/images/web-add-film-mongo.png" alt="Hugo-logo-wide" title="web-add-film-mongo"></p>
+<p>删除数据的逻辑和实现与删除用户基本一致</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">router</span>.<span style="color:#66d9ef">delete</span>(<span style="color:#e6db74">&#34;/:id&#34;</span>, [<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">admin</span>], <span style="color:#a6e22e">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">movie</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">Movie</span>.<span style="color:#a6e22e">findByIdAndRemove</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>);
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">movie</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">404</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;ID Not Found.&#34;</span>);
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">movie</span>);
+});
+</code></pre></div><p>到此为止，和administration相关的开发基本就结束了，此部分包含了管理员设置，用户管理，数据增删改等功能。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/web-ui-paging-and-query/" data-tooltip="Web UI Paging and Query">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/" data-tooltip="Login, Register, Authentication and Encryption">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/web-ui-paging-and-query/" data-tooltip="Web UI Paging and Query">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/" data-tooltip="Login, Register, Authentication and Encryption">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/website-administration/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fwebsite-administration%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fwebsite-administration%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fwebsite-administration%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/06\/website-administration\/';
+          
+            this.page.identifier = '\/2021\/06\/website-administration\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

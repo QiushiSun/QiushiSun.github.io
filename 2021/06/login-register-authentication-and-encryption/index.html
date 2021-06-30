@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Programming: 登陆，注册，认证与加密">
+
+
+<meta property="og:description" content="Web Programming: 登陆，注册，认证与加密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Login, Register, Authentication and Encryption">
+<meta name="twitter:title" content="Login, Register, Authentication and Encryption">
+<meta property="og:url" content="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Programming: 登陆，注册，认证与加密">
+<meta name="twitter:description" content="Web Programming: 登陆，注册，认证与加密">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-06-10T11:20:37">
+  
+  
+    <meta property="article:modified_time" content="2021-06-10T11:20:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/web-login.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/web-login.png">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Login, Register, Authentication and Encryption</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Login, Register, Authentication and Encryption
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-06-10T11:20:37&#43;08:00">
+        
+  June 10, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Programming: 登陆，注册，认证与加密</p>
+<p>Data Display Website</p>
+<h2 id="login-register-authentication-and-encryption">Login, Register, Authentication and Encryption</h2>
+<p>项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
+<h3 id="section-1-实现注册功能">Section 1: 实现注册功能</h3>
+<p>首先，根据项目要求，为爬虫数据展示网站实现登录注册界面，没有注册的用户无法访问到网站中的内容</p>
+<p><strong>由于在中期的博客里面已经详细讲解了如路由方法，数据库操作，性能优化等，所以在这次的博文里主要讲解功能的实现，而非一些技术上的细节</strong></p>
+<p>在实现之前，有一些概念和编程模式需要了解，需要了解的是React表单的使用，以下为一个示例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">createClass</span>({
+  <span style="color:#a6e22e">getInitialState</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hello!&#39;</span>};
+  },
+  <span style="color:#a6e22e">handleChange</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>({<span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>});
+  },
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span>;
+    <span style="color:#66d9ef">return</span> (
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">value</span>} <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">handleChange</span>} <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">value</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    );
+  }
+});
+
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Input</span><span style="color:#f92672">/&gt;</span>, document.<span style="color:#a6e22e">body</span>);
+</code></pre></div><p>上面代码中，文本输入框的值要定义一个 <code>onChange</code> 事件的回调函数，通过 <code>event.target.value</code> 读取用户输入的值。</p>
+<p>接下来就是用户登录/注册界面的实现案例，用户需要注册一个账号才能继续在数据查询网站的访问，登陆/注册界面如下所示</p>
+<p><img src="https://qiushisun.github.io/images/login-interface.png" alt="Hugo-logo-wide" title="login-interface"></p>
+<p>实现方式为利用React组件功能与属性，如下控制注册流程，使用validateFields可以帮助我们实现表单功能</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">validateFields</span>((<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">values</span>) =&gt; {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">Api</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/users/register&#39;</span>, <span style="color:#a6e22e">values</span>)
+      .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>) {
+        <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">success</span>(<span style="color:#e6db74">&#39;wegsite register success!&#39;</span>);
+        <span style="color:#a6e22e">history</span>.<span style="color:#a6e22e">push</span>(<span style="color:#e6db74">&#39;/login&#39;</span>); 
+      }
+    })
+      .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">err</span>) =&gt; {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+      <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">message</span>);<span style="color:#75715e">// print err
+</span><span style="color:#75715e"></span>    });
+  }
+});
+</code></pre></div><p>在 Form.Item 中设置校验规则，在表单提交或表单输入变化时，通过执行 this.props.validateFields来实现表单值的校验。 在 Form.Item 中放置一个被 getFieldDecorator 注册的表单控件（子元素）来实现表单控件与表单的双向绑定，实现对表单值的收集。</p>
+<p>紧接着使用html表单</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">Form.Item</span> <span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;item&#34;</span>&gt;
+            {getFieldDecorator(&#39;name&#39;, {
+              rules: [{ required: true }],
+            })(
+              &lt;<span style="color:#f92672">Input</span>
+                <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;large&#34;</span>
+                <span style="color:#a6e22e">prefix</span><span style="color:#f92672">=</span><span style="color:#e6db74">{&lt;Icon</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">{{</span> <span style="color:#a6e22e">color:</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">rgba</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">0</span><span style="color:#960050;background-color:#1e0010">,.</span><span style="color:#a6e22e">25</span><span style="color:#960050;background-color:#1e0010">)&#39;}}</span> /&gt;}
+                placeholder=&#34;username is required&#34; // 默认信息
+              /&gt;,
+            )}
+          &lt;/<span style="color:#f92672">Form.Item</span>&gt;
+</code></pre></div><p>注册后，可以看到打印写入数据库的条目于控制台中，如下</p>
+<p><img src="https://qiushisun.github.io/images/web-display-register.png" alt="Hugo-logo-wide" title="login-register"></p>
+<p>值得注意的是，注册时需要考虑到以下要素</p>
+<ol>
+<li>避免重复用户名</li>
+<li>注册成功跳转登陆页面（注册后转移到登录界面）</li>
+<li>用户提示（用红色*来表示必填项）</li>
+</ol>
+<h3 id="section-2-实现登陆功能">Section 2: 实现登陆功能</h3>
+<p>注册后即可登陆，必须填写正确的账号密码才可以登录</p>
+<p>此处需要使用JWT，JSON Web Token（缩写 JWT）是目前非常流行的跨域认证解决方案，JWT的原理是，服务器认证以后，生成一个 JSON对象，发回给用户。随后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上signature（基于密钥）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">jsonwebtoken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;jsonwebtoken&#39;</span>);
+</code></pre></div><p>JWT的介绍可以看阮一峰的博客 <a href="https://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">JSON Web Token 入门教程</a>，里面有更加详尽的解释</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">async</span> <span style="color:#a6e22e">login</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">findOne</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">user</span>) {
+      <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">404</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;error! Username or Password Invalid&#39;</span> });
+    }
+    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">_id</span>, <span style="color:#a6e22e">name</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">token</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jsonwebtoken</span>.<span style="color:#a6e22e">sign</span>({ <span style="color:#a6e22e">_id</span>, <span style="color:#a6e22e">name</span> }, <span style="color:#a6e22e">scrects</span>, { <span style="color:#a6e22e">expiresIn</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1d&#39;</span> });
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">201</span>).<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">token</span>, <span style="color:#a6e22e">name</span> });
+  }
+</code></pre></div><p><img src="https://qiushisun.github.io/images/login-interface1.png" alt="Hugo-logo-wide" title="login-interface"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">userLogin</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">params</span>) =&gt; {
+  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">dispatch</span>) =&gt; {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Api</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/users/login&#39;</span>, <span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">res</span>) =&gt; {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>) {
+        <span style="color:#a6e22e">Util</span>.<span style="color:#a6e22e">setToken</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">token</span>);
+        <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">actionUserLoginCreator</span>(<span style="color:#a6e22e">USER_LOGIN</span>, { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">name</span> }));
+      }
+    });
+  };
+};
+</code></pre></div><p>登陆后即可查看相应板块的数据，以豆瓣影评为例，可以看到当前为普通用户状态，无法修改数据</p>
+<p><img src="https://qiushisun.github.io/images/login-interface2.png" alt="Hugo-logo-wide" title="login-interface"></p>
+<p>点击右上角可以登出返回登录注册界面</p>
+<h3 id="section-3-实现管理员权限">Section 3: 实现管理员权限</h3>
+<p>接下来实现管理员权限，管理员拥有以下权利</p>
+<ol>
+<li>修改数据（如豆瓣影评中的电影信息/电影评价/电影的star数量）</li>
+<li>添加新的数据（如以豆瓣影评的格式加入一部新的电影）</li>
+<li>限制某个特定用户对该网站的访问</li>
+</ol>
+<p>因为这部分涉及登录注册之后的功能，所以请看第四章中的详细展示</p>
+<h3 id="section-4-信息加密处理">Section 4: 信息加密处理</h3>
+<p>如之前的数据库内信息所见，我们的用户名和密码都是明文传播的，这在web应用中是极度不安全的，如下所示</p>
+<p><img src="https://qiushisun.github.io/images/web-non-encrypt.png" alt="Hugo-logo-wide" title="non-encrypt"></p>
+<p>为此，我们必须使用加密方法来保障安全。</p>
+<p>在一切开始之前，我们需要借助crypto-js这个npm包</p>
+<p><code>npm install crypto-js</code></p>
+<p>安装好后，我们先尝试一下常用的md5加密方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cry</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto-js&#39;</span>) <span style="color:#75715e">// required
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123456&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pwd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cry</span>.<span style="color:#a6e22e">MD5</span>(<span style="color:#a6e22e">password</span>).<span style="color:#a6e22e">toString</span>();
+<span style="color:#75715e">//console.log(pwd);
+</span></code></pre></div><p>此时可以得到MD5加密后的密码：<code>e10adc3949ba59abbe56e057f20f883e</code>，我们需要将之前的明文存储改为这类密文存储。</p>
+<p><strong>Remark</strong>：还支持其他形式的加密，都可以使用crypto-js来实现，简单做一下介绍，如下所示</p>
+<p>首先是sha1加密</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cry</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;crypto-js&#39;</span>)
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;123456&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pwd_sha1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cry</span>.<span style="color:#a6e22e">SHA1</span>(<span style="color:#a6e22e">password</span>).<span style="color:#a6e22e">toString</span>();
+</code></pre></div><p>此时可以得到sha1加密后的密码：<code>7c4a8d09ca3762af61e59520943dc26494f8941b</code></p>
+<p>也可以选择AES加密，AES指代高级加密标准（Advanced Encryption Standard），是美国联邦政府采用的一种区块加密标准。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// AES加密 
+</span><span style="color:#75715e">// arg1为需要加密的内容
+</span><span style="color:#75715e">// arg2为秘钥
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">secretKey</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;def123&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pwd_aes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cry</span>.<span style="color:#a6e22e">AES</span>.<span style="color:#a6e22e">encrypt</span>(<span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">secretKey</span>).<span style="color:#a6e22e">toString</span>();
+</code></pre></div><p>此时可以得到AES加密后的密码：<code>U2FsdGVkX19vthLwq1V+zSr7zifbqTBPoBQNCe92hx0=</code></p>
+<p>总之，不论使用哪种加密方式，都比直接明文传输要好很多（我记得20年出过好几个大型互联网平台密码泄漏的事故&hellip;），然后看下加密后的效果吧</p>
+<p><img src="https://qiushisun.github.io/images/web-encrypt.png" alt="Hugo-logo-wide" title="non-encrypt"></p>
+<p>可见，想破解这些密码是相对困难的</p>
+<p>至此，我们成功完成了用户登陆、注册和加密功能的开发。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/website-administration/" data-tooltip="Website Administration">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/about-data-display-website/" data-tooltip="About Data Display Website">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/website-administration/" data-tooltip="Website Administration">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/about-data-display-website/" data-tooltip="About Data Display Website">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Flogin-register-authentication-and-encryption%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Flogin-register-authentication-and-encryption%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Flogin-register-authentication-and-encryption%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/06\/login-register-authentication-and-encryption\/';
+          
+            this.page.identifier = '\/2021\/06\/login-register-authentication-and-encryption\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

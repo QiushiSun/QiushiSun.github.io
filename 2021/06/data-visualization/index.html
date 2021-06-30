@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Qiushi Sun">
+<meta name="keywords" content="Node.js, Web Programming">
+<meta name="description" content="Web Programming: 数据分析图表">
+
+
+<meta property="og:description" content="Web Programming: 数据分析图表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Visualization">
+<meta name="twitter:title" content="Data Visualization">
+<meta property="og:url" content="https://qiushisun.github.io/2021/06/data-visualization/">
+<meta property="twitter:url" content="https://qiushisun.github.io/2021/06/data-visualization/">
+<meta property="og:site_name" content="QiushiSun&#39;s Blog">
+<meta property="og:description" content="Web Programming: 数据分析图表">
+<meta name="twitter:description" content="Web Programming: 数据分析图表">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-06-22T11:40:37">
+  
+  
+    <meta property="article:modified_time" content="2021-06-22T11:40:37">
+  
+  
+  
+    
+      <meta property="article:section" content="Web Programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="Web Programming">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/web-visualization.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/web-visualization.png">
+
+
+
+
+
+  <meta property="og:image" content="https://qiushisun.github.io/images/myavatar.png">
+  <meta property="twitter:image" content="https://qiushisun.github.io/images/myavatar.png">
+
+
+    <title>Data Visualization</title>
+
+    <link rel="icon" href="images/icon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://qiushisun.github.io/2021/06/data-visualization/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://qiushisun.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://qiushisun.github.io/">QiushiSun&#39;s Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://qiushisun.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://qiushisun.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Qiushi Sun</h4>
+        
+          <h5 class="sidebar-profile-bio">An undergraduate student majoring in Data Science and Engineering</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/QiushiSun" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://stackoverflow.com/users/636472/kakawait" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+      
+      <span class="sidebar-button-desc">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://qiushisun.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Data Visualization
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-06-22T11:40:37&#43;08:00">
+        
+  June 22, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://qiushisun.github.io/categories/web-programming">Web Programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Web Programming: 数据分析图表</p>
+<p>Data Display Website</p>
+<h2 id="data-visualization">Data Visualization</h2>
+<p>项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
+<p>在中期项目中已经基于Echarts制作了词云图，本篇文章对可视化工具做进一步扩展</p>
+<h3 id="section-1-echarts">Section 1: Echarts</h3>
+<p><em>ECharts，缩写来自Enterprise Charts，商业级数据图表，一个纯Javascript的图表库，可以流畅的运行在PC和移动设备上，兼容当前绝大部分浏览器，提供直观，生动，可交互，可高度个性化定制的数据可视化图表。创新的拖拽重计算、数据视图、值域漫游等特性大大增强了用户体验，赋予了用户对数据进行挖掘、整合的能力。</em></p>
+<p><img src="https://qiushisun.github.io/images/crawler-wordcloud-diamond.png" alt="Hugo-logo-wide" title="WordCloud-Diamond"></p>
+<p>如上图所示在中期开发中已经使用过Echarts进行词云图展示，现在使用其他类型的图表做更加量化的展示。</p>
+<p>因为提取/查询相关数据的sql、mongodb查询以及静态数据（Json格式）存储等过程和中期时无异，且代码比较冗杂，所以不在此赘述，若感兴趣可以回看中期项目的最后一篇文章，本次主要展现可视化的实现流程。</p>
+<h3 id="section-2-饼状动图的制作">Section 2: 饼状动图的制作</h3>
+<p>Midterm时使用的Echarts为静态页面，在最终项目中尝试一下使用Echarts动图来展示数据。</p>
+<p>饼状图适合直观展示各类数据的占比，从豆瓣影评中挑选出以下几类电影参与可视化：奇幻，动作，爱情，恐怖，剧情，数据依然是之前查询整理好的数据</p>
+<p>实现动态效果的主要部件就是设置一个Interval来改变单个饼状图分块的强调时间，如下所示</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">setInterval</span>(<span style="color:#66d9ef">function</span> () {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dataLength</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">option</span>.<span style="color:#a6e22e">series</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">length</span>;
+        <span style="color:#75715e">// 这里需要把之前的高亮强调取消
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">myChart</span>.<span style="color:#a6e22e">dispatchAction</span>({
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;downplay&#39;</span>,
+            <span style="color:#a6e22e">seriesIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+            <span style="color:#a6e22e">dataIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">CurIdx</span>
+        });
+        <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">CurIdx</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">CurIdx</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> <span style="color:#a6e22e">dataLength</span>;
+        <span style="color:#75715e">// 强调当前的饼图模块，高亮当前的小块
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">myChart</span>.<span style="color:#a6e22e">dispatchAction</span>({
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;highlight&#39;</span>,
+            <span style="color:#a6e22e">seriesIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+            <span style="color:#a6e22e">dataIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">CurIdx</span>
+        });
+        <span style="color:#75715e">// 显示tooltip，否则只会有高亮而非有文字的展示效果
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">myChart</span>.<span style="color:#a6e22e">dispatchAction</span>({
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;showTip&#39;</span>,
+            <span style="color:#a6e22e">seriesIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+            <span style="color:#a6e22e">dataIndex</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">CurIdx</span>
+        });
+    }, <span style="color:#ae81ff">2000</span>); <span style="color:#75715e">// 此处的2000为ms，表示单个interval的长度
+</span></code></pre></div><p>此处的颜色可以通过一个简单的js函数来实现，colorList列表中的颜色会被饼状图依次使用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">params</span>) {
+                    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">colorList</span> <span style="color:#f92672">=</span> [
+                    <span style="color:#e6db74">&#39;#2980B9&#39;</span>, <span style="color:#e6db74">&#39;#1ABC9C&#39;</span>, <span style="color:#e6db74">&#39;#F1C40F&#39;</span>,<span style="color:#e6db74">&#39;#F39C12 &#39;</span>,<span style="color:#e6db74">&#39;#A569BD&#39;</span>
+                    ];
+                    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">colorList</span>[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">dataIndex</span>]
+                }
+</code></pre></div><p>将这段内容嵌入series的itemStyle中，即可定义上述颜色作为饼状图所展示的颜色，效果如下所示</p>
+<p>（因为是动图所以截了两张）</p>
+<p><img src="https://qiushisun.github.io/images/web-display-pies.png" alt="Hugo-logo-wide" title="pies"></p>
+<p>通过这个网址可以查html颜色卡，方便选颜色：https://htmlcolorcodes.com/zh/</p>
+<h3 id="section-3-柱状图表的制作">Section 3: 柱状图表的制作</h3>
+<p>这里先模仿老师提供的示例代码的下拉菜单，通过切换菜单可以换可视化的方式</p>
+<p>对于渐变色，主要是实现一个itemstyle中的渐变色函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">itemStyle</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">normal</span><span style="color:#f92672">:</span> {
+          <span style="color:#75715e">// 每个柱子的颜色即为colorList数组里的每一项,如果柱子数目多于colorList的长度，则循环
+</span><span style="color:#75715e"></span>          <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">params</span>) {
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">dataIndex</span>
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">colorList</span> <span style="color:#f92672">=</span> [ <span style="color:#75715e">// colorlist中为渐变颜色的色值和透明度
+</span><span style="color:#75715e"></span>              <span style="color:#75715e">// 透明度从0开始
+</span><span style="color:#75715e"></span>              [<span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>, <span style="color:#e6db74">&#39;rgba(52,167,254,0)&#39;</span>],
+              <span style="color:#75715e">// 到透明度1 ,如果需要不同的颜色直接修改不同颜色即可
+</span><span style="color:#75715e"></span>              [<span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>, <span style="color:#e6db74">&#39;#34a7fe&#39;</span>]
+            ]
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">echarts</span>.<span style="color:#a6e22e">graphic</span>.<span style="color:#a6e22e">LinearGradient</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, [{
+              <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#75715e">// 颜色渐变的起始位置
+</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">colorList</span>[<span style="color:#ae81ff">1</span>][<span style="color:#a6e22e">index</span>] <span style="color:#75715e">// 从低到高，0%处的颜色
+</span><span style="color:#75715e"></span>            }, {
+              <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,<span style="color:#75715e">// 颜色渐变的结束位置
+</span><span style="color:#75715e"></span>              <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">colorList</span>[<span style="color:#ae81ff">0</span>][<span style="color:#a6e22e">index</span>] <span style="color:#75715e">// 最上面即100%处的颜色
+</span><span style="color:#75715e"></span>            }])
+          }
+        }
+      },
+</code></pre></div><p>实现效果如下，可以看到比示例代码好看了不少</p>
+<p><img src="https://qiushisun.github.io/images/web-final-bars.png" alt="Hugo-logo-wide" title="bars"></p>
+<h3 id="section-3-echarts-heat-map">Section 3: Echarts Heat-Map</h3>
+<p>在本版块，我们将尝试Echarts地图坐标系（参考了mooc的示范）</p>
+<p>移动互联网时代，地理位置信息已经成为许多数据分析的重要参考依据，基于地图的图表需求也随之增长。ECharts 提供了一套功能完备的地图坐标体系，我们在此做一个简单尝试。</p>
+<p>Heat-Map简介：某种程度上 ECharts 中的地图坐标系可以看做一种特殊直角坐标系，它将现实世界的地理平面映射为二维平面，通过经纬度系统实现坐标定位，通过线段按规则勾画出各个独立的地理、行政区域。</p>
+<p><strong>Remark</strong>：这里所使用的的地图信息数据是通过 json 格式定义，Echarts 曾提供国内地图信息，但由于不符合国家《测绘法》规定，目前和中国相关的地图信息都已经被枪毙/Echarts主动下架了。（哭了，我主要的数据都是国内新闻网站的）</p>
+<p>以美国地图为例，因为分析比较麻烦我这里使用的是静态的Json方法，纯当了解一下这个非常有趣的可视化工具，首先要加载一下各种依赖以及地图数据</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/axios/0.19.2/axios.min.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/echarts/4.5.0/echarts.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#f92672">&gt;</span>
+     
+</code></pre></div><p>然后是地图加载，其实不是很难</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">usaGeo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;//cdn.jsdelivr.net/gh/VanMess/echart-wiki-examples@1.0.0/11_geo/USA.json&#39;</span>); <span style="color:#75715e">//基于wiki提供的json格式数据
+</span></code></pre></div><p>首先因为美国在外有飞地，全部显示在正常位置会影响可视化的效果（会严重scale地图大小），所以需要把这几块飞地挪一挪位置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">echarts</span>.<span style="color:#a6e22e">registerMap</span>(<span style="color:#e6db74">&#39;USA&#39;</span>, <span style="color:#a6e22e">usaGeo</span>.<span style="color:#a6e22e">data</span>, {
+  <span style="color:#75715e">// 这里先要移动美国的飞地，否则放在网页里容易变形
+</span><span style="color:#75715e"></span>					<span style="color:#a6e22e">Alaska</span><span style="color:#f92672">:</span> {
+						<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">131</span>,
+						<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span>,
+						<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">15</span>,
+					},
+					<span style="color:#a6e22e">Hawaii</span><span style="color:#f92672">:</span> {
+						<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">110</span>, 
+						<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">16</span>,
+						<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+					},
+					<span style="color:#e6db74">&#39;Puerto Rico&#39;</span><span style="color:#f92672">:</span> {
+						<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">76</span>,
+						<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">26</span>,
+						<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+					},
+				});
+
+</code></pre></div><p>然后是实现可视化效果，和一般的Echarts还是非常接近的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">option</span> <span style="color:#f92672">=</span> {
+					<span style="color:#a6e22e">geo</span><span style="color:#f92672">:</span> {
+						<span style="color:#a6e22e">map</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;USA&#39;</span>, <span style="color:#75715e">//美国地图
+</span><span style="color:#75715e"></span>						<span style="color:#75715e">// 这里是申明是否能缩放
+</span><span style="color:#75715e"></span>						<span style="color:#a6e22e">roam</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+						<span style="color:#a6e22e">scaleLimit</span><span style="color:#f92672">:</span> {
+							<span style="color:#a6e22e">min</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#75715e">// 声明最小缩放比例
+</span><span style="color:#75715e"></span>							<span style="color:#a6e22e">max</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">// 声明最大缩放比例
+</span><span style="color:#75715e"></span>						},
+					},
+					<span style="color:#a6e22e">series</span><span style="color:#f92672">:</span> [
+						{
+							<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;scatter&#39;</span>,
+							<span style="color:#a6e22e">coordinateSystem</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;geo&#39;</span>,
+							<span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> [
+								<span style="color:#75715e">// 这里可以用json，也可以静态地加载 [x,y,number]的数据，用逗号隔开，前二者为经纬度坐标，第三个参数是数量（如出现的次数），我建议后者
+</span><span style="color:#75715e"></span>							],
+							<span style="color:#a6e22e">symbolSize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">val</span>) {
+								<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>[<span style="color:#ae81ff">2</span>];
+							},
+						},
+					],
+				};
+				<span style="color:#a6e22e">myChart</span>.<span style="color:#a6e22e">setOption</span>(<span style="color:#a6e22e">option</span>);
+</code></pre></div><p>查看效果</p>
+<p><img src="https://qiushisun.github.io/images/web-final-am.png" alt="Hugo-logo-wide" title="America"></p>
+<p>由于数据很少所以可视化效果一般，但至少证明可行，我相信如果实在去年大选的时候爬新闻数据的话，Texas将会是超红的一块地方。</p>
+<h3 id="section-4-d3">Section 4: D3</h3>
+<h4 id="d3简介">D3简介：</h4>
+<p>前面都在使用Echarts工具开发数据可视化功能，现在尝试一下D3，因为一些图的功能是重复，所以把这个块单独做一下展示。</p>
+<p>简介：D3.js 是一个可以基于数据来操作文档的 JavaScript 库。可以帮助你使用 HTML, CSS, SVG 以及 Canvas 来展示数据。D3 遵循现有的 Web 标准，可以不需要其他任何框架独立运行在现代浏览器中，它结合强大的可视化组件来驱动 DOM 操作。优势如下</p>
+<ol>
+<li>
+<p>D3 基于svg图，因此对图像进行放大不会失真。</p>
+</li>
+<li>
+<p>D3 的步骤相对来说较多。对初学者不方便、也不好理解，但能够制作出更加精密的图形。</p>
+</li>
+<li>
+<p>开发的图表形态多变</p>
+</li>
+</ol>
+<p>D3的官网链接: <a href="https://d3js.org/">D3</a></p>
+<h4 id="svg简介">SVG简介：</h4>
+<p>稍微再简介一下什么是SVG图，可能一直使用LaTeX的同学会对这个比较熟悉，做各种模版的图标和Title图标都会尝试使用SVG，而非一般的存储格式。SVG的全称为Scalable Vector Graphics，是一种使用XML技术描述二维图形的语言。SVG最大的特点是其为矢量图，随着网页的放大和缩小，图像不会失真。此外，这类图片可以被搜索、索引。最后，SVG 图像比 JPG 或 PNG 图像更灵活，而且我们可以使用 CSS 和 JavaScript 与它们进行交互。</p>
+<h4 id="demo">Demo</h4>
+<p>基于React框架，使用D3进行可视化，不过在Demo开始前，由于D3的依赖相对复杂一点，先确定一下使用的版本，如下所示</p>
+<pre><code>d3 5.12.0
+react 16.8.6
+react-dom 16.8.6
+react-scripts 3.0.1
+</code></pre><p>头文件中添加如下依赖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">d3</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;d3&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ReactDOM</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-dom&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</code></pre></div><p>然后定义图片的样式，依旧是长，宽，边线和颜色（颜色可以通过前面的html色卡查）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">WIDTH</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">HEIGHT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">margin</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+  <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>,
+  <span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span>,
+  <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span>
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">COLORS</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;#16a3ff&#34;</span>, <span style="color:#e6db74">&#34;#6ddead&#34;</span>, <span style="color:#e6db74">&#34;#5edfff&#34;</span>, <span style="color:#e6db74">&#34;#3e64ff&#34;</span>, <span style="color:#e6db74">&#34;#505bda&#34;</span>]; <span style="color:#75715e">//搭配和之前相同的配色
+</span><span style="color:#75715e"></span>
+</code></pre></div><p>实现D3的风格样式，指针点击，以及点击强调后其他内容的透明度</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">normalStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">cursor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pointer&#34;</span>,
+  <span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+  <span style="color:#a6e22e">transform</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;scale(1)&#34;</span>,
+  <span style="color:#a6e22e">transition</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;all linear 200ms&#34;</span>
+};
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hoverStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">transform</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;scale(1.1)&#34;</span>
+};
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noHoverStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5</span>
+};
+</code></pre></div><p>最后是饼图效果的函数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Pie</span>() {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chartWidth</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">WIDTH</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">right</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chartHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">HEIGHT</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">top</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">bottom</span>;
+
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">setValue</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#ae81ff">0</span>);
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">active</span>, <span style="color:#a6e22e">setActive</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">null</span>);
+
+  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">transition</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">transition</span>().<span style="color:#a6e22e">duration</span>(<span style="color:#ae81ff">1000</span>);
+
+    <span style="color:#a6e22e">transition</span>.<span style="color:#a6e22e">tween</span>(<span style="color:#e6db74">&#34;height&#34;</span>, () =&gt; {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">t</span> =&gt; {
+        <span style="color:#a6e22e">setValue</span>(<span style="color:#a6e22e">t</span>);
+      };
+    });
+  }, []);
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pieRadius</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">min</span>([<span style="color:#a6e22e">chartWidth</span>, <span style="color:#a6e22e">chartHeight</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>;
+
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pie</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>
+    .<span style="color:#a6e22e">pie</span>()
+    .<span style="color:#a6e22e">sort</span>(<span style="color:#66d9ef">null</span>)
+    .<span style="color:#a6e22e">value</span>(<span style="color:#a6e22e">d</span> =&gt; <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">y</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pieData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pie</span>(<span style="color:#a6e22e">data</span>);
+
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>
+  <span style="color:#75715e">// d3的样式，这里可以调整内环的大小
+</span><span style="color:#75715e"></span>    .<span style="color:#a6e22e">arc</span>()
+    .<span style="color:#a6e22e">innerRadius</span>(<span style="color:#ae81ff">0</span>) 
+    .<span style="color:#a6e22e">outerRadius</span>(<span style="color:#a6e22e">pieRadius</span>);
+</code></pre></div><p>上面是饼图函数，等会儿可以通过调整内部换大小来实现环状图，接下来是饼图样式和内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">a</span> <span style="color:#a6e22e">SVG</span> <span style="color:#a6e22e">pic</span>); 
+</code></pre></div><p>这个SVG的定义如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">{WIDTH}</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">{HEIGHT}</span>&gt;
+      &lt;<span style="color:#f92672">g</span>
+        <span style="color:#a6e22e">transform</span><span style="color:#f92672">=</span><span style="color:#e6db74">{`translate(${margin.left</span> <span style="color:#960050;background-color:#1e0010">+</span> <span style="color:#a6e22e">pieRadius</span><span style="color:#960050;background-color:#1e0010">},${</span><span style="color:#a6e22e">margin</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">top</span> <span style="color:#960050;background-color:#1e0010">+</span>
+          <span style="color:#a6e22e">pieRadius</span><span style="color:#960050;background-color:#1e0010">})`}</span>
+      &gt;
+        {pieData.map((d, i) =&gt; {
+          let arcGen = arc
+            .startAngle(d.startAngle * value)
+            .endAngle(d.endAngle * value);
+
+          let style =
+            active != null
+              ? active === i
+                ? { ...normalStyle, ...hoverStyle }
+                : { ...normalStyle, ...noHoverStyle }
+              : normalStyle;
+          return (
+            &lt;<span style="color:#f92672">g</span>
+              <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">{i}</span>
+              <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">{style}</span>
+              <span style="color:#a6e22e">onMouseEnter</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; setActive(i)}
+              onMouseLeave={() =&gt; setActive(null)}
+            &gt;
+              &lt;<span style="color:#f92672">path</span>
+                <span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#e6db74">{arcGen()}</span>
+                <span style="color:#a6e22e">fill</span><span style="color:#f92672">=</span><span style="color:#e6db74">{COLORS[i</span> <span style="color:#960050;background-color:#1e0010">%</span> <span style="color:#a6e22e">COLORS</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">length</span><span style="color:#960050;background-color:#1e0010">]}</span>
+                <span style="color:#a6e22e">stroke</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span>
+              /&gt;
+            &lt;/<span style="color:#f92672">g</span>&gt;
+          );
+        })}
+
+        {pieData.map((d, i) =&gt; {
+          let arcGen = arc
+            .startAngle(d.startAngle * value)
+            .endAngle(d.endAngle * value);
+
+          let center = arcGen.centroid();
+          let style =
+            active != null
+              ? active === i
+                ? { ...normalStyle, ...hoverStyle }
+                : { ...normalStyle, ...noHoverStyle }
+              : normalStyle;
+          return (
+            &lt;<span style="color:#f92672">g</span>
+              <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span><span style="color:#e6db74">{i}</span>
+              <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">{style}</span>
+              <span style="color:#a6e22e">onMouseEnter</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; setActive(i)}
+              onMouseLeave={() =&gt; setActive(null)}
+            &gt;
+              &lt;<span style="color:#f92672">text</span>
+                <span style="color:#a6e22e">fontSize</span><span style="color:#f92672">=</span><span style="color:#e6db74">{16}</span>
+                <span style="color:#a6e22e">fill</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#fff&#34;</span>
+                <span style="color:#a6e22e">textAnchor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;middle&#34;</span>
+                <span style="color:#a6e22e">x</span><span style="color:#f92672">=</span><span style="color:#e6db74">{center[0]}</span>
+                <span style="color:#a6e22e">y</span><span style="color:#f92672">=</span><span style="color:#e6db74">{center[1]}</span>
+              &gt;
+                {d.data.x}:{d.value}
+              &lt;/<span style="color:#f92672">text</span>&gt;
+            &lt;/<span style="color:#f92672">g</span>&gt;
+          );
+        })}
+      &lt;/<span style="color:#f92672">g</span>&gt;
+    &lt;/<span style="color:#f92672">svg</span>&gt;
+</code></pre></div><p>随后可以查看效果</p>
+<p><img src="https://qiushisun.github.io/images/web-final-D3.png" alt="Hugo-logo-wide" title="D3-pies"></p>
+<p>用浏览器打开可以试试放大当前页面，SVG图不会受此影响导致图片模糊。前面实现的交互效果如下所示</p>
+<p><img src="https://qiushisun.github.io/images/web-final-D3-vis.png" alt="Hugo-logo-wide" title="D3-pies"></p>
+<p>随后再尝试一下通过修改内环大小实现动态环状图，效果如下</p>
+<p>（修改的参数见上述代码的注释）</p>
+<p><img src="https://qiushisun.github.io/images/web-final-circ.png" alt="Hugo-logo-wide" title="D3-pies"></p>
+<p>除了上述几种方法外，其余还有更多的D3可视化方法等待发现，个人认为比前面使用的Ecahrts和React的搭配更协调一些，因为最近的科研和考试压力比较大就先止步于此，期待日后在开发中的继续探索。</p>
+<h3 id="appendix补充中国地图数据">Appendix：补充中国地图数据</h3>
+<p>前面有提到因为一些政策问题中国地区的地图数据没办法使用，但后来查询了很多资料后发现可以使用百度地图的API来代替<del>境外势力</del>Echarts提供的数据和地图模版，所使用的数据是中期时实现的数据的新闻报道地统计，因为这个api访问非常慢，所以没有整合，纯粹是做一下补充尝试</p>
+<p>需要的api如下所示，主要是要用百度的地图api（这个本地跑的时候加载非常慢）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//api.map.baidu.com/api?v=2.0&amp;ak=KOmVjPVUAey1G2E8zNhPiuQ6QiEmAwZu&amp;__ec_v__=20190126&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/echarts/4.5.0/echarts.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+		<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn.bootcss.com/echarts/4.5.0/extension/bmap.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div><p>访问效果如下得到的（用刚刚同样的热度方式只有义乌有数据&hellip;，但至少证明可行）</p>
+<p><img src="https://qiushisun.github.io/images/web-final-mapping.png" alt="Hugo-logo-wide" title="mapping"></p>
+<p>总结：本次可视化实践本次实现了基于Echarts的动态饼状图，柱状图，地图热度图以及基于D3的环状图，对Echarts作图有了更加深入的理解，也对D3和SVG模式可视化有了初步的了解。</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://qiushisun.github.io/tags/web-programming/">Web Programming</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/elastic-search-kibana/" data-tooltip="Elastic Search&#43;Kibana">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/" data-tooltip="Word segmentation and Ranking">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Qiushi Sun. All Rights Reserved
+  </span>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            displayMath: [['$$','$$'], ['\[','\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/elastic-search-kibana/" data-tooltip="Elastic Search&#43;Kibana">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/word-segmentation-and-ranking/" data-tooltip="Word segmentation and Ranking">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://qiushisun.github.io/2021/06/data-visualization/">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fdata-visualization%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fdata-visualization%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3A%2F%2Fqiushisun.github.io%2F2021%2F06%2Fdata-visualization%2F">
+          <i class="fa fa-google-plus"></i><span>Share on Google&#43;</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://qiushisun.github.io/images/myavatar.png" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Qiushi Sun</h4>
+    
+      <div id="about-card-bio">An undergraduate student majoring in Data Science and Engineering</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        ECNU Student
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Shanghai
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://qiushisun.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://qiushisun.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/qiushisun.github.io\/2021\/06\/data-visualization\/';
+          
+            this.page.identifier = '\/2021\/06\/data-visualization\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugo-tranquilpeak-theme';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

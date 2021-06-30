@@ -257,6 +257,7 @@
               <p>Introduction To React: 使用React框架搭建数据展示网站</p>
 <h2 id="introduction-to-react">Introduction To React</h2>
 <p>延续之前的爬虫数据采集项目，现在开始使用React框架搭建一个数据展示网站</p>
+<p>项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
 <p>不过在开始之前，我们得先了解下什么是React</p>
 <h3 id="section-1-what-is-react">Section 1: What is React</h3>
 <p><strong>React</strong> (also known as <strong>React.js</strong> or <strong>ReactJS</strong>) is an open-source front-end JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications. However, React is only concerned with state management and rendering that state to the DOM, so creating React applications usually requires the use of additional libraries for routing, as well as certain client-side functionality. <em>(Source:wikipedia)</em></p>
@@ -264,9 +265,49 @@
 <p><img src="https://qiushisun.github.io/images/react-icon-long.png" alt="Hugo-logo-wide" title="react-logo"></p>
 <h3 id="section-2-how-to-use">Section 2: How to Use</h3>
 <p>直接上React的官方网站<a href="https://reactjs.org/docs/getting-started.html">Reactjs.org</a>下载一个包即可</p>
-<h3 id="section-3-demo">Section 3: Demo</h3>
-<p>此处的入门也可以参考阮一峰老师的<a href="https://www.ruanyifeng.com/blog/2015/03/react.html">React 入门实例教程</a></p>
-<p>References</p>
+<p>随后开始使用，以下为一个示范</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#f92672">&lt;!</span><span style="color:#a6e22e">DOCTYPE</span> <span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">html</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">head</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../build/react.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../build/react-dom.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../build/browser.min.js&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/head&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">body</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/babel&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#75715e">// ** Code **
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/body&gt;</span>
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/html&gt;</span>
+</code></pre></div><p>我们需要注意最后一个 <code>&lt;script&gt;</code> 标签的 <code>type</code> 属性为 <code>text/babel</code> 。这是因为 React 独有的 JSX 语法，跟传统的JavaScript 不兼容。如果我们使用了JSX，就要加上 <code>type=&quot;text/babel&quot;</code> 。</p>
+<p>注意到上面代码一共用了三个库：</p>
+<ol>
+<li><code>react.js</code></li>
+<li><code>react-dom.js</code></li>
+<li><code>Browser.js</code></li>
+</ol>
+<p>这三个依赖必须首先加载。其中，<code>react.js</code> 是 React 的核心库，<code>react-dom.js</code> 是提供与 DOM 相关的功能，<code>Browser.js</code> 的作用是将 JSX 语法转为 JavaScript 语法，这一步很消耗时间，实际上线的时候，应该将它放到server端口完成。</p>
+<p>接下来，ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。</p>
+<blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Hello</span>, <span style="color:#a6e22e">world</span><span style="color:#f92672">!&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;,</span>
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;demo&#39;</span>)
+);
+</code></pre></div></blockquote>
+<p>基于上述依赖可以插入一些html信息，上面是最简单的一个示范</p>
+<h3 id="section-3-grammar">Section 3: Grammar</h3>
+<p>JSX 的基本语法规则很简单，遇到 HTML 标签（以 <code>&lt;</code> 开头），就用 HTML 规则解析；遇到代码块（以 <code>{</code> 开头），就用 JavaScript 规则解析，如下为一个示例。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">names</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;DaSE&#39;</span>, <span style="color:#e6db74">&#39;Soft&#39;</span>, <span style="color:#e6db74">&#39;CS&#39;</span>];
+<span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>{
+    <span style="color:#a6e22e">names</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">name</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">HelloWorld</span>, {<span style="color:#a6e22e">name</span>}<span style="color:#f92672">!&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    })
+  }<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;,</span>
+  document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;demo&#39;</span>)
+);
+</code></pre></div><p>References</p>
 <ol>
 <li>React 官方文档：https://reactjs.org/versions</li>
 </ol>

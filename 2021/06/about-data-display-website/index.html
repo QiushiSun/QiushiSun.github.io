@@ -272,16 +272,43 @@
 <li>实现查询结果按照主题词（关键字）的排序</li>
 <li>使用Elastic Search+Kibana展示爬虫数据结果</li>
 </ol>
-<p><img src="https://qiushisun.github.io/images/sea-wave.png" alt="Hugo-logo-wide" title="sea-wave"></p>
-<p>数据展示网站所包含的内容</p>
+<p>本项目的博客依旧展示于我基于Hugo搭建的博客：项目博客地址：<a href="https://qiushisun.github.io">Qiushisun</a></p>
+<p>Remark: 数据展示网站所包含的内容</p>
 <ol>
-<li>
-<p>延续之前的爬虫项目所爬取的新闻数据</p>
-</li>
-<li>
-<p>豆瓣电影数据</p>
-</li>
+<li>延续之前的爬虫项目所爬取的新闻数据（网易，新浪，中国新闻）</li>
+<li>新爬取的豆瓣电影数据（包括电影名，导演，演员，上映时期，以及影评）</li>
 </ol>
+<p>关系型数据库内的数据样例如下</p>
+<p><img src="https://qiushisun.github.io/images/crawler-total-num.png" alt="Hugo-logo-wide" title="Sql"></p>
+<p>文档型数据库MongoDB内的数据样例如下</p>
+<p><img src="https://qiushisun.github.io/images/web-final-midway.png" alt="Hugo-logo-wide" title="MongoData"></p>
+<p>实现各功能的思维导图如下</p>
+<p><img src="https://qiushisun.github.io/images/web-final-guideline.png" alt="Hugo-logo-wide" title="Guideline"></p>
+<p>整合一下上述需求，将其分为以下几个板块进行展示</p>
+<ol>
+<li>用户登录、注册与加密</li>
+<li>管理员权限与管理员控制面板</li>
+<li>注册、登陆、查询等操作记入数据库中的日志</li>
+<li>各类数据查询的分页展示与排序，基于查询主题词/星数的排序</li>
+<li>不同参数组合的进阶数据查询方式</li>
+<li>基于D3和Echarts的数据可视化（中期已经使用Echarts做过简单的可视化，本次丰富了可视化的形式，除了词云外，还实现了渐变图，动态图，地图热度等进阶效果）</li>
+<li>中文分词查询</li>
+<li>使用Elastic Search+Kibana进行数据展示</li>
+</ol>
+<p>主要界面和大致效果如下，仅作为项目快照举例，<strong>具体内容与更多详细功能请看后续博文详细阐述</strong></p>
+<p>首先是用户登录注册界面</p>
+<p><img src="https://qiushisun.github.io/images/web-overall-login.png" alt="Hugo-logo-wide" title="overall"></p>
+<p>其次是各种查询与数据排序功能</p>
+<p><img src="https://qiushisun.github.io/images/web-overall.png" alt="Hugo-logo-wide" title="overall"></p>
+<p>数据的分页展示</p>
+<p><img src="https://qiushisun.github.io/images/web-final-paging.png" alt="Hugo-logo-wide" title="paging"></p>
+<p>管理员模式下的用户管理（还有各类数据管理）</p>
+<p><img src="https://qiushisun.github.io/images/web-final-manage.png" alt="Hugo-logo-wide" title="manage"></p>
+<p>查询进阶（查询参数组合）</p>
+<p><img src="https://qiushisun.github.io/images/web-search-demo.png" alt="Hugo-logo-wide" title="web-search-demo"></p>
+<p>饼状图可视化，还有别的可视化（如环状图，词云，折线，地图热度等）在后续文章中展示</p>
+<p><img src="https://qiushisun.github.io/images/web-overall-vis.png" alt="Hugo-logo-wide" title="visualization"></p>
+<p>以上为简易的demo展示，具体内容和细节请看后续博文</p>
               
             </div>
           </div>
@@ -306,7 +333,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/" data-tooltip="Login, Register, Authentication and Encryption">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -408,7 +435,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://qiushisun.github.io/2021/06/login-register-authentication-and-encryption/" data-tooltip="Login, Register, Authentication and Encryption">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
