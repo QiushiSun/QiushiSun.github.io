@@ -57,16 +57,19 @@ My research interests include neural code intelligence, LLM-based agents, and br
 </style>  
 <div class="scrollable-area">  
     <ul>
+        <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn!</li>
         <li><em>2024.05</em>: 🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!</li>
         <li><em>2024.03</em>: 📑📑 Check out our <a href="https://arxiv.org/abs/2403.14734">Code Intelligence Survey Paper</a>🔥</li>  
         <li><em>2023.12</em>: ⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬</li>  
+        <li><em>2023.07</em>: 🌟🌟 Started my research intern at Shanghai AI Lab</li>
         <li><em>2023.05</em>: 🚀🚀 HugNLP Framework (CIKM'23 Best Demo Paper) is ready for use! Please check our <a href="https://arxiv.org/abs/2302.14286">Paper</a>, <a href="https://github.com/HugAILab/HugNLP">Repo</a> and <a href="https://zhuanlan.zhihu.com/p/628106578">Blogs</a></li>  
         <li><em>2023.05</em>: 👏👏 We release <a href="https://arxiv.org/abs/2305.18153">SelfAware</a> for benchmarking LLMs' self-knowledge </li>  
-        <li><em>2022.12</em>: 🎉🎉 Our team won second prize (100k RMB) in the <a href="https://iacc.pazhoulab-huangpu.com/">International Algorithm Case Competition</a>: PLM Tuning Track. 
-</li>  
+        <li><em>2023.01</em>: 🌟🌟 Started my research intern at <a href="https://www.a-star.edu.sg/i2r">I<sup>2</sup>R, A*STAR</a> </li>
+        <li><em>2022.12</em>: 🎉🎉 Our team won second prize (100k RMB) in the <a href="https://iacc.pazhoulab-huangpu.com/">International Algorithm Case Competition</a>: PLM Tuning Track. </li> 
+        <li><em>2022.08</em>: 📚📚 Started my master's studies at National University of Singapore 🇸🇬</li>
+        <li><em>2022.07</em>: 🎓🎓 Graduated from ECNU as a Shanghai outstanding graduate </li>
     </ul>  
 </div>  
-
 
 {% include_relative includes/pub.md %}
 
