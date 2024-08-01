@@ -69,6 +69,8 @@ My research interests include neural code intelligence, LLM-based agents, and br
         <li><em>2022.12</em>: 🎉🎉 Our team won second prize (100k RMB) in the <a href="https://iacc.pazhoulab-huangpu.com/">International Algorithm Case Competition</a>: PLM Tuning Track. </li> 
         <li><em>2022.08</em>: 📚📚 Started my master's studies at National University of Singapore. 🇸🇬</li>
         <li><em>2022.07</em>: 🎓🎓 Awarded Outstanding UG Thesis and Graduated from ECNU as a Shanghai Outstanding Graduate. </li>
+        <li><em>2021.09</em>: 📚📚 Started serving as a TA for Deep Learning for Computer Vision course this semester.</li>
+        <li><em>2021.05</em>: 🏆🏆 Led my team to win the Finalist Award in the Mathematical and Interdisciplinary Contest in Modeling!</li>
     </ul>  
 </div>  
 
