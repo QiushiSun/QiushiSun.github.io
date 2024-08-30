@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Welcome to my homepage! I am a Ph.D. student at [HKU CS](https://www.cs.hku.hk/). Currently, I am working at the NLP group of [Shanghai AI Lab](https://www.shlab.org.cn/) under the supervision of [Dr. Zhiyong Wu](https://lividwo.github.io/zywu.github.io/), focusing on topics related to LLM Agents. Previously, I was a master’s student at NUS, advised by [Dr. Xiaoli Li](https://www.a-star.edu.sg/i2r/about-i2r/i2r-management/li-xiaoli) at the Institute for Infocomm Research ([I<sup>2</sup>R](https://www.a-star.edu.sg/i2r)), A*STAR. Before that, I completed my B.Eng with distinction in the School of Data Science and Engineering ([DaSE](http://dase.ecnu.edu.cn/)) at East China Normal University, where I was privileged to be instructed by [Prof. Weining Qian](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=27), [Prof. Xuesong Lu](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=40), and [Prof. Xiang Li](https://lixiang3776.github.io/) for research and engineering projects.
+Welcome to my homepage! I am a Ph.D. student at [HKU CS](https://www.cs.hku.hk/). Currently, I am working with the NLP group of [Shanghai AI Lab](https://www.shlab.org.cn/) under the supervision of [Dr. Zhiyong Wu](https://lividwo.github.io/zywu.github.io/), focusing on topics related to LLM Agents. Previously, I was a master’s student at NUS, advised by [Dr. Xiaoli Li](https://www.a-star.edu.sg/i2r/about-i2r/i2r-management/li-xiaoli) at the Institute for Infocomm Research ([I<sup>2</sup>R](https://www.a-star.edu.sg/i2r)), A*STAR. Before that, I completed my B.Eng with distinction in the School of Data Science and Engineering ([DaSE](http://dase.ecnu.edu.cn/)) at [East China Normal University](https://en.wikipedia.org/wiki/East_China_Normal_University), where I was privileged to be instructed by [Prof. Weining Qian](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=27), [Prof. Xuesong Lu](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=40), and [Prof. Xiang Li](https://lixiang3776.github.io/) for research and engineering projects.
 
 My research interests include neural code intelligence, LLM-based agents, and broad deep learning topics in general.
 
@@ -57,6 +57,7 @@ My research interests include neural code intelligence, LLM-based agents, and br
 </style>  
 <div class="scrollable-area">  
     <ul>
+        <li><em>2024.08</em>: ⭐️⭐️ (Physically) started my PhD at The University of Hong Kong 🇭🇰!</li>
         <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn!</li>
         <li><em>2024.05</em>: 🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!</li>
         <li><em>2024.03</em>: 📑📑 Check out our <a href="https://arxiv.org/abs/2403.14734">Code Intelligence Survey Paper</a>🔥</li>  
@@ -65,7 +66,7 @@ My research interests include neural code intelligence, LLM-based agents, and br
         <li><em>2023.07</em>: ✨✨ Started my research intern at NLP Group, Shanghai AI Lab</li>
         <li><em>2023.05</em>: 🚀🚀 HugNLP Framework (CIKM'23 Best Demo Paper) is ready for use! Please check our <a href="https://arxiv.org/abs/2302.14286">Paper</a>, <a href="https://github.com/HugAILab/HugNLP">Repo</a> and <a href="https://zhuanlan.zhihu.com/p/628106578">Blogs</a></li>  
         <li><em>2023.05</em>: 👏👏 We release <a href="https://arxiv.org/abs/2305.18153">SelfAware</a> for benchmarking LLMs' self-knowledge </li>  
-        <li><em>2023.01</em>: 🌟🌟 Started my research intern at <a href="https://www.a-star.edu.sg/i2r">I<sup>2</sup>R, A*STAR</a> </li>
+        <li><em>2023.01</em>: 🌟🌟 Started my research intern at <a href="https://www.a-star.edu.sg/i2r">I<sup>2</sup>R, A*STAR</a>, Singapore </li>
         <li><em>2022.12</em>: 🎉🎉 Our team won second prize (100k RMB) in the <a href="https://iacc.pazhoulab-huangpu.com/">International Algorithm Case Competition</a>: PLM Tuning Track. </li> 
         <li><em>2022.08</em>: 📚📚 Started my master's studies at National University of Singapore. 🇸🇬</li>
         <li><em>2022.07</em>: 🎓🎓 Awarded outstanding UG thesis and graduated from ECNU as a Shanghai Outstanding Graduate. </li>
@@ -77,13 +78,13 @@ My research interests include neural code intelligence, LLM-based agents, and br
 
 {% include_relative includes/pub.md %}
 
-{% include_relative includes/honors.md %}
-
-{% include_relative includes/edu.md %}
-
 {% include_relative includes/interns.md %}
 
+{% include_relative includes/honors.md %}
+
 {% include_relative includes/ta.md %}
+
+{% include_relative includes/edu.md %}
 
 {% include_relative includes/services.md %}
 
