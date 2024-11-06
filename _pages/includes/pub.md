@@ -6,7 +6,7 @@
 
 **Qiushi Sun**, Zhirui Chen, Fangzhi Xu, Chang Ma, Kanzhi Cheng, Zhangyue Yin, Jianing Wang, Chengcheng Han, Renyu Zhu, Shuai Yuan, Pengcheng Yin, Qipeng Guo, Xipeng Qiu, Xiaoli Li, Fei Yuan, Lingpeng Kong, Xiang Li, Zhiyong Wu 
 
-[[Paper]](https://arxiv.org/abs/2403.14734) \| [Slides] \| [[Project]](https://qiushisun.github.io/NCI-Survey-Homapage/)  \| [Video] \| [![](https://img.shields.io/github/stars/QiushiSun/NCISurvey?style=social&label=Code+Stars)](https://github.com/QiushiSun/NCISurvey) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://twitter.com/qiushi_sun/status/1773252567637639185)
+[[Paper]](https://arxiv.org/abs/2403.14734) \| [Slides] \| [[Project]](https://qiushisun.github.io/NCI-Survey-Homapage/)  \| [Video] \| [![](https://img.shields.io/github/stars/QiushiSun/Awesome-Code-Intelligence?style=social&label=Code+Stars)](https://github.com/QiushiSun/Awesome-Code-Intelligence) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://twitter.com/qiushi_sun/status/1773252567637639185)
 
  <!-- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> [![](https://img.shields.io/github/stars/QiushiSun/NCISurvey?style=social&label=Stars)](https://github.com/QiushiSun/NCISurvey) -->
 
@@ -21,7 +21,7 @@ Let me walk you through the development of neural code intelligence:
 <!-- - `Preprint` [Paradigm, Model and Application: A Systematic Survey of Neural Code Intelligence](qiushisun.github.io), **Qiushi Sun**, ..., Xiang Li and Zhiyong Wu. -->
 - `Preprint` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
 - `Preprint` [KS-Lottery: Finding Certified Lottery Tickets for Multilingual Language Models](http://arxiv.org/abs/2402.02801), Fei Yuan, Chang Ma, Shuai Yuan, **Qiushi Sun** and Lei Li.
-- `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span>
+- `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span> [Slides](./files/COLM24_Corex_Presentation.pdf)
 - `ACL 2024` [Boosting Language Models Reasoning with Chain-of-Knowledge Prompting](https://arxiv.org/pdf/2306.06427v3), Jianing Wang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Xiang Li and Ming Gao. [Slides](./files/ACL24_CoK_Presentation.pdf)
 - `ACL 2024` [SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents](https://arxiv.org/abs/2401.10935), Kanzhi Cheng, **Qiushi Sun**, Yougang Chu, Fangzhi Xu, Yantao Li, Jianbing Zhang, Zhiyong Wu. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span>
 - `ACL 2024` [Symbol-LLM: Towards Foundational Symbol-centric Interface For Large Language Models](https://arxiv.org/abs/2311.09278), Fangzhi Xu, Zhiyong Wu, **Qiushi Sun**, Siyu Ren, Fei Yuan, Shuai Yuan, Qika Lin, Yu Qiao and Jun Liu.
