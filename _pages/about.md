@@ -32,6 +32,7 @@ My research interests include neural code intelligence, LLM-based agents, and br
 <img src='./images/qiushi-seal.jpg' style='width: 2.75em;'>  
 </div>
 # 🔥 News
+**Office hours**: I am holding office hours (1~2 hours per week) dedicated to offering consultation for COMP7607 students and mentorship programs. If you want to have a chat, please book me at [this link](https://qiushisun.youcanbook.me/). 🍀
 <!-- - *2024.05*: &nbsp;🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!
 - *2024.03*: &nbsp;📑📑 Check out our Code Intelligence Survey Paper 🔥
 - *2023.12*: &nbsp;⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬
