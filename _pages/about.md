@@ -20,8 +20,9 @@ redirect_from:
 <!-- Currently, I am working with the NLP group of [Shanghai AI Lab](https://www.shlab.org.cn/) under the supervision of [Dr. Zhiyong Wu](https://lividwo.github.io/zywu.github.io/), focusing on topics related to LLM Agents. -->
 
 Welcome to my homepage! I am a Ph.D. student at [HKU CS](https://www.cs.hku.hk/), advised by Prof. [C.M. Kao](https://www.cs.hku.hk/index.php/people/academic-staff/kao). I also work with the NLP group of [Shanghai AI Lab](https://www.shlab.org.cn/) and [HKUNLP](https://hkunlp.github.io/), focusing on topics related to LLM Agents. Previously, I was a master’s student at NUS, advised by [Dr. Xiaoli Li](https://www.a-star.edu.sg/i2r/about-i2r/i2r-management/li-xiaoli) at the Institute for Infocomm Research ([I<sup>2</sup>R](https://www.a-star.edu.sg/i2r)), A*STAR. Before that, I completed my B.Eng with distinction in the School of Data Science and Engineering ([DaSE](http://dase.ecnu.edu.cn/)) at [East China Normal University](https://en.wikipedia.org/wiki/East_China_Normal_University), where I was privileged to be instructed by [Prof. Weining Qian](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=27), [Prof. Xuesong Lu](http://dase.ecnu.edu.cn/dase-module-gateway/dase/teacher/single_teacher.html?teacherId=40), and [Prof. Xiang Li](https://lixiang3776.github.io/) for research and engineering projects.
-
 My research interests include neural code intelligence, LLM-based agents, and broad deep learning topics in general.
+
+**Office hours**: I am holding office hours (1~2 hours per week) dedicated to offering consultation for COMP7607 students and mentorship programs. If you want to have a chat, please book me at [this link](https://qiushisun.youcanbook.me/). 🍀
 
 <!-- I will start my Ph.D. in Computer Science at [HKU CS](https://www.cs.hku.hk/) in 2024 Fall 🐱 -->
 
@@ -32,7 +33,6 @@ My research interests include neural code intelligence, LLM-based agents, and br
 <img src='./images/qiushi-seal.jpg' style='width: 2.75em;'>  
 </div>
 # 🔥 News
-**Office hours**: I am holding office hours (1~2 hours per week) dedicated to offering consultation for COMP7607 students and mentorship programs. If you want to have a chat, please book me at [this link](https://qiushisun.youcanbook.me/). 🍀
 <!-- - *2024.05*: &nbsp;🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!
 - *2024.03*: &nbsp;📑📑 Check out our Code Intelligence Survey Paper 🔥
 - *2023.12*: &nbsp;⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬
