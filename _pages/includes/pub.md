@@ -1,5 +1,5 @@
 # 📝 Publications 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v18.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v18-broad.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [A Survey of Neural Code Intelligence: Paradigms, Advances and Beyond](https://arxiv.org/abs/2403.14734) 🔥🔥

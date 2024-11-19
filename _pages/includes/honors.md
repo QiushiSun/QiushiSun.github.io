@@ -1,5 +1,5 @@
 # 🎖 Honors and Awards
-- *2023.10* CIKM Best Demo Paper Award, ACM & SIGIR 
+- *2023.10* <span style="color:#ac530f">CIKM Best Demo Paper Award</span>, ACM & SIGIR 
 - *2022.12* International Algorithm Case Competition: PLM Tuning, Second Prize, Guangdong-Hong Kong-Macao Greater Bay Area 
 - *2022.07* Shanghai Outstanding Graduates, Shanghai Municipal Education Commission 
 - *2022.05* Excellent Bachelor Thesis Award, East China Normal University
