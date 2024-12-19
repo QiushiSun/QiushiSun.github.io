@@ -1,4 +1,4 @@
-# 📝 Publications 
+# 📝 Selected Publications 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v18-broad.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -31,10 +31,10 @@ Let me walk you through the development of neural code intelligence:
 <!-- - `LREC-COLING 2024` [Structure-aware Fine-tuning for Code Pre-trained Models](qiushisun.github.io), Jiayi Wu, Renyu Zhu, **Qiushi Sun**, Nuo Chen, Xiang Li and Ming Gao. -->
 - ``EMNLP 2023`` [Exchange-of-Thought: Enhancing Large Language Model Capabilities through Cross-Model Communication](http://arxiv.org/abs/2312.01823), Zhangyue Yin, **Qiushi Sun**, Cheng Chang, Qipeng Guo, Junqi Dai, Xuanjing Huang and Xipeng Qiu. [Slides](./files/EMNLP2023_EoT_231112.pdf) \| [Video](https://youtu.be/mAMn8Xjkprg?si=jDIj8oSy0oT0-WRp)
 - ``EMNLP 2023`` [Uncertainty-aware Parameter-Efficient Self-training for Semi-supervised Language Understanding](https://aclanthology.org/2023.findings-emnlp.528/), Jianing Wang, **Qiushi Sun**, Nuo Chen, Chengyu Wang, Xiang Li, Ming Gao and Jun Huang.
-- ``EMNLP 2023`` [Pass-Tuning: Towards Structure-Aware Parameter-Efficient Tuning for Code Representation Learning](https://aclanthology.org/2023.findings-emnlp.42/), Nuo Chen, **Qiushi Sun**, Jianing Wang, Xiang Li and Ming Gao.
+<!-- - ``EMNLP 2023`` [Pass-Tuning: Towards Structure-Aware Parameter-Efficient Tuning for Code Representation Learning](https://aclanthology.org/2023.findings-emnlp.42/), Nuo Chen, **Qiushi Sun**, Jianing Wang, Xiang Li and Ming Gao. -->
 - ``CIKM 2023 (Demo)`` [HugNLP: A Unified and Comprehensive Library for Natural Language Processing](https://arxiv.org/abs/2302.14286), Jianing Wang, Nuo Chen, **Qiushi Sun**, Wenkang Huang, Chengyu Wang and Ming Gao. \| <span style="color: #C41E3A;"> 🏆 **Best Demo Paper Award**</span> <img src='./images/hugnlp-logo.png' style='width: 2.95em;'> [![](https://img.shields.io/github/stars/wjn1996/HugNLP?style=social&label=Code+Stars)](https://github.com/HugAILab/HugNLP) 
 - ``ACL 2023`` [Do Large Language Models Know What They Don't Know?](https://arxiv.org/abs/2305.18153), Zhangyue Yin, **Qiushi Sun**, Qipeng Guo, Jiawen Wu, Xipeng Qiu and Xuanjing Huang. [Slides](./files/ACL23_LLMSA-Presentation.pdf) \| [Video](https://youtu.be/VTl8FAdNJEI) \| [![](https://img.shields.io/github/stars/yinzhangyue/SelfAware?style=social&label=Code+Stars)](https://github.com/yinzhangyue/SelfAware)
-- ``ACL 2023`` [When Gradient Descent Meets Derivative-Free Optimization: A Match Made in Black-Box Scenario](https://arxiv.org/abs/2305.10013), Chengcheng Han, Liqing Cui, Renyu Zhu, Jianing Wang, Nuo Chen, **Qiushi Sun**, Xiang Li and Ming Gao.
+<!-- - ``ACL 2023`` [When Gradient Descent Meets Derivative-Free Optimization: A Match Made in Black-Box Scenario](https://arxiv.org/abs/2305.10013), Chengcheng Han, Liqing Cui, Renyu Zhu, Jianing Wang, Nuo Chen, **Qiushi Sun**, Xiang Li and Ming Gao. -->
 - ``EMNLP 2022`` [CAT-probing: A Metric-based Approach to Interpret How Pre-trained Models for Programming Language Attend Code Structure](https://arxiv.org/abs/2210.04633), Nuo Chen<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Renyu Zhu<sup>&#42;</sup>, Xiang Li, Xuesong Lu and Ming Gao. [Slides](./files/EMNLP22_Presentation.pdf) \| [Video](https://doi.org/10.48448/76ht-3y46) \| [![](https://img.shields.io/github/stars/QiushiSun/CodeAttention?style=social&label=Code+Stars)](https://github.com/QiushiSun/CodeAttention)
 
 *Denotes equal contribution. More working drafts / preprints under review will be released later ⌛️
