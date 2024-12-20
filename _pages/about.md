@@ -63,7 +63,7 @@ My research interests include neural code intelligence, LLM-based agents, and br
 </style>  
 <div class="scrollable-area">  
     <ul>
-        <li><em>2024.12</em>: 🤖🤖 We release <a href="https://qiushisun.github.io/OS-Genesis.github.io/">OS-Genesis</a> and <a href="https://osatlas.github.io/">OS-Atlas</a> for the advancement of generalist GUI Agents!</li>
+        <li><em>2024.12</em>: 🤖🤖 We release <a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a> and <a href="https://osatlas.github.io/">OS-Atlas</a> to advance GUI agents!</li>
         <li><em>2024.08</em>: ⭐️⭐️ (Physically) started my PhD at The University of Hong Kong 🇭🇰!</li>
         <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn!</li>
         <li><em>2024.05</em>: 🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!</li>
