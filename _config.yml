@@ -28,7 +28,7 @@ author:
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"
-  semanticscholar  : "https://www.semanticscholar.org/author/Qiushi-Sun/2112455065"
+  semanticscholar  :  # "https://www.semanticscholar.org/author/Qiushi-Sun/2112455065"
   email            : "qiushisun@connect.hku.hk"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :

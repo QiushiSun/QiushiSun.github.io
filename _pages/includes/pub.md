@@ -1,4 +1,20 @@
 # 📝 Selected Publications 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🤖🧬
+
+**Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
+
+[[Paper]](https://arxiv.org/abs/2412.19723) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d)[[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d)  
+
+Let me walk you through the development of neural code intelligence:
+- Shift from task-driven to interaction-driven trajectory synthesis 🤖
+- Manual-free data synthesis🧬
+- Great performance on online mobile/web benchmarks 📊
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v18-broad.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
