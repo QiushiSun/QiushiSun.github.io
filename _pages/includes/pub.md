@@ -6,7 +6,7 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
 
-[[Paper]](https://arxiv.org/abs/2412.19723) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d)  
+[[Paper]](https://arxiv.org/abs/2412.19723) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d)  [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
 
 <!-- Let me walk you through the development of neural code intelligence: -->
 - Shift from task-driven to interaction-driven GUI data synthesis 🤖
