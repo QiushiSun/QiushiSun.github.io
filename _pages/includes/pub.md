@@ -35,7 +35,7 @@ Let me walk you through the development of neural code intelligence:
 </div>
 
 - `Preprint` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
-- `ICLR 2025` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Yu Qiao.
+- `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Yu Qiao.
 - `NAACL 2025` [KS-Lottery: Finding Certified Lottery Tickets for Multilingual Language Models](http://arxiv.org/abs/2402.02801), Fei Yuan, Chang Ma, Shuai Yuan, **Qiushi Sun** and Lei Li.
 - `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span> [Slides](./files/COLM24_Corex_Presentation.pdf)
 - `ACL 2024` [Boosting Language Models Reasoning with Chain-of-Knowledge Prompting](https://arxiv.org/pdf/2306.06427v3), Jianing Wang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Xiang Li and Ming Gao. [Slides](./files/ACL24_CoK_Presentation.pdf)
