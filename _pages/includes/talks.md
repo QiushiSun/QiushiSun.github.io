@@ -1,2 +1,2 @@
 # 💬 Invited Talks
-- *2025.2* Constructing Trajectory Data for Generalist GUI Agents, ModelScope Seminar <img src='./images/logos/modelscope-logo.png' style='width: 1.5em;'> [Slides](./files/250210_GUI_Agents_ModelScope.pdf)
+- *2025.2* Constructing Trajectory Data for Generalist GUI Agents, ModelScope Seminar <img src='./images/logos/modelscope-logo.png' style='width: 2.5em;'> [[Slides](./files/250210_GUI_Agents_ModelScope.pdf)]
