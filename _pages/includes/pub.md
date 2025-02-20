@@ -6,7 +6,7 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
 
-[[Paper]](https://arxiv.org/abs/2412.19723) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
+[[Paper]](https://arxiv.org/abs/2412.19723) \| [Slides](./files/ACL25_OS_Genesis.pdf) \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
 
 <!-- Let me walk you through the development of neural code intelligence: -->
 - Shift from task-driven to interaction-driven GUI data synthesis 🤖
@@ -35,7 +35,7 @@ Let me walk you through the development of neural code intelligence:
 </div>
 
 - `Preprint` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
-- `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Yu Qiao.
+- `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang, Yu Qiao.
 - `NAACL 2025` [KS-Lottery: Finding Certified Lottery Tickets for Multilingual Language Models](http://arxiv.org/abs/2402.02801), Fei Yuan, Chang Ma, Shuai Yuan, **Qiushi Sun** and Lei Li.
 - `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span> [Slides](./files/COLM24_Corex_Presentation.pdf)
 - `ACL 2024` [Boosting Language Models Reasoning with Chain-of-Knowledge Prompting](https://arxiv.org/pdf/2306.06427v3), Jianing Wang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Xiang Li and Ming Gao. [Slides](./files/ACL24_CoK_Presentation.pdf)
