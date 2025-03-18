@@ -22,7 +22,7 @@
 
 **Qiushi Sun**, Zhirui Chen, Fangzhi Xu, Chang Ma, Kanzhi Cheng, Zhangyue Yin, Jianing Wang, Chengcheng Han, Renyu Zhu, Shuai Yuan, Pengcheng Yin, Qipeng Guo, Xipeng Qiu, Xiaoli Li, Fei Yuan, Lingpeng Kong, Xiang Li, Zhiyong Wu 
 
-[[Paper]](https://arxiv.org/abs/2403.14734) \| [Slides] \| [[Project]](https://qiushisun.github.io/NCI-Survey-Homapage/)  \| [Video] \| [![](https://img.shields.io/github/stars/QiushiSun/Awesome-Code-Intelligence?style=social&label=Code+Stars)](https://github.com/QiushiSun/Awesome-Code-Intelligence) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://twitter.com/qiushi_sun/status/1773252567637639185)
+[[Paper]](https://arxiv.org/abs/2403.14734) \| [[Slides]](./files/NCI_Survey_Slides_V1.pdf) \| [[Project]](https://qiushisun.github.io/NCI-Survey-Homapage/)  \| [Video] \| [![](https://img.shields.io/github/stars/QiushiSun/Awesome-Code-Intelligence?style=social&label=Code+Stars)](https://github.com/QiushiSun/Awesome-Code-Intelligence) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://twitter.com/qiushi_sun/status/1773252567637639185)
 
  <!-- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> [![](https://img.shields.io/github/stars/QiushiSun/NCISurvey?style=social&label=Stars)](https://github.com/QiushiSun/NCISurvey) -->
 
