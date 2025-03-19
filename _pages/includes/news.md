@@ -21,8 +21,8 @@
     <ul>
         <li><em>2024.12</em>: 🤖🤖 We release <a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a>, <a href="https://osatlas.github.io/">OS-Atlas</a> and <a href="https://chengyou-jia.github.io/AgentStore-Home/">AgentStore</a> to advance GUI agents!</li>
         <li><em>2024.08</em>: ⭐️⭐️ (Physically) started my PhD at The University of Hong Kong 🇭🇰!</li>
-        <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn!</li>
-        <li><em>2024.05</em>: 🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!</li>
+        <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn 🇺🇸!</li>
+        <li><em>2024.05</em>: 🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok 🇹🇭!</li>
         <li><em>2024.03</em>: 📑📑 Check out our <a href="https://arxiv.org/abs/2403.14734">Code Intelligence Survey Paper</a>🔥</li>  
         <li><em>2024.02</em>: 🎓🎓 Graduated from National University of Singapore. </li>
         <li><em>2023.12</em>: ⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬</li>  
@@ -35,6 +35,6 @@
         <li><em>2022.07</em>: 🎓🎓 Awarded outstanding UG thesis and graduated from ECNU as a Shanghai Outstanding Graduate. </li>
         <li><em>2021.09</em>: 📚📚 Started serving as a TA for Deep Learning for Computer Vision course this semester.</li>
         <li><em>2021.05</em>: 🏆🏆 Led my team to win the Finalist Award in the Mathematical and Interdisciplinary Contest in Modeling!</li>
-        <li><em>2021.02</em>: ❄️❄️ Attending Data Science Winter School at Imperial College London.</li>
+        <li><em>2021.02</em>: ❄️❄️ Attending Data Science Winter School at Imperial College London 🇬🇧.</li>
     </ul>  
 </div>  
