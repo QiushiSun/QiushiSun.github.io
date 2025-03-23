@@ -19,6 +19,7 @@
 </style>  
 <div class="scrollable-area">  
     <ul>
+        <li><em>2025.03</em>: 🏖️🏖️ Will attend ICLR 2025! See you at Singapore 🇸🇬!</li>
         <li><em>2024.12</em>: 🤖🤖 We release <a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a>, <a href="https://osatlas.github.io/">OS-Atlas</a> and <a href="https://chengyou-jia.github.io/AgentStore-Home/">AgentStore</a> to advance GUI agents!</li>
         <li><em>2024.08</em>: ⭐️⭐️ (Physically) started my PhD at The University of Hong Kong 🇭🇰!</li>
         <li><em>2024.07</em>: 🎉🎉 One paper get accepted by COLM 2024! See you at Upenn 🇺🇸!</li>
