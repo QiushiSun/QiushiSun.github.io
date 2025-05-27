@@ -1,4 +1,19 @@
 # 📝 Selected Publications 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
+
+**Qiushi Sun**, Zhoumianze Liu, Chang Ma, Zichen Ding, Fangzhi Xu, Zhangyue Yin, Haiteng Zhao, Zhenyu Wu, Kanzhi Cheng, Zhaoyang Liu, Jianing Wang, Qintong Li, Xiangru Tang, Tianbao Xie, Xiachong Feng, Xiang Li, Ben Kao, Wenhai Wang, Biqing Qi, Lingpeng Kong, Zhiyong Wu
+
+[[Paper]](https://arxiv.org/abs/2505.19897) \| [Slides] \| [[Project]](https://qiushisun.github.io/ScienceBoard-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env and Benchmark]](https://github.com/OS-Copilot/ScienceBoard) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
+
+- Shift from task-driven to interaction-driven GUI data synthesis 🤖
+- A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
+- Extensive evaluation on a wide range of LLMs/VLMs 📊
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -8,10 +23,9 @@
 
 [[Paper]](https://arxiv.org/abs/2412.19723) \| [[Slides]](./files/ACL25_OS_Genesis.pdf) \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
 
-<!-- Let me walk you through the development of neural code intelligence: -->
 - Shift from task-driven to interaction-driven GUI data synthesis 🤖
 - A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
-- Great performance on online mobile/web benchmarks 📊
+- Great performance on online mobile/web benchmarks 🌟
 </div>
 </div>
 
