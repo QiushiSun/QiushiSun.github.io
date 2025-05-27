@@ -9,7 +9,7 @@
 [[Paper]](https://arxiv.org/abs/2505.19897) \| [Slides] \| [[Project]](https://qiushisun.github.io/ScienceBoard-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env and Benchmark]](https://github.com/OS-Copilot/ScienceBoard) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
 
 - First to apply computer-using agents to assist scientific exploration 🌌
-- Dynamic multimodal environment & benchmark for realistic scientific workflows 🌍
+- Dynamic environment & benchmark for realistic scientific workflows 🌍
 - Comprehensive evaluation of SOTA LLM/VLM agents 🧭
 </div>
 </div>
