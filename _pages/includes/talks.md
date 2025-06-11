@@ -1,2 +1,3 @@
 # 💬 Invited Talks
+- *2025.2* Building GUI Agents with OS-Genesis, NLP Academic Exchange Platform <img src='./images/logos/nice-nlp.logo.png' style='width: 4em;'> [Slide]
 - *2025.2* Constructing Trajectory Data for Generalist GUI Agents, ModelScope Seminar <img src='./images/logos/modelscope-logo.png' style='width: 4.5em;'> [[Slides]](./files/250210_GUI_Agents_ModelScope.pdf) <a href='https://www.bilibili.com/video/BV1HFA7emECj/'><img src="https://img.shields.io/badge/Bilibili-ModelScope-blue?logo=bilibili&logoColor=white"></a>
