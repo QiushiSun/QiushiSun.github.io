@@ -1,3 +1,4 @@
 # 💬 Invited Talks
+- *2025.7* Towards Generalist Computer-using Agents: Models, Data, and Beyond <img src='./images/logos/ml-nlp-logo.png' style='width: 3.75em;'> 
 - *2025.6* Building GUI Agents with OS-Genesis, NLP Academic Exchange Platform <img src='./images/logos/nice-nlp.logo.png' style='width: 3.75em;'> [[Slides]](./files/OS_Genesis_NICE_NLP_250614.pdf)  <a href='https://www.bilibili.com/video/BV1iHNvzXEin/'><img src="https://img.shields.io/badge/Bilibili-NICE Academic-blue?logo=bilibili&logoColor=white"></a>
 - *2025.2* Constructing Trajectory Data for Generalist GUI Agents, ModelScope Seminar <img src='./images/logos/modelscope-logo.png' style='width: 4.5em;'> [[Slides]](./files/250210_GUI_Agents_ModelScope.pdf) <a href='https://www.bilibili.com/video/BV1HFA7emECj/'><img src="https://img.shields.io/badge/Bilibili-ModelScope-blue?logo=bilibili&logoColor=white"></a>
