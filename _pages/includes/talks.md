@@ -1,5 +1,5 @@
 # 💬 Invited Talks
-- *2025.7* From Digital Agents to AI Co-Scientists, <img src='./images/logos/openmmlab.png' style='width: 3.35em;'> <img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'> [[Slides]](./files/ScienceBoard_slides.pdf) 
+- *2025.7* From Digital Agents to AI Co-Scientists, <img src='./images/logos/openmmlab.png' style='width: 3.35em;'> <img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'> [[Slides]](./files/ScienceBoard_AI_Insight_Talk_250717.pdf) 
 - *2025.7* From Digital Agents to AI Co-Scientists, THU [[Slides]](./files/ScienceBoard_slides.pdf)
 - *2025.7* Towards Generalist Computer-using Agents: Models, Data, and Beyond <img src='./images/logos/ml-nlp-logo.png' style='width: 3em;'> [[Slides]](./files/GUI_Agents_Talk_MLNLP_250705.pdf)
 - *2025.6* Building GUI Agents with OS-Genesis, NLP Academic Exchange Platform <img src='./images/logos/nice-nlp.logo.png' style='width: 3.75em;'> [[Slides]](./files/OS_Genesis_NICE_NLP_250614.pdf)  <a href='https://www.bilibili.com/video/BV1iHNvzXEin/'><img src="https://img.shields.io/badge/Bilibili-NICE Academic-blue?logo=bilibili&logoColor=white"></a>
