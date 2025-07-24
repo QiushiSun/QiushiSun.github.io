@@ -29,7 +29,7 @@
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v18-broad.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v20-broad.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [A Survey of Neural Code Intelligence: Paradigms, Advances and Beyond](https://arxiv.org/abs/2403.14734) 🔥🔥
@@ -50,7 +50,7 @@ Let me walk you through the development of neural code intelligence:
 
 - `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou.
 - `ACL 2025` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
-- `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://qiushisun.github.io/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
+- `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://aclanthology.org/2025.acl-long.212/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
 - `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang and Yu Qiao.
 - `NAACL 2025 (Oral)` [KS-Lottery: Finding Certified Lottery Tickets for Multilingual Language Models](http://arxiv.org/abs/2402.02801), Fei Yuan, Chang Ma, Shuai Yuan, **Qiushi Sun** and Lei Li.
 - `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span> [Slides](./files/COLM24_Corex_Presentation.pdf)
