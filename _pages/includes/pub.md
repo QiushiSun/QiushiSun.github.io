@@ -49,6 +49,7 @@ Let me walk you through the development of neural code intelligence:
 </div>
 
 - `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou.
+- `Preprint` [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://www.arxiv.org/abs/2507.22080), **Qiushi Sun**<sup>&#42;</sup>, Jingyang Gong<sup>&#42;</sup>, Lei Li, Qipeng Guo and Fei Yuan.
 - `ACL 2025` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
 - `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://aclanthology.org/2025.acl-long.212/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
 - `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang and Yu Qiao.
