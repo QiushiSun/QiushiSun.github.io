@@ -27,6 +27,9 @@ My research interests include neural code intelligence, LLM-based agents, and br
 
 🍀 **Office hours**: I am holding office hours (1~2 hours per week) dedicated to offering consultation for [COMP7607](https://nlp.cs.hku.hk/comp7607-fall2024/) students and mentorship programs. If you want to have a chat (whether or not it's about research), please book me through [this link](https://qiushi.youcanbook.me/)!
 
+<!-- Seeking collaboration, UG/MSc students are welcome  -->
+<!-- I am constantly seeking collaborators on above topics -->
+
 <!-- I will start my Ph.D. in Computer Science at [HKU CS](https://www.cs.hku.hk/) in 2024 Fall 🐱 -->
 
 <!-- Download my [Resumé](./files/Qiushi_Academic_CV_June_2023.pdf)📄 in PDF. -->

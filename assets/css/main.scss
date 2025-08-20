@@ -40,6 +40,54 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
+// .paper-box {
+//     display: flex;
+//     justify-content: left;
+//     align-items: center;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     border-bottom: 1px #efefef solid;
+//     padding: 2em 0 2em 0;
+    
+
+//     .paper-box-image{
+//         justify-content: center;
+//         display: flex;
+//         width: 100%;
+//         order: 2;
+//         img {
+//             max-width: 400px;
+//             box-shadow: 3px 3px 6px #888;
+//             object-fit: cover;
+//         }
+//     }
+    
+//     .paper-box-text{
+//         max-width: 100%;
+//         order: 1;
+//     }
+    
+//     @include breakpoint($medium) {
+//         .paper-box-image{
+//             justify-content: left;
+//             min-width: 200px;
+//             max-width: 40%;
+//             order: 1;
+//         }
+        
+//         .paper-box-text{
+//             justify-content: left;
+//             padding-left: 2em;
+//             max-width: 60%;
+//             order: 2;
+//         }
+
+//     }
+
+
+// }
+
+
 .paper-box {
     display: flex;
     justify-content: left;
@@ -55,10 +103,33 @@
         display: flex;
         width: 100%;
         order: 2;
+
+        /* --- 1. 新增 --- */
+        /* 为内部图片的绝对定位提供一个参考“锚点” */
+        position: relative; 
+        
         img {
             max-width: 400px;
             box-shadow: 3px 3px 6px #888;
             object-fit: cover;
+
+            /* --- 2. 新增 --- */
+            /* 添加平滑过渡动画，让变化不生硬 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer; /* 鼠标变成小手，提示可交互 */
+        }
+
+        /* --- 3. 新增 --- */
+        /* 定义鼠标悬停在 .paper-box-image 上时，其内部 img 的样式 */
+        &:hover img {
+            position: absolute; /* 让图片“浮”起来，不影响布局 */
+            z-index: 1000;      /* 确保图片在最上层 */
+            
+            /* 可以设置一个更突出的阴影效果 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            
+            /* 核心：放大并微调位置（你可以根据需要调整这些值） */
+            transform: scale(1.8) translate(-20%, -15%);
         }
     }
     
@@ -81,10 +152,7 @@
             max-width: 60%;
             order: 2;
         }
-
     }
-
-
 }
 
 $scroll_offset : 2em;
