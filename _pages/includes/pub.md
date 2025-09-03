@@ -48,7 +48,7 @@ Let me walk you through the development of neural code intelligence:
 </div>
 </div>
 
-- `Preprint` [CODA: Coordinating the Cerebrum and Cerebellum for a Dual-Brain Computer Use Agent with Decoupled Reinforcement Learning](https://arxiv.org/abs/2508.20096), **Zeyi Sun**<sup>&#42;</sup>, **Yuhang Cao**<sup>&#42;</sup>, **Jianze Liang**<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, **Ziyu Liu**<sup>&#42;</sup>, Zhixiong Zhang, Yuhang Zang, Xiaoyi Dong, Kai Chen, Dahua Lin, Jiaqi Wang.
+- `Preprint` [CODA: Coordinating the Cerebrum and Cerebellum for a Dual-Brain Computer Use Agent with Decoupled Reinforcement Learning](https://arxiv.org/abs/2508.20096), Zeyi Sun<sup>&#42;</sup>, Yuhang Cao<sup>&#42;</sup>, Jianze Liang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Ziyu Liu<sup>&#42;</sup>, Zhixiong Zhang, Yuhang Zang, Xiaoyi Dong, Kai Chen, Dahua Lin, Jiaqi Wang.
 - `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou.
 - `Preprint` [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://www.arxiv.org/abs/2507.22080), **Qiushi Sun**<sup>&#42;</sup>, Jingyang Gong<sup>&#42;</sup>, Lei Li, Qipeng Guo and Fei Yuan.
 - `ACL 2025` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu.
