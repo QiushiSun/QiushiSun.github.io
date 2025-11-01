@@ -19,8 +19,8 @@
 </style>  
 <div class="scrollable-area">  
     <ul>
-        <li><em>2025.10</em>: 🛡️🤖 We release <a href="https://arxiv.org/abs/2510.24411"> OS-Sentinel</a> and <a href="https://huggingface.co/datasets/OS-Copilot/MobileRisk">MobileRisk</a> to advance the safety research of mobile agents. </li>
-        <li><em>2025.10</em>: ⚙️🤗 We release <a href="https://huggingface.co/collections/internlm/januscoder/"> JanusCoder-7B/14B</a> and <a href="https://huggingface.co/collections/internlm/januscoder">JanusCoderV-7B/8B</a> to advance multimodal code intelligence. </li>
+        <li><em>2025.10</em>: 🛡️🤖 We launch <a href="https://arxiv.org/abs/2510.24411"> OS-Sentinel</a> and <a href="https://huggingface.co/datasets/OS-Copilot/MobileRisk">MobileRisk</a> to advance the safety research of mobile agents. </li>
+        <li><em>2025.10</em>: ⚙️🤗 Introducing <a href="https://huggingface.co/collections/internlm/januscoder/"> JanusCoder-7B/14B</a> and <a href="https://huggingface.co/collections/internlm/januscoder">JanusCoderV-7B/8B</a>, new foundation models for multimodal code intelligence. </li>
         <li><em>2025.08</em>: 📑🖊️ Start serving as an Area Chair for ACL Rolling Review. </li>
         <li><em>2025.06</em>: 🎙️🌏 <a href="https://qiushisun.github.io/ScienceBoard-Home/">ScienceBoard</a> will be presented as an oral paper at ICML 2025 Workshop on Computer Use Agents 🇨🇦!</li>
         <li><em>2025.05</em>: 🔬🧪 We release <a href="https://qiushisun.github.io/ScienceBoard-Home/">ScienceBoard</a> to advance computer-using agents in scientific workflows!</li>
