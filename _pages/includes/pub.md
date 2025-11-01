@@ -1,4 +1,5 @@
 # 📝 Selected Publications 
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -26,6 +27,22 @@
 - Shift from task-driven to interaction-driven GUI data synthesis 🤖
 - A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
 - Great performance on online mobile/web benchmarks 🌟
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538)
+
+**Qiushi Sun**, Jingyang Gong, Yang Liu, Qiaosheng Chen, Lei Li, Kai Chen, Qipeng Guo, Ben Kao, Fei Yuan
+
+[[Paper]](https://arxiv.org/abs/2510.23538) \| [Slides] \| [[Project]](https://github.com/InternLM/JanusCoder) [<img src='./images/logos/internlm.webp' style='width: 1.35em;'>] \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/internlm/januscoder) \| [[Code]](https://github.com/InternLM/JanusCoder) \| [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder)
+
+- JanusCoder series: foundational models establishing a unified visual-programmatic interface. ⚙️
+- Introducing a versatile data synthesis toolkit for multimodal code intelligence. 🛠️
+- Superior performance on diverse text- and vision-centric tasks. 🧭
+
 </div>
 </div>
 
