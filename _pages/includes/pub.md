@@ -24,9 +24,9 @@
 
 [[Paper]](https://arxiv.org/abs/2510.24411) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
 
-- First to apply computer-using agents to assist scientific exploration 🌌
-- Dynamic environment & benchmark for realistic scientific workflows 🌍
-- Comprehensive evaluation of SOTA LLM/VLM agents 🧭
+- MobileRisk-Live & MobileRisk, a dynamic environment and benchmark for realistic mobile agent safety 📱
+- OS-Sentinel, a hybrid detection framework combining formal verification with contextual judgment 🛡️
+- Advanced mobile agent safety at both the step-level and trajectory-level 🧭
 </div>
 </div>
 
