@@ -163,7 +163,7 @@
     flex-wrap: wrap;
     border-bottom: 1px #efefef solid;
     // padding: 2em 0 2em 0;
-    padding: 1.5em 0 1em 0;
+    padding: 0.75em 0 0.75em 0;
     
     .paper-box-image {
         justify-content: center;
@@ -197,6 +197,16 @@
     .paper-box-text {
         max-width: 100%;
         order: 1;
+
+        /* --- 从这里开始添加 --- */
+        ul {
+        /* 可选：去掉整个列表(ul)底部的额外间距 */
+            margin-bottom: 0; 
+            li {
+            /* 这是控制每个列表项(li)之间间距的关键 */
+            margin-bottom: 0.25rem; /* 你可以改成 0.5rem, 0.1rem, 甚至 0 */
+            }
+        }
     }
     
     @include breakpoint($medium) {
