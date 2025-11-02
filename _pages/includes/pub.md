@@ -15,6 +15,21 @@
 </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
+
+**Qiushi Sun<sup>&#42;</sup>**, Mukai Li<sup>&#42;</sup>, Zhoumianze Liu<sup>&#42;</sup>, Zhihui Xie<sup>&#42;</sup>, Fangzhi Xu, Zhangyue Yin, Kanzhi Cheng, Zehao Li, Zichen Ding, Qi Liu, Zhiyong Wu, Zhuosheng Zhang, Ben Kao, Lingpeng Kong
+
+[[Paper]](https://arxiv.org/abs/2510.24411) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
+
+- First to apply computer-using agents to assist scientific exploration 🌌
+- Dynamic environment & benchmark for realistic scientific workflows 🌍
+- Comprehensive evaluation of SOTA LLM/VLM agents 🧭
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
