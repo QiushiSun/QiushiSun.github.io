@@ -15,6 +15,8 @@
 </div>
 </div>
 
+<!-- https://mp.weixin.qq.com/s/naVskQ9btJFkoUyyQVr7zA -->
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -44,6 +46,8 @@
 - Great performance on online mobile/web benchmarks 🌟
 </div>
 </div>
+
+<!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/JanusCoder-Overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">

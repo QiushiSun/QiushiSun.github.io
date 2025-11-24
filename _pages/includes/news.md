@@ -33,7 +33,7 @@
         <li><em>2024.03</em>: 📑📑 Check out our <a href="https://arxiv.org/abs/2403.14734">Code Intelligence Survey Paper</a>🔥</li>  
         <li><em>2024.02</em>: 🎓🎓 Graduated from National University of Singapore. </li>
         <li><em>2023.12</em>: ⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬</li>  
-        <li><em>2023.07</em>: ✨✨ Started my research intern at NLP Group, Shanghai AI Lab</li>
+        <!-- <li><em>2023.07</em>: ✨✨ Started my research intern at NLP Group, Shanghai AI Lab</li> -->
         <li><em>2023.05</em>: 🚀🚀 HugNLP Framework (CIKM'23 Best Demo Paper) is ready for use! Please check our <a href="https://arxiv.org/abs/2302.14286">Paper</a>, <a href="https://github.com/HugAILab/HugNLP">Repo</a> and <a href="https://zhuanlan.zhihu.com/p/628106578">Blogs</a></li>  
         <li><em>2023.05</em>: 👏👏 We release <a href="https://arxiv.org/abs/2305.18153">SelfAware</a> for benchmarking LLMs' self-knowledge </li>  
         <li><em>2023.01</em>: 🌟🌟 Started my research intern at <a href="https://www.a-star.edu.sg/i2r">I<sup>2</sup>R, A*STAR</a>, Singapore </li>
