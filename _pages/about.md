@@ -48,7 +48,9 @@ Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) �
 <div  align="right">
 <img src='./images/qiushi-seal.jpg' style='width: 2.75em;'>  
 </div>
-# 🔥 News
+
+<!-- # 🔥 News -->
+
 <!-- - *2024.05*: &nbsp;🥂🥂 Four papers are accepted by ACL 2024! See you in Bangkok!
 - *2024.03*: &nbsp;📑📑 Check out our Code Intelligence Survey Paper 🔥
 - *2023.12*: &nbsp;⛱️⛱️ Attending EMNLP 2023 in SG 🇸🇬
