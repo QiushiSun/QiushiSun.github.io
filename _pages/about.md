@@ -56,7 +56,7 @@ Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) �
 - *2023.05*: &nbsp;👏👏 We release [*SelfAware* (ACL 2023 Findings)](https://arxiv.org/abs/2305.18153) for benchmarking LLMs' self-knowledge [Slides](./files/ACL23_LLMSA-Presentation.pdf).
 - *2022.12*: &nbsp;🎉🎉 Our team won second prize (100k RMB) in the [International Algorithm Case Competition](https://iacc.pazhoulab-huangpu.com/): PLM Tuning Track.  -->
 
-{% include_relative includes/news.md %}
+<!-- {% include_relative includes/news.md %} -->
 
 {% include_relative includes/pub.md %}
 
@@ -71,6 +71,8 @@ Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) �
 {% include_relative includes/edu.md %}
 
 {% include_relative includes/services.md %}
+
+{% include_relative includes/reading.md %}
 
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
