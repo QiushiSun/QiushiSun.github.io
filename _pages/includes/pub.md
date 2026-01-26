@@ -1,6 +1,6 @@
 # 📝 Selected Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">>ICLR 2026</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
@@ -49,7 +49,7 @@
 
 <!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/JanusCoder-Overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/JanusCoder-Overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538) <img src='./images/logos/internlm.webp' style='width: 1.35em;'>
