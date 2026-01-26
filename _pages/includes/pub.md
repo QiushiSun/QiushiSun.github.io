@@ -1,6 +1,6 @@
 # 📝 Selected Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">>ICLR 2026</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
