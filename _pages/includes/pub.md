@@ -17,36 +17,6 @@
 
 <!-- https://mp.weixin.qq.com/s/naVskQ9btJFkoUyyQVr7zA -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
-
-**Qiushi Sun<sup>&#42;</sup>**, Mukai Li<sup>&#42;</sup>, Zhoumianze Liu<sup>&#42;</sup>, Zhihui Xie<sup>&#42;</sup>, Fangzhi Xu, Zhangyue Yin, Kanzhi Cheng, Zehao Li, Zichen Ding, Qi Liu, Zhiyong Wu, Zhuosheng Zhang, Ben Kao, Lingpeng Kong
-
-[[Paper]](https://arxiv.org/abs/2510.24411) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
-
-- MobileRisk-Live & MobileRisk, a dynamic environment and benchmark for realistic mobile agent safety 📱
-- OS-Sentinel, a hybrid detection framework combining formal verification with contextual judgment 🛡️
-- Advanced mobile agent safety at both the step-level and trajectory-level 🧭
-</div>
-</div>
-
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-[OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
-
-**Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
-
-[[Paper]](https://arxiv.org/abs/2412.19723) \| [[Slides]](./files/ACL25_OS_Genesis.pdf) \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
-
-- Shift from task-driven to interaction-driven GUI data synthesis 🤖
-- A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
-- Great performance on online mobile/web benchmarks 🌟
-</div>
-</div>
-
 <!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/JanusCoder-Overview.png' alt="sym" width="100%"></div></div>
@@ -64,6 +34,38 @@
 
 </div>
 </div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
+
+**Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
+
+[[Paper]](https://arxiv.org/abs/2412.19723) \| [[Slides]](./files/ACL25_OS_Genesis.pdf) \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
+
+- Shift from task-driven to interaction-driven GUI data synthesis 🤖
+- A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
+- Great performance on online mobile/web benchmarks 🌟
+</div>
+</div>
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
+
+**Qiushi Sun<sup>&#42;</sup>**, Mukai Li<sup>&#42;</sup>, Zhoumianze Liu<sup>&#42;</sup>, Zhihui Xie<sup>&#42;</sup>, Fangzhi Xu, Zhangyue Yin, Kanzhi Cheng, Zehao Li, Zichen Ding, Qi Liu, Zhiyong Wu, Zhuosheng Zhang, Ben Kao, Lingpeng Kong
+
+[[Paper]](https://arxiv.org/abs/2510.24411) \| [Slides] \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
+
+- MobileRisk-Live & MobileRisk, a dynamic environment and benchmark for realistic mobile agent safety 📱
+- OS-Sentinel, a hybrid detection framework combining formal verification with contextual judgment 🛡️
+- Advanced mobile agent safety at both the step-level and trajectory-level 🧭
+</div>
+</div>
+
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v20-broad.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
