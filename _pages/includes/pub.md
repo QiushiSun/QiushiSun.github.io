@@ -51,7 +51,7 @@
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2026</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
@@ -86,9 +86,12 @@ Let me walk you through the development of neural code intelligence:
 </div>
 </div>
 
-- `Preprint` [CODA: Coordinating the Cerebrum and Cerebellum for a Dual-Brain Computer Use Agent with Decoupled Reinforcement Learning](https://arxiv.org/abs/2508.20096), Zeyi Sun<sup>&#42;</sup>, Yuhang Cao<sup>&#42;</sup>, Jianze Liang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Ziyu Liu<sup>&#42;</sup>, Zhixiong Zhang, Yuhang Zang, Xiaoyi Dong, Kai Chen, Dahua Lin, Jiaqi Wang.
-- `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou.
-- `DL4C @ NIPS'25` [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://www.arxiv.org/abs/2507.22080), **Qiushi Sun**<sup>&#42;</sup>, Jingyang Gong<sup>&#42;</sup>, Lei Li, Qipeng Guo and Fei Yuan.
+
+
+<!-- - `Preprint` [CODA: Coordinating the Cerebrum and Cerebellum for a Dual-Brain Computer Use Agent with Decoupled Reinforcement Learning](https://arxiv.org/abs/2508.20096), Zeyi Sun<sup>&#42;</sup>, Yuhang Cao<sup>&#42;</sup>, Jianze Liang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Ziyu Liu<sup>&#42;</sup>, Zhixiong Zhang, Yuhang Zang, Xiaoyi Dong, Kai Chen, Dahua Lin, Jiaqi Wang. -->
+<!-- - `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou. -->
+<!-- - `ICLR 2026 (Oral)` [ScaleCUA: Scaling Open-Source Computer Use Agents with Cross-Platform Data](https://arxiv.org/abs/2509.15221), Zhaoyang Liu, Jingjing Xie, Zichen Ding, Zehao Li, Bowen Yang, Zhenyu Wu, Xuehui Wang, **Qiushi Sun**, Shi Liu, Weiyun Wang, Shenglong Ye, Qingyun Li, Xuan Dong, Yue Yu, Chenyu Lu, YunXiang Mo, Yao Yan, Zeyue Tian, Xiao Zhang, Yuan Huang, Yiqian Liu, Weijie Su, Gen Luo, Xiangyu Yue, Biqing Qi, Kai Chen, Bowen Zhou, Yu Qiao, Qifeng Chen, Wenhai Wang -->
+- `ACL 2026 / DL4C @ NIPS'25` [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://www.arxiv.org/abs/2507.22080), **Qiushi Sun**<sup>&#42;</sup>, Jingyang Gong<sup>&#42;</sup>, Lei Li, Qipeng Guo and Fei Yuan.
 <!-- - `ACL 2025` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu. -->
 - `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://aclanthology.org/2025.acl-long.212/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
 - `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang and Yu Qiao.

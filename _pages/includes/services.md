@@ -1,6 +1,7 @@
 # 🔍 Services
-- I serve(d) as an area chair for the following conferences:
-  - ACL Rolling Review (ARR), AACL-IJCNLP
+- I serve(d) as an area chair for the following venues:
+  - ACL Rolling Review (ARR), ACL, AACL-IJCNLP
+  - AI4Science Workshop, ICML'26
 - I serve(d) as a reviewer / program committee member for the following conferences, journals, and workshops:
   - Conferences: EMNLP'22, ACL'23, CIKM'23, EMNLP'23 <span style="color:#ac530f">(Best Reviewer Award)</span>, ICLR'24, NeurIPS'24, NLPCC'24, ICLR'25, COLING'25, NAACL'25, ICML'25, COLM'25, NeurIPS'25, ICLR'26, CVPR'26, CPAL'26
   - Journals: Frontiers of Computer Science
