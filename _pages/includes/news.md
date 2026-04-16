@@ -22,7 +22,7 @@
     <ul>
         <li><em>2026.04</em>: 🏆🏆 <a href="https://arxiv.org/abs/2510.24411">OS-Sentinel</a> received the <span style="color:#ac530f">Best Paper Award</span> at AIWILD @ ICLR 2026!</li>
         <li><em>2026.04</em>: 🎈🎈 Four papers are accepted by ACL 2026! See you in San Diego 🇺🇸!</li>
-        <li><em>2026.02</em>: 🚀🔬 Introducing </a href="https://huggingface.co/internlm/Intern-S1-Pro">Intern-S1-Pro</a>, a trillion-scale scientific multimodal foundation model!</li>
+        <li><em>2026.02</em>: 🚀🔬 Introducing <a href="https://huggingface.co/internlm/Intern-S1-Pro">Intern-S1-Pro</a>, a trillion-scale scientific multimodal foundation model!</li>
         <li><em>2026.01</em>: 🎉🎉  <a href="https://huggingface.co/collections/internlm/januscoder/">JanusCoder</a>, <a href="https://qiushisun.github.io/ScienceBoard-Home/">ScienceBoard</a>, and <a href="https://github.com/OpenGVLab/ScaleCUA">ScaleCUA (Oral)</a> are accepted by ICLR'26! See you in Rio 🇧🇷!</li>
         <li><em>2025.11</em>: ⛱️⛱️ Attending EMNLP 2025 in Suzhou 🇨🇳</li>
         <li><em>2025.10</em>: 🛡️🤖 We launch <a href="https://arxiv.org/abs/2510.24411"> OS-Sentinel</a> and <a href="https://huggingface.co/datasets/OS-Copilot/MobileRisk">MobileRisk</a> to advance the safety research of mobile agents. </li>
