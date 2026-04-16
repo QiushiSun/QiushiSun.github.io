@@ -60,9 +60,9 @@ build computer-using agents:  -->
 
 <!-- {% include_relative includes/interns.md %} -->
 
-<!-- {% include_relative includes/talks.md %} -->
-
 {% include_relative includes/honors.md %}
+
+{% include_relative includes/talks.md %}
 
 {% include_relative includes/ta.md %}
 
