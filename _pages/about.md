@@ -54,6 +54,7 @@ build computer-using agents:  -->
 <img src='./images/qiushi-seal.jpg' style='width: 2.75em;'>  
 </div>
 
+{% include_relative includes/news.md %}
 
 {% include_relative includes/pub.md %}
 
