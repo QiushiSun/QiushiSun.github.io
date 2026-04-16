@@ -1,4 +1,6 @@
 # 💬 Invited Talks
+- *2026.4* Towards Generalist Computer-using Agents: Models, Data & Beyond, HKU ECE
+- *2025.11* Computer-using Agent Panel with WebAgentLab, EMNLP'25, Suzhou, China
 - *2025.7* From Digital Agents to AI Co-Scientists, <img src='./images/logos/openmmlab.png' style='width: 3.35em;'> <img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'> [[Slides]](./files/ScienceBoard_AI_Insight_Talk_250717.pdf) 
 - *2025.7* From Digital Agents to AI Co-Scientists, THU [[Slides]](./files/ScienceBoard_slides.pdf)
 - *2025.7* Towards Generalist Computer-using Agents: Models, Data, and Beyond <img src='./images/logos/ml-nlp-logo.png' style='width: 3em;'> [[Slides]](./files/GUI_Agents_Talk_MLNLP_250705.pdf)

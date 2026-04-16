@@ -1,4 +1,5 @@
 # 🎖 Honors and Awards
+- *2026.04* <span style="color:#ac530f">Best Paper Award</span>, AIWILD @ ICLR 2026
 - *2026.03* Tencent Qingyun Scholarship (Student Travel Grant) 
 - *2023.10* <span style="color:#ac530f">Best Paper Award (Demo Track), CIKM 2023</span>, ACM & SIGIR 
 - *2022.12* International Algorithm Case Competition: PLM Tuning, Second Prize, Guangdong-Hong Kong-Macao Greater Bay Area 
