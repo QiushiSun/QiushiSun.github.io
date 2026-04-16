@@ -32,10 +32,10 @@ Welcome to my homepage! I am a Ph.D. student at [HKU CS](https://www.cs.hku.hk/)
 
 <!-- HKU Data Science Lab -->
 
-Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) 🇭🇰, advised by Prof. [C.M. Kao](https://www.cs.hku.hk/index.php/people/academic-staff/kao). I also work with [Prof. Lingpeng Kong](https://ikekonglp.github.io/) at [HKUNLP](https://hkunlp.github.io/) and [Dr. Zhiyong Wu](https://lividwo.github.io/zywu.github.io/). My research interests include (1) Natural Language Processing and (2) Computational Linguistics. Previously, I was a master’s student at NUS 🇸🇬, advised by [Dr. Xiaoli Li](https://www.a-star.edu.sg/i2r/about-i2r/i2r-management/li-xiaoli) at [I<sup>2</sup>R](https://www.a-star.edu.sg/i2r), A*STAR. Before that, I completed my B.Eng with distinction at [East China Normal University](https://en.wikipedia.org/wiki/East_China_Normal_University), where I was privileged to be instructed by [Prof. Weining Qian](https://scholar.google.com/citations?user=KqqoR6gAAAAJ), [Prof. Xuesong Lu](https://scholar.google.com/citations?user=Xh484PAAAAAJ), and [Prof. Xiang Li](https://lixiang3776.github.io/).
+Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) 🇭🇰, advised by Prof. [C.M. Kao](https://www.cs.hku.hk/index.php/people/academic-staff/kao). I also work with [Prof. Lingpeng Kong](https://ikekonglp.github.io/) at [HKUNLP](https://hkunlp.github.io/) and [Dr. Zhiyong Wu](https://lividwo.github.io/zywu.github.io/). My research interests include (1) Computer-using agents and (2) Code intelligence. Previously, I was a master’s student at NUS 🇸🇬, advised by [Dr. Xiaoli Li](https://www.a-star.edu.sg/i2r/about-i2r/i2r-management/li-xiaoli) at [I<sup>2</sup>R](https://www.a-star.edu.sg/i2r), A*STAR. Before that, I completed my B.Eng with distinction at [East China Normal University](https://en.wikipedia.org/wiki/East_China_Normal_University), where I was privileged to be instructed by [Prof. Weining Qian](https://scholar.google.com/citations?user=KqqoR6gAAAAJ), [Prof. Xuesong Lu](https://scholar.google.com/citations?user=Xh484PAAAAAJ), and [Prof. Xiang Li](https://lixiang3776.github.io/).
 
 <!-- in the School of Data Science and Engineering -->
-<!-- for research and engineering projects -->
+
 <!-- 
 🍀 **Office hours**: I am holding office hours (1~2 hours per week) dedicated to offering consultation for [COMP7607](https://nlp.cs.hku.hk/comp7607-fall2024/) / COMP3270 students and mentorship programs. If you want to have a chat (whether or not it's about research), please book me through [this link](https://qiushi.youcanbook.me/)! -->
 
@@ -46,7 +46,6 @@ Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) �
 <!-- Research Interest 
 
 build computer-using agents:  -->
-
 
 <!-- I will start my Ph.D. in Computer Science at [HKU CS](https://www.cs.hku.hk/) in 2024 Fall 🐱 -->
 

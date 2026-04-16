@@ -7,7 +7,7 @@
 <details markdown="1">
 <summary>More 📖</summary>
 
-- [Ulysses S. Grant: The Unlikely Hero](https://www.goodreads.com/book/show/381191) by Michael Korda
-- [General History of Global Technology (全球科技通史)](https://www.goodreads.com/book/show/45892931) by Jun Wu
+- [Ulysses S. Grant: The Unlikely Hero](https://www.goodreads.com/book/show/23303.Ulysses_S_Grant) by Michael Korda, 2004
+- [General History of Global Technology (全球科技通史)](https://www.amazon.com/General-History-Global-Technology-Chinese/dp/7521701429) by Jun Wu
 
 </details>
