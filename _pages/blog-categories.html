@@ -13,8 +13,11 @@ author_profile: true
     <h1 class="blog-archive__title">Categories</h1>
   </header>
 
+  {% comment %} Filter out posts marked `hidden: true`. {% endcomment %}
+  {% assign visible_posts = site.posts | where_exp: "p", "p.hidden != true" %}
+
   {% assign all_cats = "" | split: "" %}
-  {% for post in site.posts %}
+  {% for post in visible_posts %}
     {% for cat in post.categories %}
       {% assign all_cats = all_cats | push: cat %}
     {% endfor %}
@@ -28,7 +31,7 @@ author_profile: true
       {% for cat in unique_cats %}
         {% assign cat_slug = cat | slugify %}
         {% assign cat_count = 0 %}
-        {% for post in site.posts %}{% if post.categories contains cat %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}{% endfor %}
+        {% for post in visible_posts %}{% if post.categories contains cat %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}{% endfor %}
         <a class="blog-tag blog-tag--cloud" href="#{{ cat_slug }}" target="_self">{{ cat }} <span class="blog-tag__count">{{ cat_count }}</span></a>
       {% endfor %}
     </div>
@@ -40,7 +43,7 @@ author_profile: true
           <span class="blog-tag blog-tag--header">{{ cat }}</span>
         </h2>
         <ul class="blog-archive__list">
-          {% for post in site.posts %}
+          {% for post in visible_posts %}
             {% if post.categories contains cat %}
               <li class="blog-archive__item">
                 <span class="blog-archive__date">{{ post.date | date: "%Y-%m-%d" }}</span>

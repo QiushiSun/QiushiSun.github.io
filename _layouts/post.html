@@ -30,9 +30,13 @@ layout: default
       <h1 class="blog-post__title">
         <span class="lang-en">{{ page.title_en | default: page.title }}</span>
         <span class="lang-zh">{{ page.title_zh | default: page.title }}</span>
+        {% if page.hidden %}<span class="blog-post__badge" title="Unlisted: not shown on /blog, tag, or category pages">Unlisted</span>{% endif %}
       </h1>
     {% else %}
-      <h1 class="blog-post__title">{{ page.title }}</h1>
+      <h1 class="blog-post__title">
+        {{ page.title }}
+        {% if page.hidden %}<span class="blog-post__badge" title="Unlisted: not shown on /blog, tag, or category pages">Unlisted</span>{% endif %}
+      </h1>
     {% endif %}
 
     <div class="blog-post__meta">
@@ -93,22 +97,47 @@ layout: default
     </footer>
   {% endif %}
 
-  {% comment %} Previous / Next post navigation {% endcomment %}
-  {% if page.previous or page.next %}
+  {% comment %}
+    Previous / Next navigation. We compute prev/next manually over visible
+    posts so that posts marked `hidden: true` are skipped (and so that the
+    nav doesn't render at all on a hidden post itself).
+  {% endcomment %}
+  {% assign visible_posts = site.posts | where_exp: "p", "p.hidden != true" %}
+  {% assign current_idx = -1 %}
+  {% for vp in visible_posts %}
+    {% if vp.url == page.url %}
+      {% assign current_idx = forloop.index0 %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign nav_previous = nil %}
+  {% assign nav_next = nil %}
+  {% if current_idx >= 0 %}
+    {% if current_idx > 0 %}
+      {% assign newer_idx = current_idx | minus: 1 %}
+      {% assign nav_previous = visible_posts[newer_idx] %}
+    {% endif %}
+    {% assign older_idx = current_idx | plus: 1 %}
+    {% if older_idx < visible_posts.size %}
+      {% assign nav_next = visible_posts[older_idx] %}
+    {% endif %}
+  {% endif %}
+
+  {% if nav_previous or nav_next %}
     <nav class="blog-post__nav" aria-label="Post navigation">
       <div class="blog-post__nav-prev">
-        {% if page.previous %}
-          <a href="{{ page.previous.url | relative_url }}" target="_self">
+        {% if nav_previous %}
+          <a href="{{ nav_previous.url | relative_url }}" target="_self">
             <span class="blog-post__nav-label">&larr; Previous</span>
-            <span class="blog-post__nav-title">{{ page.previous.title }}</span>
+            <span class="blog-post__nav-title">{{ nav_previous.title }}</span>
           </a>
         {% endif %}
       </div>
       <div class="blog-post__nav-next">
-        {% if page.next %}
-          <a href="{{ page.next.url | relative_url }}" target="_self">
+        {% if nav_next %}
+          <a href="{{ nav_next.url | relative_url }}" target="_self">
             <span class="blog-post__nav-label">Next &rarr;</span>
-            <span class="blog-post__nav-title">{{ page.next.title }}</span>
+            <span class="blog-post__nav-title">{{ nav_next.title }}</span>
           </a>
         {% endif %}
       </div>

@@ -6,13 +6,16 @@ author_profile: true
 ---
 
 <div class="blogs-index">
+  {% comment %} Filter out posts marked `hidden: true` in their front matter. {% endcomment %}
+  {% assign visible_posts = site.posts | where_exp: "p", "p.hidden != true" %}
+
   <header class="blogs-index__header">
     <h1 class="blogs-index__title">Blog</h1>
     <p class="blogs-index__lead">
       Notes on research, code, papers I read, and life along the way.
     </p>
     <p class="blogs-index__nav">
-      <span class="blogs-index__count">{{ site.posts.size }} post{% if site.posts.size != 1 %}s{% endif %}</span>
+      <span class="blogs-index__count">{{ visible_posts.size }} post{% if visible_posts.size != 1 %}s{% endif %}</span>
       <span class="sep">·</span>
       <a href="{{ '/blog/tags/' | relative_url }}" target="_self">Tags</a>
       <span class="sep">·</span>
@@ -24,11 +27,11 @@ author_profile: true
     </p>
   </header>
 
-  {% if site.posts.size == 0 %}
+  {% if visible_posts.size == 0 %}
     <p class="blogs-index__empty">No posts yet. Stay tuned.</p>
   {% else %}
     <div class="blog-card-list">
-      {% for post in site.posts %}
+      {% for post in visible_posts %}
         {% include post-card.html post=post %}
       {% endfor %}
     </div>
