@@ -22,5 +22,5 @@ main:
     url: "/#-internships"
 
   # Hidden until the blog content is polished. Uncomment to re-enable.
-  # - title: "Blogs"
-  #   url: "/blogs/"
+  # - title: "Blog"
+  #   url: "/blog/"

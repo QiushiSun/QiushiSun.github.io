@@ -28,7 +28,7 @@ A few things I want to use it for:
 
 ## What changed under the hood
 
-The site is now built with Jekyll. Posts go through `_posts/`, the listing page is at `/blogs/`, with category and tag pages at `/blogs/categories/` and `/blogs/tags/`. Older Hexo posts have been migrated and live next to the new ones.
+The site is now built with Jekyll. Posts go through `_posts/`, the listing page is at `/blog/`, with category and tag pages at `/blog/categories/` and `/blog/tags/`. Older Hexo posts have been migrated and live next to the new ones.
 
 If a post has both English and Chinese versions (like this one), the **English / 中文** toggle near the top will switch between them. Your choice is remembered across the site.
 
@@ -48,7 +48,7 @@ If a post has both English and Chinese versions (like this one), the **English /
 
 ## 技术上变了什么
 
-现在整套站点用 Jekyll 构建。文章放在 `_posts/`，列表在 `/blogs/`，分类和标签页面分别在 `/blogs/categories/` 与 `/blogs/tags/`。之前的 Hexo 老文章都迁移过来了，和新文章排在一起。
+现在整套站点用 Jekyll 构建。文章放在 `_posts/`，列表在 `/blog/`，分类和标签页面分别在 `/blog/categories/` 与 `/blog/tags/`。之前的 Hexo 老文章都迁移过来了，和新文章排在一起。
 
 如果一篇文章同时有中英文版本（比如这一篇），顶部那个 **English / 中文** 按钮就可以切换语言。你的选择会在整站记住。
 

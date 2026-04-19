@@ -57,7 +57,7 @@
       <div class="blog-card__tags">
         {% for tag in p.tags limit: 6 %}
           {% assign tag_slug = tag | slugify %}
-          {% capture tag_url %}/blogs/tags/#{{ tag_slug }}{% endcapture %}
+          {% capture tag_url %}/blog/tags/#{{ tag_slug }}{% endcapture %}
           <a class="blog-tag" href="{{ tag_url | relative_url }}" target="_self">{{ tag }}</a>
         {% endfor %}
       </div>

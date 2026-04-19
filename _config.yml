@@ -139,7 +139,7 @@ defaults:
     values:
       layout: post
       author_profile: true
-      permalink: /blogs/:title/
+      permalink: /blog/:title/
 
 
 # Sass/SCSS
@@ -152,9 +152,9 @@ sass:
 permalink: /:categories/:title/
 timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-# Pagination (jekyll-paginate v1, used by /blogs/index.html)
+# Pagination (jekyll-paginate v1, used by /blog/index.html)
 paginate: 10
-paginate_path: "/blogs/page:num/"
+paginate_path: "/blog/page:num/"
 
 
 # Plugins

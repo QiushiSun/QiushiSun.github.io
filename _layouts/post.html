@@ -23,7 +23,7 @@ layout: default
 
   <header class="blog-post__header">
     <p class="blog-post__breadcrumb">
-      <a href="{{ '/blogs/' | relative_url }}" target="_self">&larr; All posts</a>
+      <a href="{{ '/blog/' | relative_url }}" target="_self">&larr; All posts</a>
     </p>
 
     {% if is_bilingual %}
@@ -61,7 +61,7 @@ layout: default
           <i class="far fa-folder" aria-hidden="true"></i>
           {% for cat in page.categories %}
             {% assign cat_slug = cat | slugify %}
-            {% capture cat_url %}/blogs/categories/#{{ cat_slug }}{% endcapture %}
+            {% capture cat_url %}/blog/categories/#{{ cat_slug }}{% endcapture %}
             <a href="{{ cat_url | relative_url }}" target="_self" class="blog-post__cat">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
           {% endfor %}
         </span>
@@ -86,7 +86,7 @@ layout: default
         <i class="fas fa-tags" aria-hidden="true"></i>
         {% for tag in page.tags %}
           {% assign tag_slug = tag | slugify %}
-          {% capture tag_url %}/blogs/tags/#{{ tag_slug }}{% endcapture %}
+          {% capture tag_url %}/blog/tags/#{{ tag_slug }}{% endcapture %}
           <a href="{{ tag_url | relative_url }}" target="_self" class="blog-tag">{{ tag }}</a>
         {% endfor %}
       </div>

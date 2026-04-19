@@ -1,0 +1,61 @@
+---
+layout: default
+title: "Blog"
+permalink: /blog/
+author_profile: true
+pagination:
+  enabled: true
+---
+
+<div class="blogs-index">
+  <header class="blogs-index__header">
+    <h1 class="blogs-index__title">Blog</h1>
+    <p class="blogs-index__lead">
+      Notes on research, code, papers I read, and life along the way.
+    </p>
+    <p class="blogs-index__nav">
+      <a href="{{ '/blog/tags/' | relative_url }}" target="_self">Tags</a>
+      <span class="sep">·</span>
+      <a href="{{ '/blog/categories/' | relative_url }}" target="_self">Categories</a>
+      {% if site.url %}
+        <span class="sep">·</span>
+        <a href="{{ '/feed.xml' | absolute_url }}">RSS</a>
+      {% endif %}
+    </p>
+  </header>
+
+  {% comment %} Use paginator if jekyll-paginate ran on this page; otherwise fall back to all posts. {% endcomment %}
+  {% if paginator and paginator.posts %}
+    {% assign post_list = paginator.posts %}
+  {% else %}
+    {% assign post_list = site.posts %}
+  {% endif %}
+
+  {% if post_list.size == 0 %}
+    <p class="blogs-index__empty">No posts yet. Stay tuned.</p>
+  {% else %}
+    <div class="blog-card-list">
+      {% for post in post_list %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if paginator and paginator.total_pages > 1 %}
+    <nav class="blog-pagination" aria-label="Pagination">
+      {% if paginator.previous_page %}
+        <a class="blog-pagination__link" href="{{ paginator.previous_page_path | relative_url }}" target="_self">&larr; Newer</a>
+      {% else %}
+        <span class="blog-pagination__link blog-pagination__link--disabled">&larr; Newer</span>
+      {% endif %}
+
+      <span class="blog-pagination__count">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+      {% if paginator.next_page %}
+        <a class="blog-pagination__link" href="{{ paginator.next_page_path | relative_url }}" target="_self">Older &rarr;</a>
+      {% else %}
+        <span class="blog-pagination__link blog-pagination__link--disabled">Older &rarr;</span>
+      {% endif %}
+    </nav>
+  {% endif %}
+</div>
