@@ -152,9 +152,15 @@ sass:
 permalink: /:categories/:title/
 timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-# Pagination (jekyll-paginate v1, used by /blog/index.html)
-paginate: 10
-paginate_path: "/blog/page:num/"
+# Pagination is intentionally disabled.
+#
+# `jekyll-paginate` v1 only writes pagination output for the root `index.html`,
+# not for nested ones like `blog/index.html`. GitHub Pages does not whitelist
+# `jekyll-paginate-v2`, which would fix this. With ~25 posts the single-page
+# listing under /blog/ is fine; if the post count grows enough to warrant
+# real pagination, switch to manually authored `blog/page2.md`, `blog/page3.md`
+# files (each slicing `site.posts` with `offset` / `limit`) or run
+# `jekyll-paginate-v2` via a GitHub Action that publishes _site/.
 
 
 # Plugins
