@@ -1,0 +1,566 @@
+/* ==========================================================================
+   BLOG
+   ========================================================================== */
+
+/* ---------- Index page ---------- */
+.blogs-index {
+  &__header {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__title {
+    margin: 0 0 0.25em;
+    font-size: $type-size-2;
+    font-family: $sans-serif-narrow;
+  }
+
+  &__lead {
+    color: $dark-gray;
+    margin: 0 0 0.5em;
+  }
+
+  &__nav {
+    font-size: $type-size-6;
+    color: $gray;
+
+    a {
+      color: $link-color;
+      text-decoration: none;
+
+      &:hover { text-decoration: underline; }
+    }
+
+    .sep {
+      margin: 0 0.5em;
+      color: $light-gray;
+    }
+  }
+
+  &__empty {
+    color: $gray;
+    font-style: italic;
+  }
+}
+
+/* ---------- Card list ---------- */
+.blog-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 0;
+  border-bottom: 1px solid $border-color;
+
+  @include breakpoint($small) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__cover {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background: $lighter-gray;
+    transition: $global-transition;
+
+    @include breakpoint($small) {
+      width: 220px;
+      max-height: 140px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+      img { transform: scale(1.05); }
+    }
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  &__title {
+    margin: 0 0 0.35em;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-3;
+    line-height: 1.25;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+
+      &:hover { color: $link-color; }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em;
+    margin-bottom: 0.5em;
+    color: $gray;
+    font-size: $type-size-6;
+
+    i { margin-right: 0.25em; }
+  }
+
+  &__excerpt {
+    margin-bottom: 0.5em;
+    color: $dark-gray;
+    font-size: $type-size-5;
+    line-height: 1.5;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+  }
+}
+
+/* ---------- Tags / chips ---------- */
+.blog-tag {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  font-size: $type-size-7;
+  color: $info-color;
+  background: mix(#fff, $info-color, 92%);
+  border: 1px solid mix(#fff, $info-color, 80%);
+  border-radius: 999px;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: $global-transition;
+
+  &:hover {
+    text-decoration: none;
+    background: $info-color;
+    color: #fff;
+  }
+
+  &--cloud {
+    margin: 0.2em;
+    font-size: $type-size-6;
+  }
+
+  &--header {
+    background: $info-color;
+    color: #fff;
+    font-size: $type-size-5;
+    padding: 0.25em 0.9em;
+  }
+
+  &__count {
+    margin-left: 0.4em;
+    opacity: 0.7;
+    font-size: 0.85em;
+  }
+}
+
+/* ---------- Pagination ---------- */
+.blog-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
+  padding: 1em 0;
+  border-top: 1px solid $border-color;
+  font-size: $type-size-6;
+
+  &__link {
+    color: $link-color;
+    text-decoration: none;
+    padding: 0.4em 0.9em;
+    border-radius: $border-radius;
+
+    &:hover {
+      background: $lighter-gray;
+      text-decoration: none;
+    }
+
+    &--disabled {
+      color: $light-gray;
+      pointer-events: none;
+    }
+  }
+
+  &__count {
+    color: $gray;
+  }
+}
+
+/* ---------- Single post ---------- */
+.blog-post {
+  &__breadcrumb {
+    margin: 0 0 0.5em;
+    font-size: $type-size-6;
+
+    a {
+      color: $gray;
+      text-decoration: none;
+
+      &:hover { color: $link-color; }
+    }
+  }
+
+  &__header {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__title {
+    margin: 0 0 0.4em;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-2;
+    line-height: 1.2;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9em;
+    color: $gray;
+    font-size: $type-size-6;
+
+    i { margin-right: 0.25em; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $link-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__cat {
+    color: $info-color;
+  }
+
+  &__content {
+    line-height: 1.7;
+
+    /* Cap content images so wide screenshots / paper figures don't dominate
+       the column. Authors can still opt into a larger size by adding
+       `{: .full}` after the image in markdown. */
+    img {
+      max-width: min(100%, 560px);
+      height: auto;
+      display: block;
+      margin: 1.25em auto;
+      border-radius: $border-radius;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    img.full,
+    img.wide {
+      max-width: 100%;
+    }
+
+    /* Markdown image alt-text used as caption */
+    img + em,
+    p > img + em {
+      display: block;
+      text-align: center;
+      color: $gray;
+      font-size: $type-size-6;
+      margin-top: -0.5em;
+    }
+
+    pre, code {
+      font-family: $monospace;
+    }
+
+    /* ----------------------------------------------------------------
+       Code rendering inside posts.
+       Override the base `_syntax.scss` defaults (which set ~0.69em and
+       a dark-blue inline style) with something more readable for blog
+       posts only. The homepage's syntax styling is left untouched.
+       ---------------------------------------------------------------- */
+
+    /* Inline code: light pill, monospace, no shadow */
+    p > code,
+    li > code,
+    td > code,
+    a > code,
+    figcaption > code,
+    h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code {
+      padding: 0.1em 0.4em;
+      font-size: 0.875em;
+      color: mix(#000, $info-color, 10%);
+      background: $code-background-color;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      box-shadow: none;
+      white-space: nowrap;
+
+      &:before, &:after { content: none; }
+    }
+
+    /* Block code: readable size, comfortable padding, no corner icon */
+    div.highlighter-rouge,
+    figure.highlight {
+      margin: 1em 0 1.5em;
+      padding: 1em 1.25em;
+      background: $code-background-color;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      box-shadow: none;
+      overflow: hidden;
+
+      &:before { display: none; } /* drop fontawesome corner icon */
+
+      .highlight {
+        margin: 0;
+        background: transparent;
+        font-family: $monospace;
+        font-size: 0.9em;
+        line-height: 1.6;
+      }
+
+      pre, code {
+        background: transparent;
+        color: inherit;
+        font-size: inherit;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        white-space: pre;
+      }
+
+      pre {
+        overflow-x: auto;
+      }
+
+      pre code {
+        white-space: pre;
+      }
+    }
+
+    /* Tables (since `_base.scss` doesn't really style them) */
+    table {
+      width: 100%;
+      margin: 1em 0;
+      border-collapse: collapse;
+      font-size: 0.95em;
+
+      th, td {
+        padding: 0.5em 0.75em;
+        border: 1px solid $border-color;
+      }
+
+      th {
+        background: $code-background-color;
+        text-align: left;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid $border-color;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    align-items: center;
+
+    i {
+      color: $gray;
+      margin-right: 0.3em;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid $border-color;
+
+    a {
+      display: block;
+      padding: 0.6em 1em;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      text-decoration: none;
+      color: $text-color;
+      transition: $global-transition;
+
+      &:hover {
+        border-color: $info-color;
+        background: mix(#fff, $info-color, 95%);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__nav-prev,
+  &__nav-next {
+    flex: 1 1 50%;
+    min-width: 0;
+  }
+
+  &__nav-next { text-align: right; }
+
+  &__nav-label {
+    display: block;
+    color: $gray;
+    font-size: $type-size-7;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__nav-title {
+    display: block;
+    color: $text-color;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Bilingual toggle ---------- */
+.blog-lang-toggle {
+  display: inline-flex;
+  margin-top: 1em;
+  border: 1px solid $border-color;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.blog-lang-btn {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.35em 1em;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  color: $gray;
+  cursor: pointer;
+  transition: $global-transition;
+
+  &:hover { color: $info-color; }
+
+  &.is-active {
+    background: $info-color;
+    color: #fff;
+  }
+}
+
+/* Bilingual posts: show English by default (works without JS).
+   When JS detects user prefers Chinese, it sets data-show-lang="zh" to swap. */
+.blog-post[data-lang="bilingual"] {
+  .lang-zh { display: none; }
+
+  &[data-show-lang="zh"] {
+    .lang-en { display: none; }
+    .lang-zh { display: revert; }
+  }
+}
+
+/* ---------- Archive (tags / categories) page ---------- */
+.blog-archive {
+  &__header {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__breadcrumb {
+    margin: 0 0 0.5em;
+    font-size: $type-size-6;
+
+    a {
+      color: $gray;
+      text-decoration: none;
+
+      &:hover { color: $link-color; }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $sans-serif-narrow;
+    font-size: $type-size-2;
+  }
+
+  &__group {
+    margin: 1.5em 0;
+    scroll-margin-top: 4em;
+  }
+
+  &__group-title {
+    margin: 0 0 0.5em;
+    padding: 0;
+    border-bottom: 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    gap: 0.75em;
+    align-items: baseline;
+    padding: 0.35em 0;
+    border-bottom: 1px dashed $border-color;
+  }
+
+  &__date {
+    flex: 0 0 auto;
+    color: $gray;
+    font-family: $monospace;
+    font-size: $type-size-6;
+  }
+
+  &__post-link {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
+
+  &__empty {
+    color: $gray;
+    font-style: italic;
+  }
+}
+
+.blog-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,55 @@
+---
+layout: default
+title: "Categories"
+permalink: /blogs/categories/
+author_profile: true
+---
+
+<div class="blog-archive">
+  <header class="blog-archive__header">
+    <p class="blog-archive__breadcrumb">
+      <a href="{{ '/blogs/' | relative_url }}" target="_self">&larr; All posts</a>
+    </p>
+    <h1 class="blog-archive__title">Categories</h1>
+  </header>
+
+  {% assign all_cats = "" | split: "" %}
+  {% for post in site.posts %}
+    {% for cat in post.categories %}
+      {% assign all_cats = all_cats | push: cat %}
+    {% endfor %}
+  {% endfor %}
+  {% assign unique_cats = all_cats | uniq | sort_natural %}
+
+  {% if unique_cats.size == 0 %}
+    <p class="blog-archive__empty">No categories yet.</p>
+  {% else %}
+    <div class="blog-tag-cloud">
+      {% for cat in unique_cats %}
+        {% assign cat_slug = cat | slugify %}
+        {% assign cat_count = 0 %}
+        {% for post in site.posts %}{% if post.categories contains cat %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}{% endfor %}
+        <a class="blog-tag blog-tag--cloud" href="#{{ cat_slug }}" target="_self">{{ cat }} <span class="blog-tag__count">{{ cat_count }}</span></a>
+      {% endfor %}
+    </div>
+
+    {% for cat in unique_cats %}
+      {% assign cat_slug = cat | slugify %}
+      <section class="blog-archive__group" id="{{ cat_slug }}">
+        <h2 class="blog-archive__group-title">
+          <span class="blog-tag blog-tag--header">{{ cat }}</span>
+        </h2>
+        <ul class="blog-archive__list">
+          {% for post in site.posts %}
+            {% if post.categories contains cat %}
+              <li class="blog-archive__item">
+                <span class="blog-archive__date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a class="blog-archive__post-link" href="{{ post.url | relative_url }}" target="_self">{{ post.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  {% endif %}
+</div>

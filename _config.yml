@@ -8,6 +8,8 @@
 # Site Settings
 title                    : "Qiushi Sun"
 description              : "NLP "
+url                      : "https://qiushisun.github.io"
+baseurl                  : ""
 repository               : "QiushiSun/academics"
 google_scholar_stats_use_cdn : true
 
@@ -22,7 +24,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "Qiushi Sun"
-  avatar           : "images/Qiushi.png"
+  avatar           : "/images/Qiushi.png"
   bio              : "Ph.D. candidate in NLP"
   location         : "Hong Kong SAR" #"Shanghai / Singapore"
   employer         :
@@ -68,6 +70,9 @@ include:
 exclude:
   - docs
   - google_scholar_crawler
+  - QiushiSun-Blog-old
+  - QiushiSun-Blog-old-2
+  - scripts
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
@@ -127,6 +132,14 @@ defaults:
     values:
       layout: default
       author_profile: true
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author_profile: true
+      permalink: /blogs/:title/
 
 
 # Sass/SCSS
@@ -138,6 +151,10 @@ sass:
 # Outputting
 permalink: /:categories/:title/
 timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Pagination (jekyll-paginate v1, used by /blogs/index.html)
+paginate: 10
+paginate_path: "/blogs/page:num/"
 
 
 # Plugins

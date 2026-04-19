@@ -1,1 +1,16 @@
 .claude/worktrees/inspiring-wilbur/
+
+# Jekyll build artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler / Ruby
+.bundle/
+vendor/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo

@@ -1,0 +1,66 @@
+{% comment %}
+  A blog post card with optional cover image (left) and text (right).
+  Usage: {% include post-card.html post=post %}
+{% endcomment %}
+{% assign p = include.post %}
+{% assign card_title = p.title %}
+{% if p.title_en and p.title_zh %}
+  {% assign card_title = p.title_en %}
+{% endif %}
+
+{% assign card_excerpt = p.excerpt | default: p.description %}
+{% if p.excerpt_en %}{% assign card_excerpt = p.excerpt_en %}{% endif %}
+
+{% comment %} Mixed CJK/Latin reading time: take the larger of (chars/500) and (words/250). {% endcomment %}
+{% assign plain_text = p.content | strip_html | strip_newlines %}
+{% assign content_chars = plain_text | size %}
+{% assign content_words = plain_text | number_of_words %}
+{% assign reading_minutes_chars = content_chars | divided_by: 500.0 | ceil %}
+{% assign reading_minutes_words = content_words | divided_by: 250.0 | ceil %}
+{% if reading_minutes_chars > reading_minutes_words %}
+  {% assign reading_minutes = reading_minutes_chars %}
+{% else %}
+  {% assign reading_minutes = reading_minutes_words %}
+{% endif %}
+{% if reading_minutes < 1 %}{% assign reading_minutes = 1 %}{% endif %}
+
+<article class="blog-card">
+  {% if p.cover %}
+    <a class="blog-card__cover" href="{{ p.url | relative_url }}" target="_self" aria-label="{{ card_title }}">
+      <img src="{{ p.cover | relative_url }}" alt="{{ card_title }}" loading="lazy">
+    </a>
+  {% endif %}
+
+  <div class="blog-card__body">
+    <h2 class="blog-card__title">
+      <a href="{{ p.url | relative_url }}" target="_self">{{ card_title }}</a>
+    </h2>
+
+    <div class="blog-card__meta">
+      <span><i class="far fa-calendar-alt" aria-hidden="true"></i> {{ p.date | date: "%Y-%m-%d" }}</span>
+      <span><i class="far fa-clock" aria-hidden="true"></i> {{ reading_minutes }} min read</span>
+      {% if p.categories and p.categories.size > 0 %}
+        <span class="blog-card__cats">
+          <i class="far fa-folder" aria-hidden="true"></i>
+          {% for cat in p.categories %}{{ cat }}{% unless forloop.last %} / {% endunless %}{% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if card_excerpt %}
+      <div class="blog-card__excerpt">
+        {{ card_excerpt | strip_html | truncate: 200 }}
+      </div>
+    {% endif %}
+
+    {% if p.tags and p.tags.size > 0 %}
+      <div class="blog-card__tags">
+        {% for tag in p.tags limit: 6 %}
+          {% assign tag_slug = tag | slugify %}
+          {% capture tag_url %}/blogs/tags/#{{ tag_slug }}{% endcapture %}
+          <a class="blog-tag" href="{{ tag_url | relative_url }}" target="_self">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</article>

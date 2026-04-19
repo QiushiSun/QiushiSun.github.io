@@ -1,0 +1,118 @@
+---
+layout: default
+---
+
+{% comment %}
+  Detect bilingual posts. A post is bilingual if `page.lang == "bilingual"`,
+  or if it explicitly declares both `title_en` and `title_zh` in front matter.
+{% endcomment %}
+{% assign is_bilingual = false %}
+{% if page.lang == "bilingual" %}
+  {% assign is_bilingual = true %}
+{% elsif page.title_en and page.title_zh %}
+  {% assign is_bilingual = true %}
+{% endif %}
+
+{% assign post_lang = page.lang | default: "en" %}
+{% if is_bilingual %}{% assign post_lang = "bilingual" %}{% endif %}
+
+<article class="blog-post"
+         lang="{{ post_lang }}"
+         data-lang="{{ post_lang }}"
+         {% if is_bilingual %}data-show-lang="en"{% endif %}>
+
+  <header class="blog-post__header">
+    <p class="blog-post__breadcrumb">
+      <a href="{{ '/blogs/' | relative_url }}" target="_self">&larr; All posts</a>
+    </p>
+
+    {% if is_bilingual %}
+      <h1 class="blog-post__title">
+        <span class="lang-en">{{ page.title_en | default: page.title }}</span>
+        <span class="lang-zh">{{ page.title_zh | default: page.title }}</span>
+      </h1>
+    {% else %}
+      <h1 class="blog-post__title">{{ page.title }}</h1>
+    {% endif %}
+
+    <div class="blog-post__meta">
+      <span class="blog-post__date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        {{ page.date | date: "%Y-%m-%d" }}
+      </span>
+      {% comment %} Mixed CJK/Latin reading time: take the larger of (chars/500) and (words/250). {% endcomment %}
+      {% assign plain_text = content | strip_html | strip_newlines %}
+      {% assign content_chars = plain_text | size %}
+      {% assign content_words = plain_text | number_of_words %}
+      {% assign reading_minutes_chars = content_chars | divided_by: 500.0 | ceil %}
+      {% assign reading_minutes_words = content_words | divided_by: 250.0 | ceil %}
+      {% if reading_minutes_chars > reading_minutes_words %}
+        {% assign reading_minutes = reading_minutes_chars %}
+      {% else %}
+        {% assign reading_minutes = reading_minutes_words %}
+      {% endif %}
+      {% if reading_minutes < 1 %}{% assign reading_minutes = 1 %}{% endif %}
+      <span class="blog-post__reading-time">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        {% if reading_minutes <= 1 %}1 min read{% else %}{{ reading_minutes }} min read{% endif %}
+      </span>
+      {% if page.categories and page.categories.size > 0 %}
+        <span class="blog-post__categories">
+          <i class="far fa-folder" aria-hidden="true"></i>
+          {% for cat in page.categories %}
+            {% assign cat_slug = cat | slugify %}
+            {% capture cat_url %}/blogs/categories/#{{ cat_slug }}{% endcapture %}
+            <a href="{{ cat_url | relative_url }}" target="_self" class="blog-post__cat">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    {% if is_bilingual %}
+      <div class="blog-lang-toggle" role="group" aria-label="Language switcher">
+        <button type="button" class="blog-lang-btn is-active" data-lang-target="en">English</button>
+        <button type="button" class="blog-lang-btn" data-lang-target="zh">中文</button>
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="blog-post__content">
+    {{ content }}
+  </div>
+
+  {% if page.tags and page.tags.size > 0 %}
+    <footer class="blog-post__footer">
+      <div class="blog-post__tags">
+        <i class="fas fa-tags" aria-hidden="true"></i>
+        {% for tag in page.tags %}
+          {% assign tag_slug = tag | slugify %}
+          {% capture tag_url %}/blogs/tags/#{{ tag_slug }}{% endcapture %}
+          <a href="{{ tag_url | relative_url }}" target="_self" class="blog-tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </footer>
+  {% endif %}
+
+  {% comment %} Previous / Next post navigation {% endcomment %}
+  {% if page.previous or page.next %}
+    <nav class="blog-post__nav" aria-label="Post navigation">
+      <div class="blog-post__nav-prev">
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}" target="_self">
+            <span class="blog-post__nav-label">&larr; Previous</span>
+            <span class="blog-post__nav-title">{{ page.previous.title }}</span>
+          </a>
+        {% endif %}
+      </div>
+      <div class="blog-post__nav-next">
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}" target="_self">
+            <span class="blog-post__nav-label">Next &rarr;</span>
+            <span class="blog-post__nav-title">{{ page.next.title }}</span>
+          </a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+
+</article>
