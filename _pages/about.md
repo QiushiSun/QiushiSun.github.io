@@ -43,6 +43,8 @@ Welcome to my homepage! I am a Ph.D. student at [HKU](https://www.cs.hku.hk/) �
 
 🐈 **Collaboration**: I am looking for motivated collaborators interested in the above topics. If you would like to explore these directions together, feel free to contact me. UG/MSc students are also welcomed! 🌱
 
+I'm an incoming Student Researcher Intern at Google Research <img src='./images/logos/Google.png' style='width: 1.35em;'>. feel free to reach out!
+
 <!-- Research Interest 
 
 build computer-using agents:  -->
