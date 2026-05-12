@@ -24,9 +24,9 @@
 
 [JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538) <img src='./images/logos/internlm.webp' style='width: 1.35em;'>
 
-**Qiushi Sun**, Jingyang Gong, Yang Liu, Qiaosheng Chen, Lei Li, Kai Chen, Qipeng Guo, Ben Kao, Fei Yuan
+**Qiushi Sun<sup>&#42;</sup>**, Jingyang Gong<sup>&#42;</sup>, Yang Liu<sup>&#42;</sup>, Qiaosheng Chen<sup>&#42;</sup>, Lei Li, Kai Chen, Qipeng Guo, Ben Kao, Fei Yuan
 
-[[Paper]](https://arxiv.org/abs/2510.23538) \| [Slides] \| [[Project]](https://github.com/InternLM/JanusCoder) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/internlm/januscoder) \| [[Code]](https://github.com/InternLM/JanusCoder) \| [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder)
+[[Paper]](https://arxiv.org/abs/2510.23538) \| [Slides] \| [[Project]](https://github.com/InternLM/JanusCoder) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/internlm/januscoder) [[Data]](https://huggingface.co/datasets/QiushiSun/JanusCode-800K) \| [[Code]](https://github.com/InternLM/JanusCoder) \| [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder)
 
 - JanusCoder series: foundational models establishing a unified visual-programmatic interface. ⚙️
 - A versatile data synthesis toolkit for multimodal code intelligence. 🛠️
