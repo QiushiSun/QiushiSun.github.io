@@ -1,15 +1,11 @@
 name: Get Google Scholar data
 
 on:
-  page_build:
-  schedule:
-    # Daily 08:00 UTC — multiple shots per week to land a successful scrape.
-    - cron: '0 8 * * *'
+  # Auto-triggers disabled: the live citation badge now reads directly from
+  # the Semantic Scholar API via shields.io, so this crawler is no longer
+  # part of the badge pipeline. Kept around (manual-only) so we can still
+  # snapshot the full Google Scholar profile to `gs_data.json` on demand.
   workflow_dispatch:
-  push:
-    paths:
-      - 'google_scholar_crawler/**'
-      - '.github/workflows/google-scholar-crawler.yml'
 
 permissions:
   contents: write
