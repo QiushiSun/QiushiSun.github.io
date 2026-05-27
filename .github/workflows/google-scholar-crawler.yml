@@ -1,9 +1,10 @@
 name: Get Google Scholar data
 
 on:
+  page_build:
   schedule:
-    # Sunday 16:00 UTC (Monday 00:00 HKT) — weekly refresh.
-    - cron: '0 16 * * 0'
+    # Daily 08:00 UTC — multiple shots per week to land a successful scrape.
+    - cron: '0 8 * * *'
   workflow_dispatch:
   push:
     paths:

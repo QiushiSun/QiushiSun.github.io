@@ -1,1 +1,2 @@
-scholarly>=1.7.11,<2.0
+jsonpickle==1.4.2
+scholarly==1.5.1
