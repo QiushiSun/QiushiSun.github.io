@@ -247,3 +247,71 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+/* Institution / affiliation chips (HKU, Google Research, ...). */
+.entity-mention {
+    color: var(--entity-color);
+    font-style: normal;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--entity-color) 8%, transparent);
+    border-radius: 4px;
+    padding: 1px 6px;
+    text-decoration: none;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: box-shadow .25s ease, background .25s ease;
+}
+
+.entity-mention:hover {
+    background: color-mix(in srgb, var(--entity-color) 13%, transparent);
+    box-shadow:
+        0 0 8px  color-mix(in srgb, var(--entity-color) 45%, transparent),
+        0 0 16px color-mix(in srgb, var(--entity-color) 22%, transparent);
+}
+
+.entity-icon {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    vertical-align: -0.12em;
+    margin-right: 4px;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+/* Kill the default link underline on anchors that wrap an entity chip. */
+a:has(> .entity-mention),
+a:has(> .entity-mention):hover {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+/* Kill the theme's default ".page__content a:hover img { box-shadow }" halo
+   on the chip's tiny logo — that halo looks like a stray white/grey box. */
+.page__content a:hover .entity-icon,
+a:hover .entity-icon {
+    box-shadow: none;
+}
+
+/* Global link treatment: navy color, no underline anywhere.
+   #122c8b matches the .pdf / .code accent already used in news.md, so
+   chips keep visual primacy and plain links sit one tier below them. */
+a {
+    color: #122c8b;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus {
+    color: #2e4dc4;
+    text-decoration: none;
+}
+
+/* Override theme-specific underline rules. */
+.page__content a,
+.page__content a:hover,
+.author__urls a:hover,
+.author__urls_sm a:hover {
+    text-decoration: none;
+}

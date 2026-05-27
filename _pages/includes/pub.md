@@ -1,4 +1,4 @@
-# 📝 Selected Publications 
+# 📝 Selected Publications <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations" alt="Google Scholar citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
