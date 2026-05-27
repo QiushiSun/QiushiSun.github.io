@@ -1,0 +1,48 @@
+name: Get Google Scholar data
+
+on:
+  schedule:
+    # Sunday 16:00 UTC (Monday 00:00 HKT) — weekly refresh.
+    - cron: '0 16 * * 0'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'google_scholar_crawler/**'
+      - '.github/workflows/google-scholar-crawler.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: |
+          cd google_scholar_crawler
+          pip install -r requirements.txt
+
+      - name: Run crawler
+        env:
+          GOOGLE_SCHOLAR_ID: QgMkYFAAAAAJ
+        run: |
+          cd google_scholar_crawler
+          python main.py
+
+      - name: Push results to google-scholar-stats branch
+        run: |
+          cd google_scholar_crawler/results
+          git init -b google-scholar-stats
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gs_data.json gs_data_shieldsio.json
+          git commit -m "Update Google Scholar data"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" google-scholar-stats:google-scholar-stats
