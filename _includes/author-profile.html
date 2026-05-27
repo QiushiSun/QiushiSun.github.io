@@ -5,8 +5,19 @@
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
   <div class="author__avatar">
-    <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
+    <img id="profile-pic" src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
   </div>
+  <script>
+    (function () {
+      var pool = [
+        "/images/Qiushi.png",
+        "/images/profiles/qiushi_bb_62_new_jersey.jpg",
+        "/images/profiles/qiushi_cv_12_hornet.jpg"
+      ];
+      var pic = document.getElementById("profile-pic");
+      if (pic) pic.src = pool[Math.floor(Math.random() * pool.length)];
+    })();
+  </script>
 
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
