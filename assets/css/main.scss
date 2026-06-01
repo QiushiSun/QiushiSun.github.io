@@ -279,6 +279,44 @@ h1:before, .anchor:before {
     display: inline-block;
 }
 
+/* Tighten the avatar mat — theme defaults to 5px which looks fine on the
+   circular crop, but reads as a chunky white border once the corners are
+   square. 2px keeps a subtle hairline frame, no chunky gap. */
+#profile-pic {
+    padding: 2px;
+}
+
+/* Tighten the vertical gap around the seal stamp between intro and News:
+   pulls the seal up against the Collaboration paragraph above and pulls
+   the News heading up against the seal. */
+.seal {
+    margin-top: -0.6em;
+    margin-bottom: -0.8em;
+}
+.seal + h1 {
+    margin-top: 0.4em;
+}
+
+/* Hover-revealed caption beneath the avatar (where the photo was taken).
+   Width matches the 175px avatar so `text-align: center` lines up the
+   text under the photo, not under the (wider) sidebar column. */
+.profile-caption {
+    width: 175px;
+    text-align: center;
+    margin-top: 0.55em;
+    font-size: 0.72em;
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    line-height: 1.3;
+    min-height: 1em;
+}
+
+.author__avatar:hover + .profile-caption {
+    opacity: 1;
+}
+
 /* Kill the default link underline on anchors that wrap an entity chip. */
 a:has(> .entity-mention),
 a:has(> .entity-mention):hover {

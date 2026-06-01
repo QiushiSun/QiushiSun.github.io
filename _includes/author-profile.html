@@ -5,17 +5,26 @@
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
   <div class="author__avatar">
-    <img id="profile-pic" src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
+    <img id="profile-pic"
+         src="{{ author.avatar }}"
+         class="author__avatar"
+         alt="{{ author.name }}"
+         style="border-radius: {% if site.profile_shape == 'round' %}50%{% else %}12px{% endif %};">
   </div>
+  <div id="profile-caption" class="profile-caption"></div>
   <script>
     (function () {
-      var pool = [
-        "/images/Qiushi.png",
-        "/images/profiles/qiushi_bb_62_new_jersey.jpg",
-        "/images/profiles/qiushi_cv_12_hornet.jpg"
-      ];
       var pic = document.getElementById("profile-pic");
-      if (pic) pic.src = pool[Math.floor(Math.random() * pool.length)];
+      var cap = document.getElementById("profile-caption");
+      if (!pic) return;
+      var pool = [
+        { src: "/images/Qiushi.png",                                caption: "" },
+        { src: "/images/profiles/qiushi_bb_62_new_jersey.jpg",      caption: "At USS New Jersey (BB-62)" },
+        { src: "/images/profiles/qiushi_cv_12_hornet.jpg",          caption: "At USS Hornet (CV-12)" }
+      ];
+      var pick = pool[Math.floor(Math.random() * pool.length)];
+      pic.src = pick.src;
+      if (cap) cap.textContent = pick.caption;
     })();
   </script>
 
@@ -27,9 +36,11 @@
   <div class="author__urls-wrapper">
     <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
     <ul class="author__urls social-icons">
+      {% comment %} Suppressed: was rendering site.description ("NLP") as a stray line under the bio.
       {% if site.description %}
         <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
       {% endif %}
+      {% endcomment %}
       {% if author.location %}
         <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> {{ author.location }}</li>
       {% endif %}
