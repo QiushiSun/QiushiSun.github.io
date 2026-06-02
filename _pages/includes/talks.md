@@ -1,4 +1,5 @@
 # 💬 Invited Talks
+- *2026.5* Towards Generalist Computer-using Agents: Models, Data, Safety & Beyond, HKUST-GZ [[Slides]](./files/260527_CUA_Talk_HKUST_release.pdf)
 - *2026.4* Towards Versatile Computer Agents: Cross-Domain Frontiers, Security Guardrails, and the Open-Source Landscape (with [Kanzhi Cheng](https://njucckevin.github.io/)), WebAgentLab & QingKe AI [[Slides]](./files/260119_WebAgentLab_CUA_Sharing.pdf)
 - *2026.4* Towards Generalist Computer-using Agents: Models, Data & Beyond, HKU ECE [[Slides]](./files/260415_CUA_Talk_HKU_ECE.pdf)
 - *2025.11* Computer-using Agent Panel with WebAgentLab, EMNLP'25, Suzhou, China
