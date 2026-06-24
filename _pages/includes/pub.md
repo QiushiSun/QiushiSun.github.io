@@ -2,7 +2,7 @@
 
 <!-- <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fauthor%2F2112455065%3Ffields%3DcitationCount&query=%24.citationCount&label=citations&logo=googlescholar&labelColor=f6f6f6&color=9cf&style=flat" alt="citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a> -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/science_board.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/scienceboard_new_fig.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
@@ -21,7 +21,7 @@
 
 <!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/JanusCoder-Overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/januscoder_new_fig.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538) <img src='./images/logos/internlm.webp' style='width: 1.35em;'>
@@ -38,7 +38,7 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/OS-Genesis.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/osgenesis_new_fig.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
@@ -62,6 +62,8 @@
 
 [[Paper]](https://arxiv.org/abs/2510.24411) \| [[Slides]](./files/OS-Sentinel_AIWILD@ICLR_260426.pdf) \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
 
+🏆 <span style="color: #C62828; font-weight: 700;">AIWILD @ ICLR 2026 Best Paper Award & ACL 2026 Oral</span>
+
 - MobileRisk-Live & MobileRisk, a dynamic environment and benchmark for realistic mobile agent safety 📱
 - OS-Sentinel, a hybrid detection framework combining formal verification with contextual judgment 🛡️
 - Advanced mobile agent safety at both the step-level and trajectory-level 🧭
@@ -80,7 +82,6 @@
 
  <!-- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> [![](https://img.shields.io/github/stars/QiushiSun/NCISurvey?style=social&label=Stars)](https://github.com/QiushiSun/NCISurvey) -->
 
-Let me walk you through the development of neural code intelligence:
 - Follow LMs for code as a thread to trace the field's development 🚀
 - Explore cross-domain synergies and opportunities 🌱
 - Present a broad array of promising research avenues 💡

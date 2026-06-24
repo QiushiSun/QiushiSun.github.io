@@ -217,12 +217,34 @@
             max-width: 40%;
             order: 1;
         }
-        
+
         .paper-box-text {
             justify-content: left;
             padding-left: 2em;
             max-width: 60%;
             order: 2;
+        }
+    }
+
+    /* Hover-to-reveal the bullet summary at the bottom of each card.
+       Default: bullets collapsed to zero height so the card stays compact.
+       Hover anywhere on the card: bullets slide in.
+       Skipped on touch devices (no real hover) so mobile keeps bullets visible. */
+    @media (hover: hover) {
+        .paper-box-text > ul {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+            transition: max-height 0.3s ease,
+                        opacity 0.25s ease,
+                        margin-top 0.3s ease;
+        }
+
+        &:hover .paper-box-text > ul {
+            max-height: 240px;
+            opacity: 1;
+            margin-top: 0.4em;
         }
     }
 }
