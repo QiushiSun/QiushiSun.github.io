@@ -339,6 +339,78 @@ h1:before, .anchor:before {
     opacity: 1;
 }
 
+/* Pill-style button links for paper-box action items (Paper / Slide /
+   Project / Code / Env / Data / Models / ...). Google-flavored palette
+   using Material tonal pairs (bg 50, fg 700). */
+.btn-link {
+    display: inline-block;
+    padding: 2px 9px;
+    margin-right: 2px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.55;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: filter 0.15s ease;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    text-decoration: none;
+    filter: brightness(0.94);
+}
+
+/* Each modifier is listed twice (plain + :hover) so the color survives the
+   global `a:hover { color: ... }` rule earlier in this file. */
+.btn-paper,   .btn-paper:hover   { background:#E8F0FE; color:#1A73E8; }
+.btn-slide,   .btn-slide:hover   { background:#FEF7E0; color:#E37400; }
+.btn-project, .btn-project:hover { background:#E6F4EA; color:#137333; }
+.btn-code,    .btn-code:hover    { background:#E8EAED; color:#3C4043; }
+.btn-env,     .btn-env:hover     { background:#FCE8E6; color:#D93025; }
+.btn-data,    .btn-data:hover    { background:#FCE8E6; color:#D93025; }
+.btn-models,  .btn-models:hover  { background:#F3E8FD; color:#8430CE; }
+.btn-demo,    .btn-demo:hover    { background:#FEEFE3; color:#B06000; }
+.btn-hf,      .btn-hf:hover      { background:#FEEFE3; color:#B06000; }
+.btn-tw,      .btn-tw:hover      { background:#E1F0FA; color:#0F70A0; }
+.btn-bib,     .btn-bib:hover     { background:#E8EAF6; color:#3F51B5; cursor:pointer; }
+
+/* Logo embedded inside a pill button. Height is em-based so it scales with
+   the button's font-size by default; tweak the multiplier to make the icon
+   larger/smaller relative to the text without touching the pill itself. */
+.btn-link img {
+    height: 1.05em;
+    width: auto;
+    vertical-align: -0.15em;
+    margin-right: 4px;
+    box-shadow: none;
+}
+/* Logo-only button (no text label after the img) — drop the right margin so
+   the icon sits centered in the pill. */
+.btn-link img:only-child {
+    margin-right: 0;
+}
+
+/* Floating BibTeX tooltip rendered on btn-bib hover.
+   Inserted into <body> by JS so it can escape any overflow-clipped parent. */
+.bib-tooltip {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    max-width: 520px;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.78em;
+    line-height: 1.5;
+    color: #333;
+    white-space: pre-wrap;
+    pointer-events: none;
+}
+
 /* Kill the default link underline on anchors that wrap an entity chip. */
 a:has(> .entity-mention),
 a:has(> .entity-mention):hover {

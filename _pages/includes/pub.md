@@ -9,7 +9,9 @@
 
 **Qiushi Sun**, Zhoumianze Liu, Chang Ma, Zichen Ding, Fangzhi Xu, Zhangyue Yin, Haiteng Zhao, Zhenyu Wu, Kanzhi Cheng, Zhaoyang Liu, Jianing Wang, Qintong Li, Xiangru Tang, Tianbao Xie, Xiachong Feng, Xiang Li, Ben Kao, Wenhai Wang, Biqing Qi, Lingpeng Kong, Zhiyong Wu
 
-[[Paper]](https://arxiv.org/abs/2505.19897) \| [[Slides]](./files/ScienceBoard_slides.pdf) \| [[Project]](https://qiushisun.github.io/ScienceBoard-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/ScienceBoard) \| [![](https://img.shields.io/github/stars/OS-Copilot/ScienceBoard?style=social&label=Code+Stars)](https://github.com/OS-Copilot/ScienceBoard) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
+[Paper](https://arxiv.org/abs/2505.19897){:.btn-link .btn-paper} [Slide](./files/ScienceBoard_slides.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/ScienceBoard-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-hf} [Env](https://huggingface.co/OS-Copilot/ScienceBoard-Env){:.btn-link .btn-env} [Code](https://github.com/OS-Copilot/ScienceBoard){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026scienceboard">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://x.com/qiushi_sun/status/1927720338072486387){:.btn-link .btn-tw}
+<!-- [![](https://img.shields.io/github/stars/OS-Copilot/ScienceBoard?style=social&label=Code+Stars)](https://github.com/OS-Copilot/ScienceBoard) -->
+
 
 - First to apply computer-using agents to assist scientific exploration 🌌
 - Dynamic environment & benchmark for realistic scientific workflows 🌍
@@ -28,7 +30,9 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Jingyang Gong<sup>&#42;</sup>, Yang Liu<sup>&#42;</sup>, Qiaosheng Chen<sup>&#42;</sup>, Lei Li, Kai Chen, Qipeng Guo, Ben Kao, Fei Yuan
 
-[[Paper]](https://arxiv.org/abs/2510.23538) \| [Slides] \| [[Project]](https://github.com/InternLM/JanusCoder) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/internlm/januscoder) [[Data]](https://huggingface.co/datasets/QiushiSun/JanusCode-800K) \| [[Code]](https://github.com/InternLM/JanusCoder) \| [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder)
+[Paper](https://arxiv.org/abs/2510.23538){:.btn-link .btn-paper} [Project](https://github.com/InternLM/JanusCoder){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/internlm/januscoder){:.btn-link .btn-hf} [Data](https://huggingface.co/datasets/QiushiSun/JanusCode-800K){:.btn-link .btn-data} [Code](https://github.com/InternLM/JanusCoder){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026januscoder">BIB</a>
+<!-- [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder) -->
+
 
 - JanusCoder series: foundational models establishing a unified visual-programmatic interface. ⚙️
 - A versatile data synthesis toolkit for multimodal code intelligence. 🛠️
@@ -45,7 +49,9 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
 
-[[Paper]](https://arxiv.org/abs/2412.19723) \| [[Slides]](./files/ACL25_OS_Genesis.pdf) \| [[Project]](https://qiushisun.github.io/OS-Genesis-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Models & Data]](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1874807124515344599)
+[Paper](https://arxiv.org/abs/2412.19723){:.btn-link .btn-paper} [Slide](./files/ACL25_OS_Genesis.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/OS-Genesis-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-hf} [Data](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-data} [Code](https://github.com/OS-Copilot/OS-Genesis){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2025osgenesis">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://x.com/qiushi_sun/status/1874807124515344599){:.btn-link .btn-tw}
+<!-- [![](https://img.shields.io/github/stars/OS-Copilot/OS-Genesis?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Genesis) -->
+
 
 - Shift from task-driven to interaction-driven GUI data synthesis 🤖
 - A manual-free pipeline for constructing diverse GUI agent trajectories 🧬
@@ -60,7 +66,9 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Mukai Li<sup>&#42;</sup>, Zhoumianze Liu<sup>&#42;</sup>, Zhihui Xie<sup>&#42;</sup>, Fangzhi Xu, Zhangyue Yin, Kanzhi Cheng, Zehao Li, Zichen Ding, Qi Liu, Zhiyong Wu, Zhuosheng Zhang, Ben Kao, Lingpeng Kong
 
-[[Paper]](https://arxiv.org/abs/2510.24411) \| [[Slides]](./files/OS-Sentinel_AIWILD@ICLR_260426.pdf) \| [[Project]](https://qiushisun.github.io/OS-Sentinel-Home/) \| [<img src='./images/svgs/huggingface_logo.svg' style='width: 1.35em;'>](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d) [[Env]](https://huggingface.co/OS-Copilot/ScienceBoard-Env) \| [[Code]](https://github.com/OS-Copilot/OS-Sentinel) \| [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://x.com/qiushi_sun/status/1927720338072486387)
+[Paper](https://arxiv.org/abs/2510.24411){:.btn-link .btn-paper} [Slide](./files/OS-Sentinel_AIWILD@ICLR_260426.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/OS-Sentinel-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-hf} [Env](https://huggingface.co/OS-Copilot/ScienceBoard-Env){:.btn-link .btn-env} [Code](https://github.com/OS-Copilot/OS-Sentinel){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2025sentinel">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://x.com/qiushi_sun/status/1927720338072486387){:.btn-link .btn-tw}
+<!-- [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) -->
+
 
 🏆 <span style="color: #C62828; font-weight: 700;">AIWILD @ ICLR 2026 Best Paper Award & ACL 2026 Oral</span>
 
@@ -78,7 +86,9 @@
 
 **Qiushi Sun**, Zhirui Chen, Fangzhi Xu, Chang Ma, Kanzhi Cheng, Zhangyue Yin, Jianing Wang, Chengcheng Han, Renyu Zhu, Shuai Yuan, Pengcheng Yin, Qipeng Guo, Xipeng Qiu, Xiaoli Li, Fei Yuan, Lingpeng Kong, Xiang Li, Zhiyong Wu 
 
-[[Paper]](https://arxiv.org/abs/2403.14734) \| [[Slides]](./files/NCI_Survey_Slides_V1.pdf) \| [[Project]](https://qiushisun.github.io/NCI-Survey-Homapage/)  \| [Video] \| [![](https://img.shields.io/github/stars/QiushiSun/Awesome-Code-Intelligence?style=social&label=Code+Stars)](https://github.com/QiushiSun/Awesome-Code-Intelligence) [<img src='./images/Logo_of_Twitter.svg.png' style='width: 1.35em;'>](https://twitter.com/qiushi_sun/status/1773252567637639185)
+[Paper](https://arxiv.org/abs/2403.14734){:.btn-link .btn-paper} [Slide](./files/NCI_Survey_Slides_V1.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/NCI-Survey-Homapage/){:.btn-link .btn-project} [Code](https://github.com/QiushiSun/Awesome-Code-Intelligence){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2024survey">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://twitter.com/qiushi_sun/status/1773252567637639185){:.btn-link .btn-tw}
+<!-- [![](https://img.shields.io/github/stars/QiushiSun/Awesome-Code-Intelligence?style=social&label=Code+Stars)](https://github.com/QiushiSun/Awesome-Code-Intelligence) -->
+
 
  <!-- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> [![](https://img.shields.io/github/stars/QiushiSun/NCISurvey?style=social&label=Stars)](https://github.com/QiushiSun/NCISurvey) -->
 
