@@ -418,10 +418,45 @@ a:has(> .entity-mention):hover {
     border-bottom: none;
 }
 
+/* Centered "More" disclosure trigger — turns the default left-aligned
+   <summary> (with its disclosure triangle) into a horizontal divider with
+   the label centered between two hairlines. Lives inside collapsible
+   sections like Honors and Awards / Recent readings. */
+.page__content details {
+    margin: 0.6em 0;
+}
+.page__content summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 4px 0;
+    color: #888;
+    font-size: 0.88em;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.page__content summary::-webkit-details-marker { display: none; }
+.page__content summary::before,
+.page__content summary::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid #e0e0e0;
+}
+.page__content summary:hover { color: #1A73E8; }
+.page__content summary:hover::before,
+.page__content summary:hover::after { border-color: #c5d9f5; }
+
 /* Kill the theme's default ".page__content a:hover img { box-shadow }" halo
-   on the chip's tiny logo — that halo looks like a stray white/grey box. */
+   on every tiny logo we inline — chip icons (.entity-icon) and pill-button
+   icons (HF / Twitter / stars inside .btn-link). The halo otherwise reads
+   as a stray white/grey box around the logo. */
 .page__content a:hover .entity-icon,
-a:hover .entity-icon {
+a:hover .entity-icon,
+.page__content .btn-link:hover img,
+.btn-link:hover img {
     box-shadow: none;
 }
 
