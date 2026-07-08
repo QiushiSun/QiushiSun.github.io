@@ -3,7 +3,7 @@
 <style>
     /* News list (Plan A): date pill in our Paper-blue + slim scrollbar. */
     .scrollable-area {
-        max-height: 280px;
+        max-height: 210px;
         overflow-y: auto;
         margin: 0.5em 0 0.75em;
         padding: 0.2em 0.5em 0.2em 0;
