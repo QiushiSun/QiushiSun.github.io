@@ -17,12 +17,21 @@
       var pic = document.getElementById("profile-pic");
       var cap = document.getElementById("profile-caption");
       if (!pic) return;
+      // Weighted pool — weights are relative (need not sum to 100).
       var pool = [
-        { src: "/images/Qiushi.png",                                caption: "" },
-        { src: "/images/profiles/qiushi_bb_62_new_jersey.jpg",      caption: "At USS New Jersey (BB-62)" },
-        { src: "/images/profiles/qiushi_cv_12_hornet.jpg",          caption: "At USS Hornet (CV-12)" }
+        { src: "/images/Qiushi.png",                                caption: "",                          weight: 40 },
+        { src: "/images/profiles/qiushi_bb_62_new_jersey.jpg",      caption: "At USS New Jersey (BB-62)", weight: 20 },
+        { src: "/images/profiles/qiushi_cv_12_hornet.jpg",          caption: "At USS Hornet (CV-12)",     weight: 20 },
+        { src: "/images/profiles/qiushi_cv_41_midway.jpg",          caption: "At USS Midway (CV-41)",     weight: 20 }
       ];
-      var pick = pool[Math.floor(Math.random() * pool.length)];
+      var total = 0;
+      for (var i = 0; i < pool.length; i++) total += pool[i].weight;
+      var r = Math.random() * total;
+      var pick = pool[pool.length - 1];
+      for (var j = 0; j < pool.length; j++) {
+        r -= pool[j].weight;
+        if (r < 0) { pick = pool[j]; break; }
+      }
       pic.src = pick.src;
       if (cap) cap.textContent = pick.caption;
     })();
