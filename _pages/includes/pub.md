@@ -2,7 +2,7 @@
 
 <!-- <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fauthor%2F2112455065%3Ffields%3DcitationCount&query=%24.citationCount&label=citations&logo=googlescholar&labelColor=f6f6f6&color=9cf&style=flat" alt="citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a> -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/scienceboard_new_fig.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
@@ -23,7 +23,7 @@
 
 <!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/januscoder_new_fig.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/januscoder.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538) <img src='./images/logos/internlm.webp' style='width: 1.35em;'>
@@ -42,7 +42,7 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/osgenesis_new_fig.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/paper_thumbnails/os-genesis.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
@@ -59,7 +59,7 @@
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2026</div><img src='images/os-sentinel-concise-overview.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-oral">ACL 2026 Oral</div><img src='images/paper_thumbnails/os-sentinel.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
@@ -70,7 +70,7 @@
 <!-- [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) -->
 
 
-🏆 <span style="color: #C62828; font-weight: 700;">AIWILD @ ICLR 2026 Best Paper Award & ACL 2026 Oral</span>
+🏆 <span style="color: #C62828; font-weight: 700;">AIWILD @ ICLR 2026 Best Paper Award</span>
 
 - MobileRisk-Live & MobileRisk, a dynamic environment and benchmark for realistic mobile agent safety 📱
 - OS-Sentinel, a hybrid detection framework combining formal verification with contextual judgment 🛡️
@@ -79,7 +79,23 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/codelms-tree-v20-broad.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-oral">ACL 2026 Oral</div><img src='images/paper_thumbnails/codeevo.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://arxiv.org/abs/2507.22080) 🧬⚙️
+
+**Qiushi Sun**, Jingyang Gong, Lei Li, Qipeng Guo and Fei Yuan
+
+[Paper](https://arxiv.org/abs/2507.22080){:.btn-link .btn-paper} [Slide](./files/CodeEvo_ACL2026_Oral.pdf){:.btn-link .btn-slide} [Code](https://github.com/QiushiSun/CodeEvo){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026codeevo">BIB</a>
+
+- Interaction-driven synthesis via Coder–Reviewer agents in a closed loop 🤖
+- Hybrid feedback fusing NL critique with compiler signals 🔁
+- Iterative refinement yields high-quality trajectories 🌠
+</div>
+</div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Survey</div><img src='images/paper_thumbnails/nci-survey.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [A Survey of Neural Code Intelligence: Paradigms, Advances and Beyond](https://arxiv.org/abs/2403.14734) 🔥🔥
@@ -102,12 +118,11 @@
 <!-- - `Preprint` [CODA: Coordinating the Cerebrum and Cerebellum for a Dual-Brain Computer Use Agent with Decoupled Reinforcement Learning](https://arxiv.org/abs/2508.20096), Zeyi Sun<sup>&#42;</sup>, Yuhang Cao<sup>&#42;</sup>, Jianze Liang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Ziyu Liu<sup>&#42;</sup>, Zhixiong Zhang, Yuhang Zang, Xiaoyi Dong, Kai Chen, Dahua Lin, Jiaqi Wang. -->
 <!-- - `Preprint` [OS-MAP: How Far Can Computer Use Agents Go in Breadth and Depth?](https://arxiv.org/abs/2406.11736), Xuetian Chen, Yinghao Chen, Xinfeng Yuan, Lu Chen, Yuekeng Li, Zhoujia Zhang, Yingqian Huang, Leyan Huang, Jiaqing Liang, Tianbao Xie, Zhiyong Wu, **Qiushi Sun**<sup>&#9993;</sup>, Biqing Qi<sup>&#9993;</sup> and Bowen Zhou. -->
 <!-- - `ICLR 2026 (Oral)` [ScaleCUA: Scaling Open-Source Computer Use Agents with Cross-Platform Data](https://arxiv.org/abs/2509.15221), Zhaoyang Liu, Jingjing Xie, Zichen Ding, Zehao Li, Bowen Yang, Zhenyu Wu, Xuehui Wang, **Qiushi Sun**, Shi Liu, Weiyun Wang, Shenglong Ye, Qingyun Li, Xuan Dong, Yue Yu, Chenyu Lu, YunXiang Mo, Yao Yan, Zeyue Tian, Xiao Zhang, Yuan Huang, Yiqian Liu, Weijie Su, Gen Luo, Xiangyu Yue, Biqing Qi, Kai Chen, Bowen Zhou, Yu Qiao, Qifeng Chen, Wenhai Wang -->
-- `ACL 2026 / DL4C @ NIPS'25` [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://www.arxiv.org/abs/2507.22080), **Qiushi Sun**, Jingyang Gong, Lei Li, Qipeng Guo and Fei Yuan.
 <!-- - `ACL 2025` [Interactive Evolution: A Neural-Symbolic Self-Training Framework For Large Language Models](https://arxiv.org/abs/2406.11736), Fangzhi Xu, **Qiushi Sun**, Kanzhi Cheng, Jun Liu and Zhiyong Wu. -->
-- `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://aclanthology.org/2025.acl-long.212/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
 - `ICLR 2025 (Spotlight)` [OS-ATLAS: A Foundation Action Model For Generalist GUI Agents](https://arxiv.org/abs/2410.23218), Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, **Qiushi Sun**, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang and Yu Qiao.
 <!-- - `NAACL 2025 (Oral)` [KS-Lottery: Finding Certified Lottery Tickets for Multilingual Language Models](http://arxiv.org/abs/2402.02801), Fei Yuan, Chang Ma, Shuai Yuan, **Qiushi Sun** and Lei Li. -->
 - `COLM 2024` [Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280), **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span> [Slides](./files/COLM24_Corex_Presentation.pdf)
+- - `ACL 2025` [Dynamic and Generalizable Process Reward Modeling](https://aclanthology.org/2025.acl-long.212/), Zhangyue Yin, **Qiushi Sun**, Zhiyuan Zeng, Qinyuan Cheng, Xipeng Qiu and Xuanjing Huang.
 <!-- - `ACL 2024` [Boosting Language Models Reasoning with Chain-of-Knowledge Prompting](https://arxiv.org/pdf/2306.06427v3), Jianing Wang<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Xiang Li and Ming Gao. [Slides](./files/ACL24_CoK_Presentation.pdf) -->
 - `ACL 2024` [SeeClick: Harnessing GUI Grounding for Advanced Visual GUI Agents](https://arxiv.org/abs/2401.10935), Kanzhi Cheng, **Qiushi Sun**, Yougang Chu, Fangzhi Xu, Yantao Li, Jianbing Zhang and Zhiyong Wu. <span style="color:#ac530f">[LLMAgents @ ICLR 2024]</span>
 <!-- - `ACL 2024` [Symbol-LLM: Towards Foundational Symbol-centric Interface For Large Language Models](https://arxiv.org/abs/2311.09278), Fangzhi Xu, Zhiyong Wu, **Qiushi Sun**, Siyu Ren, Fei Yuan, Shuai Yuan, Qika Lin, Yu Qiao and Jun Liu. -->
@@ -121,6 +136,6 @@
 - ``CIKM 2023 (Demo)`` [HugNLP: A Unified and Comprehensive Library for Natural Language Processing](https://arxiv.org/abs/2302.14286), Jianing Wang, Nuo Chen, **Qiushi Sun**, Wenkang Huang, Chengyu Wang and Ming Gao. \| <span style="color: #C41E3A;"> 🏆 **Best Paper Award**</span> <img src='./images/hugnlp-logo.png' style='width: 3.15em;'> [![](https://img.shields.io/github/stars/wjn1996/HugNLP?style=social&label=Code+Stars)](https://github.com/HugAILab/HugNLP) 
 <!-- - ``ACL 2023`` [Do Large Language Models Know What They Don't Know?](https://arxiv.org/abs/2305.18153), Zhangyue Yin, **Qiushi Sun**, Qipeng Guo, Jiawen Wu, Xipeng Qiu and Xuanjing Huang. [Slides](./files/ACL23_LLMSA-Presentation.pdf) \| [Video](https://youtu.be/VTl8FAdNJEI) \| [![](https://img.shields.io/github/stars/yinzhangyue/SelfAware?style=social&label=Code+Stars)](https://github.com/yinzhangyue/SelfAware) -->
 <!-- - ``ACL 2023`` [When Gradient Descent Meets Derivative-Free Optimization: A Match Made in Black-Box Scenario](https://arxiv.org/abs/2305.10013), Chengcheng Han, Liqing Cui, Renyu Zhu, Jianing Wang, Nuo Chen, **Qiushi Sun**, Xiang Li and Ming Gao. -->
-- ``EMNLP 2022`` [CAT-probing: A Metric-based Approach to Interpret How Pre-trained Models for Programming Language Attend Code Structure](https://arxiv.org/abs/2210.04633), Nuo Chen<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Renyu Zhu<sup>&#42;</sup>, Xiang Li, Xuesong Lu and Ming Gao. [Slides](./files/EMNLP22_Presentation.pdf) \| [Video](https://doi.org/10.48448/76ht-3y46) \| [![](https://img.shields.io/github/stars/QiushiSun/CodeAttention?style=social&label=Code+Stars)](https://github.com/QiushiSun/CodeAttention)
+<!-- - ``EMNLP 2022`` [CAT-probing: A Metric-based Approach to Interpret How Pre-trained Models for Programming Language Attend Code Structure](https://arxiv.org/abs/2210.04633), Nuo Chen<sup>&#42;</sup>, **Qiushi Sun**<sup>&#42;</sup>, Renyu Zhu<sup>&#42;</sup>, Xiang Li, Xuesong Lu and Ming Gao. [Slides](./files/EMNLP22_Presentation.pdf) \| [Video](https://doi.org/10.48448/76ht-3y46) \| [![](https://img.shields.io/github/stars/QiushiSun/CodeAttention?style=social&label=Code+Stars)](https://github.com/QiushiSun/CodeAttention) -->
 
 *Denotes equal contribution, &#9993; denotes corresponding author, more working drafts / preprints under review will be released later ⌛️
