@@ -2,7 +2,7 @@
 
 <!-- <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fauthor%2F2112455065%3Ffields%3DcitationCount&query=%24.citationCount&label=citations&logo=googlescholar&labelColor=f6f6f6&color=9cf&style=flat" alt="citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a> -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
@@ -23,14 +23,14 @@
 
 <!-- https://mp.weixin.qq.com/s/_gu3NSCpAbAE1A8mEhGD7Q -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/januscoder.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/januscoder-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [JanusCoder: Towards a Foundational Visual-Programmatic Interface for Code Intelligence](https://arxiv.org/abs/2510.23538) <img src='./images/logos/internlm.webp' style='width: 1.35em;'>
 
 **Qiushi Sun<sup>&#42;</sup>**, Jingyang Gong<sup>&#42;</sup>, Yang Liu<sup>&#42;</sup>, Qiaosheng Chen<sup>&#42;</sup>, Lei Li, Kai Chen, Qipeng Guo, Ben Kao, Fei Yuan
 
-[Paper](https://arxiv.org/abs/2510.23538){:.btn-link .btn-paper} [Project](https://github.com/InternLM/JanusCoder){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/internlm/januscoder){:.btn-link .btn-hf} [Data](https://huggingface.co/datasets/QiushiSun/JanusCode-800K){:.btn-link .btn-data} [Code](https://github.com/InternLM/JanusCoder){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026januscoder">BIB</a>
+[Paper](https://arxiv.org/abs/2510.23538){:.btn-link .btn-paper} [Slide](./files/JanusCoder-ICLR_260331.pdf){:.btn-link .btn-slide} [Project](https://github.com/InternLM/JanusCoder){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/internlm/januscoder){:.btn-link .btn-hf} [Data](https://huggingface.co/datasets/QiushiSun/JanusCode-800K){:.btn-link .btn-data} [Code](https://github.com/InternLM/JanusCoder){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026januscoder">BIB</a>
 <!-- [![](https://img.shields.io/github/stars/InternLM/JanusCoder?style=social&label=Code+Stars)](https://github.com/InternLM/JanusCoder) -->
 
 
@@ -42,7 +42,7 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/paper_thumbnails/os-genesis.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/paper_thumbnails/os-genesis-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
@@ -66,7 +66,7 @@
 
 **Qiushi Sun<sup>&#42;</sup>**, Mukai Li<sup>&#42;</sup>, Zhoumianze Liu<sup>&#42;</sup>, Zhihui Xie<sup>&#42;</sup>, Fangzhi Xu, Zhangyue Yin, Kanzhi Cheng, Zehao Li, Zichen Ding, Qi Liu, Zhiyong Wu, Zhuosheng Zhang, Ben Kao, Lingpeng Kong
 
-[Paper](https://arxiv.org/abs/2510.24411){:.btn-link .btn-paper} [Slide](./files/OS-Sentinel_AIWILD@ICLR_260426.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/OS-Sentinel-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-hf} [Env](https://huggingface.co/OS-Copilot/ScienceBoard-Env){:.btn-link .btn-env} [Code](https://github.com/OS-Copilot/OS-Sentinel){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2025sentinel">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://x.com/qiushi_sun/status/1927720338072486387){:.btn-link .btn-tw}
+[Paper](https://arxiv.org/abs/2510.24411){:.btn-link .btn-paper} [Slide](./files/OS-Sentinel_AIWILD@ICLR_260426.pdf){:.btn-link .btn-slide} [Project](https://qiushisun.github.io/OS-Sentinel-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">HF](https://huggingface.co/collections/OS-Copilot/os-genesis-6768d4b6fffc431dbf624c2d){:.btn-link .btn-hf} [Env](https://huggingface.co/OS-Copilot/ScienceBoard-Env){:.btn-link .btn-env} [Code](https://github.com/OS-Copilot/OS-Sentinel){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026sentinel">BIB</a> [<img src='./images/Logo_of_Twitter.svg.png' alt="">](https://x.com/qiushi_sun/status/1927720338072486387){:.btn-link .btn-tw}
 <!-- [![](https://img.shields.io/github/stars/OS-Copilot/OS-Sentinel?style=social&label=Code+Stars)](https://github.com/OS-Copilot/OS-Sentinel) -->
 
 
