@@ -59,7 +59,7 @@
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-oral">ACL 2026 Oral</div><img src='images/paper_thumbnails/os-sentinel.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2026 Oral</div><img src='images/paper_thumbnails/os-sentinel.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [OS-Sentinel: Towards Safety-Enhanced Mobile GUI Agents via Hybrid Validation in Realistic Workflows](https://arxiv.org/abs/2510.24411) 🛡️🧐
@@ -79,7 +79,7 @@
 </div>
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge badge-oral">ACL 2026 Oral</div><img src='images/paper_thumbnails/codeevo.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2026 Oral</div><img src='images/paper_thumbnails/codeevo.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [CodeEvo: Interaction-Driven Synthesis of Code-centric Data through Hybrid and Iterative Feedback](https://arxiv.org/abs/2507.22080) 🧬⚙️
