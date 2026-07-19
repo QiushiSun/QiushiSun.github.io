@@ -71,6 +71,8 @@ build computer-using agents:  -->
 
 {% include_relative includes/reading.md %}
 
+{% if site.show_calendar %}{% include_relative includes/calendar.md %}{% endif %}
+
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
@@ -78,7 +80,3 @@ build computer-using agents:  -->
 > "What's past is prologue." -- William Shakespeare (The Tempest)  
 > 
 <!-- > <a href='https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> -->
-
-<!-- # 📅 My Calendar
-
-<iframe src="https://calendar.google.com/calendar/u/0?cid=dG9tbXlzdW4xMDE5QGdtYWlsLmNvbQ" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->

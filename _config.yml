@@ -16,6 +16,9 @@ google_scholar_stats_use_cdn : true
 # Avatar shape on the homepage. Allowed values: "square" | "round".
 profile_shape            : "square"
 
+# Show the Google Calendar section at the bottom of the homepage. Set to false to hide it.
+show_calendar            : false
+
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
 
