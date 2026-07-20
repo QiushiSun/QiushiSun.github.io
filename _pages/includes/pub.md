@@ -5,7 +5,7 @@
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🤖🔬
+[ScienceBoard: Evaluating Multimodal Autonomous Agents in Realistic Scientific Workflows](https://arxiv.org/abs/2505.19897) 🧪🔬
 
 **Qiushi Sun**, Zhoumianze Liu, Chang Ma, Zichen Ding, Fangzhi Xu, Zhangyue Yin, Haiteng Zhao, Zhenyu Wu, Kanzhi Cheng, Zhaoyang Liu, Jianing Wang, Qintong Li, Xiangru Tang, Tianbao Xie, Xiachong Feng, Xiang Li, Ben Kao, Wenhai Wang, Biqing Qi, Lingpeng Kong, Zhiyong Wu
 
@@ -81,7 +81,7 @@
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACL 2025</div><img src='images/paper_thumbnails/os-genesis-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 🔥🔥
+[OS-Genesis: Automating GUI Agent Trajectory Construction via Reverse Task Synthesis](https://arxiv.org/abs/2412.19723) 💧🤖
 
 **Qiushi Sun<sup>&#42;</sup>**, Kanzhi Cheng<sup>&#42;</sup>, Zichen Ding<sup>&#42;</sup>, Chuanyang Jin<sup>&#42;</sup>, Yian Wang, Fangzhi Xu, Zhenyu Wu, Chengyou Jia, Liheng Chen, Zhoumianze Liu, Ben Kao, Guohao Li, Junxian He, Yu Qiao, Zhiyong Wu
 
@@ -99,7 +99,7 @@
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">COLM 2024</div><img src='images/paper_thumbnails/corex-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280) 🧠🤝
+[Corex: Pushing the Boundaries of Complex Reasoning through Multi-Model Collaboration](https://arxiv.org/abs/2310.00280) 🤖💭
 
 **Qiushi Sun**, Zhangyue Yin, Xiang Li, Zhiyong Wu, Xipeng Qiu and Lingpeng Kong
 
@@ -107,7 +107,7 @@
 
 - Among the earliest works to have agents collaborate through reasoning and coding to solve complex tasks 🧩
 - Three collaboration modes: Discuss, Review, and Retrieve 🤝
-- Multi-agent collaboration outperforms strong single-model prompting like CoT and self-consistency 📈
+- Multi-agent collaboration outperforms prompting single-model with brute force📈
 </div>
 </div>
 
