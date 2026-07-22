@@ -69,7 +69,7 @@
 
 **Qiushi Sun**, Jingyang Gong, Lei Li, Qipeng Guo and Fei Yuan
 
-[Paper](https://arxiv.org/abs/2507.22080){:.btn-link .btn-paper} [Slide](./files/CodeEvo_ACL2026_Oral.pdf){:.btn-link .btn-slide} [Code](https://github.com/QiushiSun/CodeEvo){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026codeevo">BIB</a>
+[Paper](https://arxiv.org/abs/2507.22080){:.btn-link .btn-paper} [Slide](./files/CodeEvo_ACL2026_Oral.pdf){:.btn-link .btn-slide} [Code](https://github.com/QiushiSun/CodeEvo){:.btn-link .btn-code} [<img src='./images/svgs/huggingface_logo.svg' alt="">Data](https://huggingface.co/datasets/QiushiSun/CodeEvo-100K){:.btn-link .btn-hf} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026codeevo">BIB</a>
 
 - Interaction-driven synthesis via Coder–Reviewer agents in a closed loop 🤖
 - Hybrid feedback fusing NL critique with compiler signals 🔁
