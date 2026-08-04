@@ -189,9 +189,14 @@
         &:hover {
             z-index: 1000;      /* 提升容器的层级 */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 阴影也应用到容器上 */
-            
+
             /* 核心：对容器进行放大和位移 */
             transform: scale(1.8) translate(-20%, -15%);
+        }
+
+        /* Denser figures get a 25% stronger hover zoom (1.8 * 1.25). */
+        &.zoom-lg:hover {
+            transform: scale(2.25) translate(-20%, -15%);
         }
     }
     
