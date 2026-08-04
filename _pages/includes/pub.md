@@ -2,6 +2,23 @@
 
 <!-- <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fauthor%2F2112455065%3Ffields%3DcitationCount&query=%24.citationCount&label=citations&logo=googlescholar&labelColor=f6f6f6&color=9cf&style=flat" alt="citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a> -->
 
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/paper_thumbnails/osreward.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="color: #C62828; font-weight: 700;">[New!]</span> [OSReward: Instituting Standardized Evaluation for Cross-Platform Computer-Use Reward Models](https://arxiv.org/abs/2607.28609) ⚖️🖥️
+
+**Qiushi Sun<sup>&#8224;</sup>**, Kanzhi Cheng<sup>&#8224;</sup>, Yian Wang, Bowen Yang, Hang Yan, Liheng Chen, Fangzhi Xu, Zichen Ding, Nuo Chen, Jialin Cao, Xingdong Gong, Zehao Li, Kaiming Jin, Xinfeng Yuan, Zhoumianze Liu, Jingyang Gong, Zhangyue Yin, Jiahui Gao, Zhiyong Wu, Tianbao Xie, Jianbing Zhang, Ben Kao, Lingpeng Kong
+
+[Paper](https://arxiv.org/abs/2607.28609){:.btn-link .btn-paper} [Project](https://os-copilot.github.io/OSReward-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">OSReward](https://huggingface.co/datasets/OS-Copilot/OSReward){:.btn-link .btn-hf} [<img src='./images/logos/os-shepherd.png' style='margin-right: 7px;' alt="">OS-Shepherd-9B/35B](https://huggingface.co/collections/OS-Copilot/osreward-and-os-shepherd){:.btn-link .btn-hf} [Data](https://huggingface.co/datasets/OS-Copilot/OS-Shepherd-100K){:.btn-link .btn-data} [Code](https://github.com/OS-Copilot/OSReward){:.btn-link .btn-code} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026osreward">BIB</a>
+
+- First standardized evaluation revealing how well VLMs judge computer-use agents across platforms ⚖️
+- The most comprehensive study to date, with extensive insights into effective reward models for CUAs 🔍
+- OS-Shepherd-100K: a large-scale corpus of trajectory judgments built on our findings 📊
+- OS-Shepherd-9B/35B: open reward models rivaling commercial judges at a fraction of the cost 🚀
+</div>
+</div>
+
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 

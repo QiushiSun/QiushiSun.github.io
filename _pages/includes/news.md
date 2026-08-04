@@ -49,6 +49,7 @@
 </style>
 <div class="scrollable-area">
     <ul>
+        <li class="news-item"><span class="news-date">2026.07</span><span class="news-body">⚖️🐑 We release <a href="https://arxiv.org/abs/2607.28609">OSReward</a> and <a href="https://huggingface.co/collections/OS-Copilot/osreward-and-os-shepherd">OS-Shepherd</a> to advance computer-use reward models!</span></li>
         <li class="news-item"><span class="news-date">2026.06</span><span class="news-body">🐳 Attending ACL 2026 in San Diego 🎙️ 2 oral talks: <a href="https://arxiv.org/abs/2510.24411">OS-Sentinel</a> and <a href="https://arxiv.org/abs/2507.22080">CodeEvo</a>!</span></li>
         <li class="news-item"><span class="news-date">2026.04</span><span class="news-body">🌟 Excited to be joining <a href="https://research.google/"><em class="entity-mention" style="--entity-color: #4285F4"><img src="./images/logos/Google.png" class="entity-icon" alt="">Google Research</em></a> as a Student Researcher Intern!</span></li>
         <li class="news-item"><span class="news-date">2026.04</span><span class="news-body">🏆 <a href="https://arxiv.org/abs/2510.24411">OS-Sentinel</a> received the <span style="color: #C62828; font-weight: 700;">Best Paper Award</span> at AIWILD @ ICLR 2026!</span></li>
