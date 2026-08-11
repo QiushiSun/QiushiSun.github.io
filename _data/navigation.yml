@@ -3,23 +3,29 @@ main:
   - title: "About Me"
     url: "/#about-me"
 
-  - title: "News"
-    url: "/#-news"
+  # Beta pages (local only for now)
+  - title: "Research"
+    url: "/research/"
 
-  - title: "Publications"
-    url: "/#-selected-publications"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
-  - title: "Educations"
-    url: "/#-educations"
-
-  - title: "Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
-    url: "/#-internships"
+  # Hidden for now, together with the matching sections on the homepage.
+  # Uncomment a pair here and in _pages/about.md to bring one back.
+  # - title: "News"
+  #   url: "/#-news"
+  #
+  # - title: "Publications"
+  #   url: "/#-selected-publications"
+  #
+  # - title: "Honors and Awards"
+  #   url: "/#-honors-and-awards"
+  #
+  # - title: "Educations"
+  #   url: "/#-educations"
+  #
+  # - title: "Talks"
+  #   url: "/#-invited-talks"
+  #
+  # - title: "Internships"
+  #   url: "/#-internships"
 
   # Hidden until the blog content is polished. Uncomment to re-enable.
   # - title: "Blog"

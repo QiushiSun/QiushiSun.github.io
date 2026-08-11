@@ -53,6 +53,11 @@ build computer-using agents:  -->
 <img src='./images/qiushi-seal.jpg' style='width: 2.75em;'>  
 </div>
 
+{% comment %}
+These sections stay on the page; only their entries in _data/navigation.yml are
+hidden, so the nav bar is short but nothing is dropped from the homepage.
+{% endcomment %}
+
 {% include_relative includes/news.md %}
 
 {% include_relative includes/pub.md %}
