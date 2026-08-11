@@ -269,7 +269,7 @@ author_profile: true
 <p class="research-lead">My research aims at building agentic methods that operate real-world software, along two threads:</p>
 
 <div class="research-theme">
-  <p><span class="theme-name">Computer-Using Agents</span> — agents that operate computers, phones, and browsers the way people do, toward digital automation. My work spans GUI grounding (<a href="https://arxiv.org/abs/2401.10935">SeeClick</a>, <a href="https://osatlas.github.io/">OS-Atlas</a>), trajectory synthesis (<a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a>), evaluation in realistic workflows (<a href="https://qiushisun.github.io/ScienceBoard-Home/">ScienceBoard</a>), safety (<a href="https://qiushisun.github.io/OS-Sentinel-Home/">OS-Sentinel</a>), and reward modeling (<a href="https://os-copilot.github.io/OSReward-Home/">OSReward &amp; OS-Shepherd</a>).</p>
+  <p><span class="theme-name">Computer-Using Agents</span> — agents that operate computers, phones, and browsers the way people do, toward digital automation. My work spans GUI grounding (<a href="https://arxiv.org/abs/2401.10935">SeeClick</a>, <a href="https://osatlas.github.io/">OS-Atlas</a>), trajectory synthesis (<a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a>, <a href="https://njucckevin.github.io/openmobile/">OpenMobile</a>), application in advanced workflows (<a href="https://qiushisun.github.io/ScienceBoard-Home/">ScienceBoard</a>), safety (<a href="https://qiushisun.github.io/OS-Sentinel-Home/">OS-Sentinel</a>), reward modeling (<a href="https://os-copilot.github.io/OSReward-Home/">OSReward &amp; OS-Shepherd</a>) and more.</p>
   <div class="cua-timeline-wrap">
     <div class="cua-timeline">
       <div class="t-stop">
@@ -292,6 +292,15 @@ author_profile: true
         <div class="t-dot"></div>
         <div class="t-name"><a href="https://qiushisun.github.io/OS-Genesis-Home/">OS-Genesis</a></div>
         <div class="t-venue">ACL'25</div>
+      </div>
+      <div class="t-stop t-minor">
+        <div class="t-topic"></div>
+        <div class="t-date"></div>
+        <div class="t-dot"></div>
+        <div class="t-connector"></div>
+        <div class="t-arrowhead"></div>
+        <div class="t-name"><a href="https://chengyou-jia.github.io/AgentStore-Home/">AgentStore</a></div>
+        <div class="t-venue"><span class="t-mdate">2024.10 · </span>ACL'25</div>
       </div>
       <div class="t-stop t-minor">
         <div class="t-topic"></div>
@@ -497,7 +506,7 @@ author_profile: true
     <div class="rp-main">
       <a class="rp-title" href="https://aclanthology.org/2026.acl-long.1021">OS-Symphony: A Holistic Framework for Robust and Generalist Computer-Using Agents</a>
       <div class="rp-authors">Bowen Yang, Kaiming Jin, Zhenyu Wu, Zhaoyang Liu, <strong>Qiushi Sun</strong>, Zehao Li, Jingjing Xie, Zhoumianze Liu, Fangzhi Xu, Kanzhi Cheng, Qingyun Li, Yian Wang, Yu Qiao, Zun Wang, Zichen Ding</div>
-      <div class="rp-links"><a href="https://aclanthology.org/2026.acl-long.1021" class="btn-link btn-paper">Paper</a></div>
+      <div class="rp-links"><a href="https://aclanthology.org/2026.acl-long.1021" class="btn-link btn-paper">Paper</a> <a href="https://os-copilot.github.io/OS-Symphony/" class="btn-link btn-project">Project</a> <a href="https://github.com/OS-Copilot/OS-Symphony" class="btn-link btn-code">Code</a></div>
       <div class="rp-desc">Orchestrates tool, grounding, and reflection-memory agents for robust computer use across operating systems.</div>
     </div>
   </li>
@@ -508,6 +517,15 @@ author_profile: true
       <div class="rp-authors">Zhaoyang Liu, Jingjing Xie, Zichen Ding, Zehao Li, Bowen Yang, Zhenyu Wu, Xuehui Wang, <strong>Qiushi Sun</strong>, Shi Liu, Weiyun Wang, Shenglong Ye, Qingyun Li, Xuan Dong, Yue Yu, Chenyu Lu, YunXiang Mo, Yao Yan, Zeyue Tian, Xiao Zhang, Yuan Huang, Yiqian Liu, Weijie Su, Gen Luo, Xiangyu Yue, Biqing Qi, Kai Chen, Bowen Zhou, Yu Qiao, Qifeng Chen, Wenhai Wang</div>
       <div class="rp-links"><a href="https://arxiv.org/abs/2509.15221" class="btn-link btn-paper">Paper</a> <a href="https://huggingface.co/collections/OpenGVLab/scalecua" class="btn-link btn-hf"><img src="/images/svgs/huggingface_logo.svg" alt="">HF</a> <a href="https://huggingface.co/datasets/OpenGVLab/ScaleCUA-Data" class="btn-link btn-data">Data</a> <a href="https://github.com/OpenGVLab/ScaleCUA" class="btn-link btn-code">Code</a></div>
       <div class="rp-desc">Scales open computer-use agents with a cross-platform corpus spanning six operating systems.</div>
+    </div>
+  </li>
+  <li class="rp-item" data-cat="agents">
+    <div class="rp-thumb"><span class="rp-badge">ACL'25</span><img src="/images/paper_thumbnails/agentstore-cover.png" alt=""></div>
+    <div class="rp-main">
+      <a class="rp-title" href="https://arxiv.org/abs/2410.18603">AgentStore: Scalable Integration of Heterogeneous Agents As Specialized Generalist Computer Assistant</a>
+      <div class="rp-authors">Chengyou Jia, Minnan Luo, Zhuohang Dang, <strong>Qiushi Sun</strong>, Fangzhi Xu, Junlin Hu, Tianbao Xie, Zhiyong Wu</div>
+      <div class="rp-links"><a href="https://arxiv.org/abs/2410.18603" class="btn-link btn-paper">Paper</a> <a href="https://chengyou-jia.github.io/AgentStore-Home/" class="btn-link btn-project">Project</a> <a href="https://github.com/chengyou-jia/AgentStore" class="btn-link btn-code">Code</a></div>
+      <div class="rp-desc">Dynamically integrates heterogeneous agents, App-store style, into a generalist computer assistant.</div>
     </div>
   </li>
   <li class="rp-item" data-cat="agents">

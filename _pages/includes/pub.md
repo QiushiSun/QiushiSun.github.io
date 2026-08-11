@@ -1,5 +1,7 @@
 # 📝 Selected Publications 
 
+<p style="margin-bottom: -0.75em;">Check out my <a href="/research/" target="_self">research threads</a> for more details.</p>
+
 <!-- <a href="https://scholar.google.com/citations?user=QgMkYFAAAAAJ&hl=en"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fauthor%2F2112455065%3Ffields%3DcitationCount&query=%24.citationCount&label=citations&logo=googlescholar&labelColor=f6f6f6&color=9cf&style=flat" alt="citations" style="height: 20px; vertical-align: middle; margin-left: 6px; position: relative; top: -2px;"></a> -->
 
 <div class='paper-box'><div class='paper-box-image zoom-lg'><div><div class="badge">Preprint</div><img src='images/paper_thumbnails/osreward.png' alt="sym" width="100%"></div></div>
