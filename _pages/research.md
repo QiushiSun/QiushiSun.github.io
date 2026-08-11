@@ -1,6 +1,6 @@
 ---
 permalink: /research/
-title: ""
+title: "Research"
 excerpt: ""
 author_profile: true
 ---
@@ -508,6 +508,15 @@ author_profile: true
       <div class="rp-authors">Zhaoyang Liu, Jingjing Xie, Zichen Ding, Zehao Li, Bowen Yang, Zhenyu Wu, Xuehui Wang, <strong>Qiushi Sun</strong>, Shi Liu, Weiyun Wang, Shenglong Ye, Qingyun Li, Xuan Dong, Yue Yu, Chenyu Lu, YunXiang Mo, Yao Yan, Zeyue Tian, Xiao Zhang, Yuan Huang, Yiqian Liu, Weijie Su, Gen Luo, Xiangyu Yue, Biqing Qi, Kai Chen, Bowen Zhou, Yu Qiao, Qifeng Chen, Wenhai Wang</div>
       <div class="rp-links"><a href="https://arxiv.org/abs/2509.15221" class="btn-link btn-paper">Paper</a> <a href="https://huggingface.co/collections/OpenGVLab/scalecua" class="btn-link btn-hf"><img src="/images/svgs/huggingface_logo.svg" alt="">HF</a> <a href="https://huggingface.co/datasets/OpenGVLab/ScaleCUA-Data" class="btn-link btn-data">Data</a> <a href="https://github.com/OpenGVLab/ScaleCUA" class="btn-link btn-code">Code</a></div>
       <div class="rp-desc">Scales open computer-use agents with a cross-platform corpus spanning six operating systems.</div>
+    </div>
+  </li>
+  <li class="rp-item" data-cat="agents">
+    <div class="rp-thumb"><span class="rp-badge">COLM'25</span><img src="/images/paper_thumbnails/guimid-cover.png" alt=""></div>
+    <div class="rp-main">
+      <a class="rp-title" href="https://openreview.net/forum?id=QDtORaZt8K">Breaking the Data Barrier – Building GUI Agents Through Task Generalization</a>
+      <div class="rp-authors">Junlei Zhang, Zichen Ding, Chang Ma, Zijie Chen, <strong>Qiushi Sun</strong>, Zhenzhong Lan, Junxian He</div>
+      <div class="rp-links"><a href="https://openreview.net/forum?id=QDtORaZt8K" class="btn-link btn-paper">Paper</a> <a href="https://huggingface.co/datasets/hkust-nlp/GUIMid" class="btn-link btn-hf"><img src="/images/svgs/huggingface_logo.svg" alt="">Data</a> <a href="https://github.com/hkust-nlp/GUIMid" class="btn-link btn-code">Code</a></div>
+      <div class="rp-desc">Mid-training on reasoning-rich non-GUI tasks transfers to GUI planning, easing the trajectory-data bottleneck.</div>
     </div>
   </li>
   <li class="rp-item" data-cat="agents">
