@@ -359,11 +359,11 @@ author_profile: true
         <div class="t-name"><a href="https://os-copilot.github.io/OSReward-Home/">OSReward &amp; OS-Shepherd</a></div>
       </div>
       <div class="t-stop t-soon">
-        <div class="t-topic">Coming Soon</div>
+        <div class="t-topic">General CUA Eval</div>
         <div class="t-date">2026</div>
         <div class="t-dot"></div>
         <div class="t-name">OS-Omni</div>
-        <div class="t-venue">Stay tuned</div>
+        <div class="t-venue">NeurIPS'26</div>
       </div>
     </div>
   </div>
