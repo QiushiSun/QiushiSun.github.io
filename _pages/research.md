@@ -418,7 +418,7 @@ author_profile: true
         <div class="t-topic">Coming Soon</div>
         <div class="t-date">2026</div>
         <div class="t-dot"></div>
-        <div class="t-name">PrismaCoder</div>
+        <div class="t-name"><a href="https://qiushisun.github.io/PrismaCoder-Home/">PrismaCoder</a></div>
         <div class="t-venue">Stay tuned</div>
       </div>
     </div>
