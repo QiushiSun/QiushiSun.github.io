@@ -49,6 +49,7 @@
 </style>
 <div class="scrollable-area">
     <ul>
+        <li class="news-item"><span class="news-date">2026.10</span><span class="news-body">🎙️ Attending the Jump Trading APAC AI Research Symposium to share progress on multimodal code intelligence.</span></li>
         <li class="news-item"><span class="news-date">2026.09</span><span class="news-body">🌠 <a href="https://qiushisun.github.io/">OS-Omni</a> is accepted by NeurIPS 2026! See you in Sydney 🇦🇺!</span></li>
         <li class="news-item"><span class="news-date">2026.07</span><span class="news-body">⚖️🐑 We release <a href="https://arxiv.org/abs/2607.28609">OSReward</a> and <a href="https://huggingface.co/collections/OS-Copilot/osreward-and-os-shepherd">OS-Shepherd</a> to advance computer-use reward models!</span></li>
         <li class="news-item"><span class="news-date">2026.06</span><span class="news-body">🐳 Attending ACL 2026 in San Diego 🎙️ 2 oral talks: <a href="https://arxiv.org/abs/2510.24411">OS-Sentinel</a> and <a href="https://arxiv.org/abs/2507.22080">CodeEvo</a>!</span></li>
