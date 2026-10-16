@@ -418,8 +418,7 @@ author_profile: true
         <div class="t-topic">Rubric Synthesis</div>
         <div class="t-date">2026.10</div>
         <div class="t-dot"></div>
-        <div class="t-name"><a href="https://arxiv.org/abs/2610.20538">PrismaCoder</a></div>
-        <div class="t-venue">Preprint · <a href="https://qiushisun.github.io/PrismaCoder-Home/">Project</a></div>
+        <div class="t-name"><a href="https://qiushisun.github.io/PrismaCoder-Home/">PrismaCoder</a></div>
       </div>
     </div>
   </div>
