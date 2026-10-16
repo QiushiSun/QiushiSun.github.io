@@ -21,6 +21,22 @@
 </div>
 
 
+<div class='paper-box'><div class='paper-box-image zoom-lg'><div><div class="badge">Preprint</div><img src='images/paper_thumbnails/PrismaCoder-Cover.png' alt="PrismaCoder overview" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+<span style="color: #C62828; font-weight: 700;">[New!]</span> [PrismaCoder: Pushing the Boundaries of Open Multimodal Code Intelligence through Decomposed Rubric Synthesis](https://arxiv.org/abs/2610.20538) 💎
+
+**Qiushi Sun<sup>&#42;</sup>**, Jingyang Gong<sup>&#42;</sup>, Yang Liu<sup>&#42;</sup>, Qiaosheng Chen<sup>&#42;</sup>, Zhangyue Yin<sup>&#42;</sup>, Zixian Huang, Hanxu Hu, Jing Xiong, Fangzhi Xu, Haochen Tan, Haoli Bai, Lifeng Shang, Xiaoguang Li, Ben Kao, Qipeng Guo, Lingpeng Kong, Jiahui Gao
+
+[Paper](https://arxiv.org/abs/2610.20538){:.btn-link .btn-paper} [Project](https://qiushisun.github.io/PrismaCoder-Home/){:.btn-link .btn-project} [<img src='./images/svgs/huggingface_logo.svg' alt="">PrismaCoder-9B/35B](https://huggingface.co/collections/QiushiSun/prismacoder){:.btn-link .btn-hf} <a href="#" class="btn-link btn-bib" data-bib-key="sun2026prismacoder">BIB</a>
+
+- PrismaForge: decomposed rubrics shared by data curation & reinforcement learning 🛠️
+- PrismaCoder-2M: a unified corpus for text- & vision-centric code generation 🌈
+- PrismaCoder-9B/35B: open models for generating visual artifacts from text or images 💎
+</div>
+</div>
+
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR 2026</div><img src='images/paper_thumbnails/scienceboard-short.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
