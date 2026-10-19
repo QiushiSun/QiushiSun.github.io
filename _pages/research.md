@@ -24,7 +24,7 @@ author_profile: true
         padding-right: 0;
     }
 
-    @media (min-width: 1600px) {
+    @media (min-width: 1280px) {
         #main { max-width: 1600px; }
     }
 
@@ -68,6 +68,7 @@ author_profile: true
         min-width: 1150px;
         padding: 0 26px 0 6px;
     }
+    .cua-timeline:not(.code-axis) { min-width: 1320px; }
     /* arrow shaft */
     .cua-timeline::before {
         content: "";
@@ -358,12 +359,18 @@ author_profile: true
         <div class="t-dot"></div>
         <div class="t-name"><a href="https://os-copilot.github.io/OSReward-Home/">OSReward &amp; OS-Shepherd</a></div>
       </div>
-      <div class="t-stop t-soon">
+      <div class="t-stop">
         <div class="t-topic">General CUA Eval</div>
         <div class="t-date">2026</div>
         <div class="t-dot"></div>
-        <div class="t-name">OS-Omni</div>
+        <div class="t-name"><a href="https://os-copilot.github.io/OS-Omni-Home">OS-Omni</a></div>
         <div class="t-venue">NeurIPS'26</div>
+      </div>
+      <div class="t-stop">
+        <div class="t-topic">GUI &amp; Tool Use</div>
+        <div class="t-date">2026.10</div>
+        <div class="t-dot"></div>
+        <div class="t-name"><a href="https://os-copilot.github.io/OpenMobile2-Home/" title="OpenMobile-2: Building Versatile Mobile Agents with Scalable Environments and App-Native Tools">OpenMobile-2</a></div>
       </div>
     </div>
   </div>
