@@ -1,5 +1,6 @@
 # 📚 Recent readings
 
+- [In a Flight of Starlings: The Wonders of Complex Systems](https://www.goodreads.com/book/show/62008110-in-a-flight-of-starlings) by Giorgio Parisi, 2023
 - [Fading Victory: The Diary of Admiral Matome Ugaki, 1941-1945](https://www.goodreads.com/book/show/2766104-fading-victory) by Matome Ugaki, 1991
 - [The Fourth Paradigm: Data-Intensive Scientific Discovery](https://www.microsoft.com/en-us/research/wp-content/uploads/2009/10/Fourth_Paradigm.pdf) edited by Tony Hey, Stewart Tansley, and Kristin Tolle, 2009
 - [Sternstunden der Menschheit. Vierzehn historische Miniaturen](https://www.goodreads.com/book/show/1508971) by Stefan Zweig, 1927
