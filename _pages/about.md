@@ -43,7 +43,7 @@ I am a Ph.D. candidate at <a href="https://www.hku.hk/"><em class="entity-mentio
 
 🐈 **Collaboration**: I am looking for motivated collaborators interested in the above topics. If you would like to explore these directions together, feel free to contact me. UG/MSc students are also welcomed! 🌱
 
-<p style="color: #C62828;"><span style="background-color: #FFFFCC;">🔥 I'm on the job market! Seeking industry talent programs or academic positions in China, the US, and Singapore.</span></p>
+<p style="color: #C62828; font-weight: 700;"><span style="background-color: #FFFFCC;">🔥 I'm on the job market! Seeking industry talent programs or academic positions in China, the US, and Singapore.</span></p>
 
 <!-- Research Interest 
 
